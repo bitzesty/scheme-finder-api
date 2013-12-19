@@ -1,6 +1,3 @@
-require "airbrake/capistrano3"
-require "hipchat/capistrano-3"
-
 set :application, "scheme-finder-api"
 set :repo_url, "git@github.com:bitzesty/#{fetch(:application)}.git"
 set :user, "schemer"
@@ -14,14 +11,12 @@ set :hipchat_failed_color, "red"
 
 set :deploy_to, "/home/#{fetch(:user)}/#{fetch(:application)}"
 set :scm, :git
-set :deploy_via, :remote_cache
 
 set :bundle_flags, "--deployment --quiet --binstubs --shebang ruby-local-exec"
-set :branch, "master"
+set :branch, ENV["BRANCH"] || "master"
 set :use_sudo, false
 
 set :whenever_identifier, ->{ "#{fetch(:application)}_#{fetch(:stage)}"  }
-require "whenever/capistrano"
 
 set :format, :pretty
 set :log_level, :debug

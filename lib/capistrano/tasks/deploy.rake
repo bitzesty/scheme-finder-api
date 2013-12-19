@@ -1,43 +1,37 @@
 namespace :deploy do
-  desc "Restart application"
-  task :restart, except: { no_release: true } do
+  desc "Restart fetch(:application)"
+  task :restart do
     on roles(:app) do
-      run "start #{application} || restart #{application}"
+      execute "start #{fetch(:application)} || restart #{fetch(:application)}"
     end
   end
 
-  task :export_app, except: { no_release: true } do
+  task :export_app do
     on roles(:app) do
-      run "cd #{current_path} && \
-           bundle exec foreman export upstart /home/#{user}/.init \
-             -a #{user} \
-             -f Procfile.#{rails_env} \
-             -u #{user} \
-             -l #{shared_path}/log \
-             -t config/deploy/templates"
+      within release_path do
+        execute :bundle, ["exec foreman export upstart /home/#{fetch(:user)}/.init",
+                   "-a #{fetch(:application)}",
+                   "-f Procfile.#{fetch(:stage)}",
+                   "-u #{fetch(:user)}",
+                   "-l #{shared_path}/log",
+                   "-t config/deploy/templates"].join(" ")
+      end
     end
   end
 
-  task :start, except: { no_release: true } do
+  task :start do
     on roles(:app) do
-      run "start #{application}"
+      execute "start #{fetch(:application)}"
     end
   end
 
-  task :stop, except: { no_release: true } do
+  task :stop do
     on roles(:app) do
-      run "stop #{application}"
+      execute "stop #{fetch(:application)}"
     end
   end
 
-  task :restart, except: { no_release: true } do
-    on roles(:app) do
-      run "start #{application} || restart #{application}"
-    end
-  end
+  before :restart, "unicorn:server_config"
+  before :restart, "deploy:export_app"
+  after :finishing, "deploy:cleanup"
 end
-
-before "deploy:restart", "deploy:export_app"
-after :finishing, "deploy:cleanup"
-
-load 'deploy/assets'
