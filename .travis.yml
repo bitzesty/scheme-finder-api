@@ -1,0 +1,20 @@
+language: ruby
+cache: bundler
+rvm:
+  - 2.0.0
+bundler_args: --without development
+services:
+  - postgresql
+before_script:
+  - cp config/database.yml.travis config/database.yml
+  - psql -c 'create database schemer_test;' -U postgres
+  - rm .rspec
+script:
+  - RAILS_ENV=test bundle exec rake db:migrate
+  - bundle exec rspec spec
+notifications:
+  email: false
+  hipchat: 94fcb0db90a76e9e61f4965a1f2f83@302663
+addons:
+  code_climate:
+    repo_token:
