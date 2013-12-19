@@ -1,0 +1,9 @@
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: schemer_test
+  pool: 5
+  username: postgres
+  port: 5432
+  host: localhost
+  min_messages: WARNING

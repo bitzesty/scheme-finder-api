@@ -1,0 +1,25 @@
+start on starting <%= app %>-<%= name %>
+stop on stopping <%= app %>-<%= name %>
+respawn
+
+setuid <%= shell_quote user %>
+chdir <%= shell_quote engine.root %>
+
+env PORT=<%= port %>
+<%- engine.env.each_pair do |key, value| -%>
+env <%= key.upcase %>=<%= shell_quote value %>
+<% end %>
+
+script
+  PATH=/home/<%= user %>/.rbenv/shims:/home/<%= user %>/.rbenv/bin:$PATH
+  cd $APP_ROOT; <%= process.command %> >> <%= log %>/<%=name%>-<%=num%>.log 2>&1
+end script
+
+post-start script
+  PID=`status <%= "#{app}-#{name}-#{num}" %> | egrep -oi '([0-9]+)$' | head -n1`
+  echo $PID > <%= File.join(engine.root, '..', '..', 'shared', 'pids', "#{app}-#{name}-#{num}.pid") %>
+end script
+
+post-stop script
+  rm -f <%= File.join(engine.root, '..', '..', 'shared', 'pids', "#{app}-#{name}-#{num}.pid") %>
+end script
