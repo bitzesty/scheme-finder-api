@@ -1,0 +1,84 @@
+{
+  "bz-database": {
+    "postgres": {
+      "password": "cbNplHhRvV7cHb_ufMo4aQ"
+    }
+  },
+  "bz-rails": {
+    "environment": "staging",
+    "rbenv": {
+      "rubies": ["ruby-2.0.0-p353"]
+    },
+    "database": {
+      "type": "postgresql",
+      "name": "schemer_production",
+      "username": "schemer",
+      "password": "BATsskxPzwPZooMPnI3a0w",
+      "host": "localhost",
+      "port": 5432,
+      "pool": 25,
+      "encoding": "unicode"
+    }
+  },
+  "bz-server": {
+    "ip_address": "?",
+    "domain": "schemer.dev.bitzesty.com",
+    "user": {
+      "name": "schemer",
+      "authorized_github_users": [
+        "sauliusg",
+        "astrauka",
+        "hammerfunk",
+        "Aaron2Ti",
+        "matthewford"
+      ]
+    },
+    "redis": {},
+    "ssh_keys": {
+      "users": {
+        "schemer": {
+          "id_rsa":
+            ["-----BEGIN RSA PRIVATE KEY-----",
+             "MIIEowIBAAKCAQEAy+pGV2S9cOTzFtzBRrp+cG4asNskBuUoq8g/V2AzehxNI18Z",
+             "rtAL3ABhBBtAKMExOAucGe/9B8QTerMA3eVcN5oaTo4jwZryNdJgVw+BEf2UidNl",
+             "chp7KuklXZRqBtf+m9TZ+ZLYDjX3cxOG/Fwcth7wNDtHpb6tCfR4SikTo92GyyNX",
+             "7mnZIZ1iMa028dbaILfUsMW7gSBC9f28Dn/t572dVWsTdUgnngL2sVBk91z/LLyR",
+             "ll1lANigZAlQJL99ejW3tliJ1U5DtFke/2Qycln5YzoTh3ySfmoEsaqYiAOrQK1x",
+             "Ndf7KOatv22o8hLQj4Y1oOl+ojOisvpzLs8ylwIDAQABAoIBADKROjhZ5xCj9hRp",
+             "UhS0Er7Wzw+kiF6dXWScF/kXBiz177shzkCnnwlDnsth5ps0rXv0hRV5ignu+dWn",
+             "pkNgqWmwcW2hmgRc5Eusi++LDLrlY3x6S+Hr5zdQ8c8vCsv/rEgAlL1rSODdSSvk",
+             "X8kdHpGbQn3xZWcYzdh2I45geVpdF7EKPWwQjnc9D7dnWu19gnd0NbCy0WtTdAPQ",
+             "mapuma//pTzpGmUsIsItQrWeSC4E6SkzDGNPSmLHYNboo2jQC2PslMulvjFQ2iFE",
+             "Q2IH60fSYt+w1UHMhqSrZM79xdFpR3bwca0qFbS/iWGi6YpBkxdwZss8se/lYc6y",
+             "Vu4T1iECgYEA7kXgobz/AqmfCkwWDoPY4fld5l1U7aC+1HR3/ZDupC1WJOEUDv6t",
+             "NXyGtiUfWt0feRhpteeX77f1yiInLzljdUFfkKd0SB759FRGPHcEQr6ZX9q4cMTh",
+             "OMNwN0bEL6yT0RsgmDtIHrRhgWbvD6IZ4q1uAmDdH+6Lfh/m0yQ48/0CgYEA2xYF",
+             "jjW702JzzlgG5ZCzz19izAkVaOeMunERWH8TVXg5pP35hmmF1uAFJ1y7L9beNMQs",
+             "tqj6zISGye9R7j0Gp1EYTJtr8jYftRlnjpIGokUVrjritzI6cBRJ3KC7HFDVmH1C",
+             "HF8gOrui4RiZpGIh7QxRUB0GLTtCjDiISifHYyMCgYAU5tJWvdKM9D48VAJXUZ+T",
+             "6yEelS9fDQvQbUsdVjpo8oUtBQWSbyrYl0zl64m9mcoqAEc9qsw8PiH0klxnmxwr",
+             "bAmrEdV0gishEMd8hGA+TqP7sZ8eXVb4eMR+RNnu6K+q1ztbv0+LSf2HsXTlJS4q",
+             "IVaWJNMg+vcHoFrKSNIqLQKBgQCgnjl+c/h61fAO9ExCG18oBkdZTMOMgE2VFnXg",
+             "CnHzNEwWoThBibVcviopHHwDa6TGzJf3ZlVQgUyMWU8YuVbabcLBzyRJk9KVI8Xf",
+             "KUGBz+JANN2n70QWjVlFTfU/oiemPxar1DW9uXiFTFK/yE4VCvXGJTE1EgAM6xlI",
+             "PHeaPwKBgAJfcDl3fy8Gyq7fqFuTSs22S+AtJPSdoH3tSe8kj8Op40rJBh0weoMM",
+             "/OMsfrMAaHEG4Dzo8HIz4cdC3BHld6AHF2qeGPexjS9HgVwLZ7/5Bgp1gUsxhxRn",
+             "ttik2EtnmdW8rqL5CB0326Sh+BMirc9LOBkHv9aJhqM3EG7mquQi",
+             "-----END RSA PRIVATE KEY-----"],
+          "id_rsa.pub": ["ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDL6kZXZL1w5PMW3MFGun5wbhqw2yQG5SiryD9XYDN6HE0jXxmu0AvcAGEEG0AowTE4C5wZ7/0HxBN6swDd5Vw3mhpOjiPBmvI10mBXD4ER/ZSJ02VyGnsq6SVdlGoG1/6b1Nn5ktgONfdzE4b8XBy2HvA0O0elvq0J9HhKKROj3YbLI1fuadkhnWIxrTbx1togt9SwxbuBIEL1/bwOf+3nvZ1VaxN1SCeeAvaxUGT3XP8svJGWXWUA2KBkCVAkv316Nbe2WInVTkO0WR7/ZDJyWfljOhOHfJJ+agSxqpiIA6tArXE11/so5q2/bajyEtCPhjWg6X6iM6Ky+nMuzzKX"]
+        }
+      }
+    },
+    "app": {
+      "name": "schemer"
+    }
+  },
+  "run_list": [
+    "recipe[bz-server]",
+    "recipe[bz-rails::rails]",
+    "recipe[bz-rails::rbenv]",
+    "recipe[bz-database::postgres]",
+    "recipe[bz-webserver::nginx]",
+    "recipe[bz-database::redis]"
+  ]
+}

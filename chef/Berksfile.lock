@@ -1,0 +1,170 @@
+{
+  "sources": {
+    "bz-server": {
+      "locked_version": "0.1.13",
+      "git": "https://github.com/bitzesty/cookbooks.git",
+      "ref": "f64ea6809bb3399e1f816a5c6ce2e3d16a7cd034",
+      "rel": "bz-server"
+    },
+    "bz-webserver": {
+      "locked_version": "0.1.13",
+      "git": "https://github.com/bitzesty/cookbooks.git",
+      "ref": "f64ea6809bb3399e1f816a5c6ce2e3d16a7cd034",
+      "rel": "bz-webserver"
+    },
+    "bz-database": {
+      "locked_version": "0.1.13",
+      "git": "https://github.com/bitzesty/cookbooks.git",
+      "ref": "f64ea6809bb3399e1f816a5c6ce2e3d16a7cd034",
+      "rel": "bz-database"
+    },
+    "bz-rails": {
+      "locked_version": "0.1.13",
+      "git": "https://github.com/bitzesty/cookbooks.git",
+      "ref": "f64ea6809bb3399e1f816a5c6ce2e3d16a7cd034",
+      "rel": "bz-rails"
+    },
+    "apt": {
+      "locked_version": "2.0.0"
+    },
+    "ufw": {
+      "locked_version": "0.6.2"
+    },
+    "ohai": {
+      "locked_version": "1.1.10"
+    },
+    "nginx": {
+      "locked_version": "1.7.0"
+    },
+    "rbenv": {
+      "locked_version": "0.7.3",
+      "git": "git://github.com/fnichol/chef-rbenv.git",
+      "ref": "9afb4e5da2e6212504a12de3bbbd410cd96100f6"
+    },
+    "unattended-upgrades": {
+      "locked_version": "0.0.1",
+      "git": "git://github.com/phillip/chef-unattended-upgrades.git",
+      "ref": "d67f094903755bd072f6d3cb1983d2e4560fad6a"
+    },
+    "schemer": {
+      "path": "./site-cookbooks/schemer"
+    },
+    "redisio": {
+      "locked_version": "1.7.0",
+      "git": "git://github.com/brianbianco/redisio.git",
+      "ref": "be95852f73dcc9a8ef48db394044525ca48cfd70"
+    },
+    "cloud_monitoring": {
+      "locked_version": "1.0.4",
+      "git": "git://github.com/racker/cookbook-cloudmonitoring.git",
+      "ref": "1cc917f9b866dfff5230f6a4ed35344148273690"
+    },
+    "monit": {
+      "locked_version": "0.7.1",
+      "git": "git://github.com/OGIS-RI-EOS/monit.git",
+      "ref": "cf5d8878b485c6b1d6bf8edd38f1713024772f72"
+    },
+    "newrelic-sysmond": {
+      "locked_version": "1.3.3"
+    },
+    "ubuntu": {
+      "locked_version": "1.1.2"
+    },
+    "git": {
+      "locked_version": "2.9.0"
+    },
+    "dmg": {
+      "locked_version": "2.0.8"
+    },
+    "build-essential": {
+      "locked_version": "1.4.2"
+    },
+    "windows": {
+      "locked_version": "1.11.0"
+    },
+    "chef_handler": {
+      "locked_version": "1.1.4"
+    },
+    "runit": {
+      "locked_version": "1.5.1"
+    },
+    "yum": {
+      "locked_version": "3.0.2"
+    },
+    "yum-epel": {
+      "locked_version": "0.2.0"
+    },
+    "user": {
+      "locked_version": "0.3.0"
+    },
+    "openssh": {
+      "locked_version": "1.3.0"
+    },
+    "iptables": {
+      "locked_version": "0.12.0"
+    },
+    "locales": {
+      "locked_version": "0.1.0"
+    },
+    "hostsfile": {
+      "locked_version": "2.4.2"
+    },
+    "line": {
+      "locked_version": "0.5.1"
+    },
+    "imagemagick": {
+      "locked_version": "0.2.2"
+    },
+    "firewall": {
+      "locked_version": "0.11.2"
+    },
+    "java": {
+      "locked_version": "1.15.4"
+    },
+    "aws": {
+      "locked_version": "1.0.0"
+    },
+    "elasticsearch": {
+      "locked_version": "0.3.7"
+    },
+    "xml": {
+      "locked_version": "1.2.0"
+    },
+    "ark": {
+      "locked_version": "0.4.0"
+    },
+    "unattended_upgrades": {
+      "locked_version": "0.0.1"
+    },
+    "database": {
+      "locked_version": "1.5.2"
+    },
+    "mysql": {
+      "locked_version": "4.0.10"
+    },
+    "openssl": {
+      "locked_version": "1.1.0"
+    },
+    "postgresql": {
+      "locked_version": "3.3.4"
+    },
+    "xfs": {
+      "locked_version": "1.1.0"
+    },
+    "mongodb": {
+      "locked_version": "0.13.7"
+    },
+    "python": {
+      "locked_version": "1.4.4"
+    },
+    "ruby_build": {
+      "locked_version": "0.8.0"
+    },
+    "ulimit": {
+      "locked_version": "0.3.2"
+    },
+    "chef_gem": {
+      "locked_version": "0.1.0"
+    }
+  }
+}

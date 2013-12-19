@@ -1,0 +1,36 @@
+require 'json'
+
+Vagrant.configure("2") do |config|
+  Vagrant.require_plugin "vagrant-rackspace"
+
+  ########## LOCAL #####
+  SETTINGS = JSON.load(Pathname(__FILE__).dirname.join('nodes', 'vagrant.json').read)
+  config.vm.box = "precise64"
+  config.vm.box_url = "http://files.vagrantup.com/precise64.box"
+  config.vm.network :private_network, ip: "10.0.100.15"
+  config.vm.define "schemer-vagrant" do |t|
+  end
+
+  ########## COMMON #####
+
+  config.berkshelf.enabled = true
+  config.omnibus.chef_version = "11.4.2"
+
+  config.vm.provider :rackspace do |rs|
+    rs.username = "API.user"
+    rs.api_key  = "31b6182d059a454a8aaf4890c914e8ba"
+    rs.flavor   = /1024MB/
+    rs.image    = "Ubuntu 12.04 LTS (Precise Pangolin)"
+    rs.rackspace_region = :lon
+    rs.public_key_path = ".chef/schemer_dev_rsa.pub"
+  end
+
+  config.vm.provision :chef_solo do |chef|
+    chef.cookbooks_path = ["site-cookbooks", "cookbooks"]
+    chef.roles_path = "roles"
+    chef.data_bags_path = "data_bags"
+
+    # You may also specify custom JSON attributes:
+    chef.json = SETTINGS
+  end
+end

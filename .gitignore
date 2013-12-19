@@ -37,6 +37,8 @@ db/*.sqlite3
 rerun.txt
 pickle-email-*.html
 .zeus.sock
+.ruby-version
+.ruby-gemset
 
 # scm revert files
 **.orig

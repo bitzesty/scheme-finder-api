@@ -1,5 +1,21 @@
+GIT
+  remote: git://github.com/ihara2525/hipchat.git
+  revision: c53f9cc983f299b59bde0e317b719f92609039f4
+  specs:
+    hipchat (0.4.1)
+      httparty
+
+GIT
+  remote: git://github.com/viperdezigns/airbrake.git
+  revision: 7c8aba975679a63f7fbe2ce6ff2f634f55ad68ea
+  branch: capistrano3
+  specs:
+    airbrake (3.1.14)
+      builder
+      json
+
 GEM
-  remote: https://rubygems.org/
+  remote: http://rubygems.org/
   specs:
     Platform (0.4.0)
     actionmailer (4.0.2)
@@ -29,9 +45,6 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 0.3.37)
     addressable (2.3.5)
-    airbrake (3.1.14)
-      builder
-      json
     arel (4.0.1)
     atomic (1.1.14)
     axiom-types (0.0.5)
@@ -156,8 +169,6 @@ GEM
     high_voltage (2.0.0)
     highline (1.6.20)
     hike (1.2.3)
-    hipchat (1.0.0)
-      httparty
     httparty (0.12.0)
       json (~> 1.8)
       multi_xml (>= 0.5.2)
@@ -348,7 +359,7 @@ PLATFORMS
 DEPENDENCIES
   Platform
   active_hash (>= 1.2.2)
-  airbrake
+  airbrake!
   better_errors
   binding_of_caller
   bootstrap-datepicker-rails
@@ -377,7 +388,7 @@ DEPENDENCIES
   hashie
   headless
   high_voltage
-  hipchat
+  hipchat!
   jbuilder (~> 1.2)
   jquery-rails
   jquery-ui-rails

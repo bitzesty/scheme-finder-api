@@ -1,0 +1,6 @@
+name             'schemer'
+maintainer       'Bit Zesty'
+maintainer_email 'info@bitzesty.com'
+license          'All rights reserved'
+description      'Scheme finder api project-specific configuration'
+version          '1.0.0'

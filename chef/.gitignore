@@ -1,0 +1,4 @@
+.vagrant
+cookbooks/*
+tss_key
+/cookbooks/

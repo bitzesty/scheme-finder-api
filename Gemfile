@@ -1,5 +1,4 @@
-source "https://rubygems.org"
-ruby "2.0.0"
+source "http://rubygems.org"
 
 gem "rails", "4.0.2"
 gem "unicorn"
@@ -45,8 +44,8 @@ gem "slim-rails"
 
 gem "memoist"
 
-gem "hipchat"
-gem "airbrake"
+gem "hipchat", github: "ihara2525/hipchat"
+gem "airbrake", github: "viperdezigns/airbrake", branch: "capistrano3"
 
 gem "underscore-rails"
 gem "gon"

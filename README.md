@@ -32,7 +32,7 @@ v provision
 
 # bind domain name to vagrant VM ip
 sudo vim /etc/hosts
-10.0.100.15       scheme_finder_api_vagrant.app
+10.0.100.15       schemer_vagrant.app
 
 cd <..>/scheme-finder-api
 cap vangrat deploy
@@ -43,13 +43,13 @@ cap vangrat deploy
 ### Staging
 
 ```
-ssh schemer@162.13.95.69
+ssh schemer@
 ```
 
 ### Production
 
 ```
-ssh schemer@162.13.151.77
+ssh schemer@
 ```
 
 ## Rackspace API
@@ -97,13 +97,13 @@ copy your ssh key
 ### Staging
 
 ```bash
-bundle exec knife solo cook 162.13.95.69 nodes/casper_dev.json -x root
-bitzesty
+bundle exec knife solo cook 162.13.95.69 nodes/staging.json -x root
+todo
 ```
 
 ### Production
 
 ```bash
-bundle exec knife solo cook 162.13.151.77 -x root
+bundle exec knife solo cook 162.13.151.77 nodes/production.json -x root
 ask guys for password
 ```
