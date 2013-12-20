@@ -30,8 +30,6 @@ gem "jquery-ui-rails"
 gem "bootstrap-datepicker-rails"
 gem "select2-rails"
 
-gem "high_voltage"
-
 gem "draper"
 gem "decent_exposure", "~>2.3.0"
 gem "active_hash", ">= 1.2.2"

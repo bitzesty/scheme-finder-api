@@ -1,3 +1,5 @@
 SchemeFinderApi::Application.routes.draw do
-  root :to => 'pages#about'
+  get '/pages/about', to: 'pages#about', as: :about
+
+  root to: 'pages#about'
 end
