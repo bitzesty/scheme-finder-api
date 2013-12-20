@@ -86,8 +86,9 @@ GEM
     capistrano-bundler (1.1.1)
       capistrano (~> 3.0)
       sshkit (>= 1.2.0)
-    capistrano-rails (1.0.0)
-      capistrano
+    capistrano-rails (1.1.0)
+      capistrano (>= 3.0.0)
+      capistrano-bundler (>= 1.0.0)
     capybara (2.2.0)
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
@@ -170,7 +171,7 @@ GEM
       json (~> 1.8)
       multi_xml (>= 0.5.2)
     i18n (0.6.9)
-    ice_nine (0.10.0)
+    ice_nine (0.11.0)
     jbuilder (1.5.3)
       activesupport (>= 3.0.0)
       multi_json (>= 1.2.0)
@@ -366,7 +367,7 @@ DEPENDENCIES
   byebug
   capistrano (~> 3.0.1)
   capistrano-bundler
-  capistrano-rails (~> 1.0.0)
+  capistrano-rails (~> 1.1.0)
   capybara
   carrierwave
   codeclimate-test-reporter
