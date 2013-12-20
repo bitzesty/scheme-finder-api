@@ -30,7 +30,6 @@ gem "jquery-ui-rails"
 gem "bootstrap-datepicker-rails"
 gem "select2-rails"
 
-gem "figaro"
 gem "high_voltage"
 
 gem "draper"
