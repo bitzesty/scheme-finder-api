@@ -41,7 +41,7 @@ gem "slim-rails"
 
 gem "memoist"
 
-gem "hipchat", github: "ihara2525/hipchat"
+gem "hipchat", github: "kmwhite/hipchat-rb", branch: "adding_namespaces_to_cap3_tasks"
 gem "airbrake", github: "viperdezigns/airbrake", branch: "capistrano3"
 
 gem "underscore-rails"

@@ -1,8 +1,9 @@
 GIT
-  remote: git://github.com/ihara2525/hipchat.git
-  revision: c53f9cc983f299b59bde0e317b719f92609039f4
+  remote: git://github.com/kmwhite/hipchat-rb.git
+  revision: 4c5c2ba9ea34b7583c8277894a271edd9fbd8a03
+  branch: adding_namespaces_to_cap3_tasks
   specs:
-    hipchat (0.4.1)
+    hipchat (1.0.0)
       httparty
 
 GIT
