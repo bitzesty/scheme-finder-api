@@ -8,7 +8,7 @@ gem "newrelic_rpm"
 
 gem "pg"
 
-gem "devise", "~>3.1.0"
+gem "devise", "~> 3.2.0"
 gem "simple_form", "~> 3.0.0"
 gem "kaminari"
 gem "searchlight"
