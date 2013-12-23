@@ -3,6 +3,8 @@ module Backend
     expose(:users)
     expose(:user, attributes: :user_params)
 
+    before_filter :authorize
+
     def new
     end
 
@@ -50,6 +52,10 @@ module Backend
 
     def update_with_password?
       user_params[:password].present?
+    end
+
+    def authorize
+      raise Pundit::NotAuthorizedError unless access_policy.permitted?(:user_management)
     end
   end
 end

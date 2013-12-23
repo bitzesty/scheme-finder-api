@@ -11,7 +11,12 @@ module Backend
     private
 
     def user_not_authorized
-      redirect_to dashboard_root_path, error: "You are not authorized to perform this action"
+      redirect_to backend_root_path, alert: "You are not authorized to perform this action"
     end
+
+    def access_policy
+      @access_policy ||= Backend::AccessPolicy.new(current_user)
+    end
+    helper_method :access_policy
   end
 end
