@@ -9,7 +9,6 @@ nav.navbar.navbar-inverse.navbar-fixed-top
       = link_to 'Home', root_path, class: 'navbar-brand'
     .collapse.navbar-collapse
       ul.nav.navbar-nav
-        li
-          = link_to 'Users', backend_users_path
+        = nav_item('Users', backend_users_path, 'users')
         li
           = link_to 'Sign out', destroy_user_session_path, method: :delete
