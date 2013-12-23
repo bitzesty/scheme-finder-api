@@ -1,0 +1,33 @@
+.page-header
+  h2
+    | Schemes&nbsp;
+    small= "(#{schemes.count})"
+
+- if schemes.any?
+  table.table.table-bordered.table-striped.table-hover.users-table
+    thead
+      tr
+        th Had direct interactions
+        th Employees number range
+        th
+          = link_to 'New user',
+                    [:new, :backend, :scheme],
+                    class: 'btn btn-sm btn-primary',
+                    id: "btn_new",
+                    data: { action: "new" }
+    tbody
+    - schemes.each do |scheme|
+      tr
+        td = scheme.had_direct_interactions
+        td = scheme.employees_number_range_id
+        td
+          = link_to 'Edit',
+                    [:edit, :backend, scheme],
+                    class: 'btn btn-sm btn-default',
+                    data: { action: "edit" }
+          | &nbsp;
+          = link_to 'Remove',
+                    [:backend, scheme],
+                    method: :delete,
+                    class: 'btn btn-sm btn-danger',
+                    data: { action: "delete" }

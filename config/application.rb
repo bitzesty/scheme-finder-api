@@ -19,7 +19,9 @@ module SchemeFinderApi
       g.test_framework :rspec,
                        fixture: true,
                        routing_specs: false,
-                       helper_specs: false
+                       helper_specs: false,
+                       request_specs: false,
+                       decorator_specs: false
       g.fixture_replacement :factory_girl, dir: 'spec/factories'
       g.view_specs false
       g.helper_specs false
