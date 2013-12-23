@@ -2,6 +2,13 @@
   h2
     | Schemes&nbsp;
     small= "(#{schemes.count})"
+    .height-half
+    .pull-right
+      = link_to "New user",
+                [:new, :backend, :scheme],
+                class: "btn btn-sm btn-primary",
+                id: "btn_new",
+                data: { action: "new" }
 
 - if schemes.any?
   table.table.table-bordered.table-striped.table-hover.users-table
@@ -10,11 +17,6 @@
         th Had direct interactions
         th Employees number range
         th
-          = link_to "New user",
-                    [:new, :backend, :scheme],
-                    class: "btn btn-sm btn-primary",
-                    id: "btn_new",
-                    data: { action: "new" }
     tbody
     - schemes.each do |scheme|
       tr

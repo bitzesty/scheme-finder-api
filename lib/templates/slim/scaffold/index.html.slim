@@ -2,6 +2,13 @@
   h2
     | <%= plural_name.titleize %>&nbsp;
     small= "(#{<%= plural_name %>.count})"
+    .height-half
+    .pull-right
+      = link_to "New user",
+                [:new, <%= ":#{class_path.join(", :")}, " if class_path.any? %>:<%= singular_name %>],
+                class: "btn btn-sm btn-primary",
+                id: "btn_new",
+                data: { action: "new" }
 
 - if <%= plural_name %>.any?
   table.table.table-bordered.table-striped.table-hover.users-table
@@ -11,11 +18,6 @@
         th <%= attribute.human_name %>
 <% end -%>
         th
-          = link_to "New user",
-                    [:new, <%= ":#{class_path.join(", :")}, " if class_path.any? %>:<%= singular_name %>],
-                    class: "btn btn-sm btn-primary",
-                    id: "btn_new",
-                    data: { action: "new" }
     tbody
     - <%= plural_name %>.each do |<%= singular_name %>|
       tr

@@ -1,8 +1,8 @@
 = simple_form_for [:backend, scheme],
-                  html: { class: "form-horizontal" } do |f|
+                  html: { class: "horizontal-form" } do |f|
   .form-inputs
-    = f.input :had_direct_interactions
-    = f.input :employees_number_range_id
+    = f.input :had_direct_interactions,
+              label: "Should have had direct interactions?"
 
   .form-actions
     = f.button :submit,
