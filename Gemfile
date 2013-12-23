@@ -48,6 +48,8 @@ gem "underscore-rails"
 gem "gon"
 
 group :development do
+  gem "spring"
+  gem "spring-commands-rspec"
   gem "capistrano", "~> 3.0.1"
   gem "capistrano-rails", "~> 1.1.0"
   gem "capistrano-bundler"
