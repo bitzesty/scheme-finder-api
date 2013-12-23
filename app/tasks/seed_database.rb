@@ -12,6 +12,7 @@ class SeedDatabase
       )
       user.password = '12345678'
       user.password_confirmation = '12345678'
+      user.admin = true
       user.save!
       user
     end

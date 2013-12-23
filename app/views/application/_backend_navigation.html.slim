@@ -6,8 +6,10 @@ nav.navbar.navbar-inverse.navbar-fixed-top
         span.icon-bar
         span.icon-bar
         span.icon-bar
-      = link_to 'Home', root_path, class: 'navbar-brand'
+      = link_to 'Dashboard', backend_root_path, class: 'navbar-brand'
     .collapse.navbar-collapse
       ul.nav.navbar-nav
+        - if access_policy.permitted?(:user_management)
+          = nav_item('Users', backend_users_path, 'users')
         li
           = link_to 'Sign out', destroy_user_session_path, method: :delete

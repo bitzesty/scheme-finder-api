@@ -9,7 +9,10 @@ require File.expand_path("../../config/environment", __FILE__)
 require "rspec/rails"
 
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
-Dir[Rails.root.join('spec/features/steps/**/*.rb')].each { |f| require f }
+Dir[
+  Rails.root.join('spec/features/steps/*.rb'),
+  Rails.root.join('spec/features/steps/**/*.rb')
+].each { |f| require f }
 
 ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
 

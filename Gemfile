@@ -5,6 +5,7 @@ gem "unicorn"
 gem "whenever", require: false
 gem "foreman"
 gem "newrelic_rpm"
+gem "pundit"
 
 gem "pg"
 

@@ -4,7 +4,8 @@ SchemeFinderApi::Application.routes.draw do
   get '/pages/about', to: 'pages#about', as: :about
 
   namespace :backend do
-    resource :dashboard
+    resource  :dashboard
+    resources :users
 
     root to: 'dashboards#show'
   end
