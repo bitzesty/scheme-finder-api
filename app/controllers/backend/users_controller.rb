@@ -15,7 +15,7 @@ module Backend
     end
 
     def update
-      if user.save
+      if user_updated?(user, user_params)
         redirect_to backend_users_url, notice: 'User information successfully updated'
       else
         render :edit
@@ -37,6 +37,19 @@ module Backend
       params.require(:user).permit(
         :email, :password, :password_confirmation, :admin
       )
+    end
+
+    def user_updated?(user, sanitized_user_params)
+      if update_with_password?
+        user.update_with_password(sanitized_user_params)
+      else
+        user.update_without_password(sanitized_user_params)
+        user.update_without_password(sanitized_user_params)
+      end
+    end
+
+    def update_with_password?
+      user_params[:password].present?
     end
   end
 end
