@@ -1,12 +1,4 @@
 GIT
-  remote: git://github.com/kmwhite/hipchat-rb.git
-  revision: 4c5c2ba9ea34b7583c8277894a271edd9fbd8a03
-  branch: adding_namespaces_to_cap3_tasks
-  specs:
-    hipchat (1.0.0)
-      httparty
-
-GIT
   remote: git://github.com/viperdezigns/airbrake.git
   revision: 7c8aba975679a63f7fbe2ce6ff2f634f55ad68ea
   branch: capistrano3
@@ -167,6 +159,8 @@ GEM
     headless (1.0.1)
     highline (1.6.20)
     hike (1.2.3)
+    hipchat (1.0.1)
+      httparty
     httparty (0.12.0)
       json (~> 1.8)
       multi_xml (>= 0.5.2)
@@ -384,7 +378,7 @@ DEPENDENCIES
   gon
   hashie
   headless
-  hipchat!
+  hipchat (~> 1.0.1)
   jbuilder (~> 1.2)
   jquery-rails
   jquery-ui-rails

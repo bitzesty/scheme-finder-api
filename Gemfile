@@ -41,7 +41,7 @@ gem "slim-rails"
 
 gem "memoist"
 
-gem "hipchat", github: "kmwhite/hipchat-rb", branch: "adding_namespaces_to_cap3_tasks"
+gem "hipchat", "~> 1.0.1"
 gem "airbrake", github: "viperdezigns/airbrake", branch: "capistrano3"
 
 gem "underscore-rails"
@@ -52,7 +52,7 @@ group :development do
   gem "capistrano-rails", "~> 1.1.0"
   gem "capistrano-bundler"
   gem "better_errors"
-  gem "binding_of_caller", :platforms=>[:mri_19, :mri_20, :rbx]
+  gem "binding_of_caller", platforms: [:mri_19, :mri_20, :rbx]
   gem "quiet_assets"
   gem "rails_layout"
   gem "bullet"
