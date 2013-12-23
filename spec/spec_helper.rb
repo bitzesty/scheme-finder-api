@@ -9,6 +9,7 @@ require File.expand_path("../../config/environment", __FILE__)
 require "rspec/rails"
 
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
+Dir[Rails.root.join('spec/features/steps/**/*.rb')].each { |f| require f }
 
 ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
 
@@ -25,6 +26,7 @@ RSpec.configure do |config|
   config.include ClickOnHelper
   config.include ModalHelper
   config.include AuthenticationMacros, type: :feature
+  config.include FeaturesHelpers, type: :feature
 
   config.before :each do
     if Capybara.current_driver == :rack_test
