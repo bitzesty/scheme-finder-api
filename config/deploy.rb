@@ -19,7 +19,7 @@ set :use_sudo, false
 set :whenever_identifier, ->{ "#{fetch(:application)}_#{fetch(:stage)}"  }
 
 set :format, :pretty
-set :log_level, :debug
+set :log_level, :info
 set :pty, true
 
 set :linked_files, %w{config/database.yml}
