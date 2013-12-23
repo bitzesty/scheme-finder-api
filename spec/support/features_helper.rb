@@ -14,4 +14,8 @@ module FeaturesHelpers
   def dom_id_selector(*args)
     "##{dom_id_for(*args)}"
   end
+
+  def ensure_on(path)
+    visit(path) unless current_path == path
+  end
 end
