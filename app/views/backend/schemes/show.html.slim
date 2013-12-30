@@ -1,13 +1,59 @@
-p#notice = notice
-
 p
-  strong Had direct interactions:
-  /* = @backend_scheme.had_direct_interactions */
+  strong Contact name:
+  '
+  = scheme.contact_name
 p
-  strong Employees number range:
-  /* = @backend_scheme.employees_number_range_id */
-
-= image_tag scheme.logo
+  strong Contact email:
+  '
+  = scheme.contact_email_link
+p
+  strong Contact phone:
+  '
+  = scheme.contact_phone
+p
+  strong Name:
+  '
+  = scheme.name
+p
+  strong Website:
+  '
+  = scheme.website_link
+p
+  strong Description:
+  '
+  = scheme.description
+p
+  strong Should have had direct interactions?
+  '
+  = scheme.require_direct_interactions_icon
+p
+  strong Locations:
+  '
+  = scheme.location_list
+p
+  strong Sectors:
+  '
+  = scheme.sector_list
+p
+  strong Length of Commitment:
+  '
+  = scheme.commitment_length_list
+p
+  strong Activities:
+  '
+  = scheme.activity_list
+p
+  strong Company size:
+  '
+  = scheme.company_size_list
+p
+  strong Age range:
+  '
+  = scheme.age_range_list
+p
+  strong Logo:
+  '
+  = image_tag scheme.logo.logo
 
 = link_to 'Edit', edit_backend_scheme_path(scheme)
 '|

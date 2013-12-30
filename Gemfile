@@ -34,6 +34,7 @@ gem "select2-rails"
 
 gem "draper"
 gem "decent_exposure", "~>2.3.0"
+gem "decent_decoration"
 gem "active_hash", ">= 1.2.2"
 gem "virtus", "~>1.0.0"
 gem "hashie"

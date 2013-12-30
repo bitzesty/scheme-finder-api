@@ -1,7 +1,7 @@
 module Backend
   class SchemesController < Backend::BaseController
-    expose(:schemes)
-    expose(:scheme, attributes: :scheme_params)
+    expose(:schemes) { |default| default.by_name }
+    expose_decorated(:scheme, attributes: :scheme_params)
 
     def create
       if scheme.save
@@ -44,6 +44,8 @@ module Backend
     def scheme_params
       params.require(:scheme).permit(
         :had_direct_interactions,  :logo, :logo_cache,
+        :contact_name, :contact_email, :contact_phone,
+        :name, :website, :description,
         location_ids: [],
         sector_ids: [],
         commitment_length_ids: [],

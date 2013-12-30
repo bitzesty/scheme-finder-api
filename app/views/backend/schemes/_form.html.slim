@@ -3,24 +3,30 @@
   .form-inputs
     = f.input :logo,
               as: :file,
-              label: false,
               input_html: { class: "span5" }
 
     = f.input :logo_cache, as: :hidden
+
+    = f.input :contact_name
+    = f.input :contact_email
+    = f.input :contact_phone
+    = f.input :name
+    = f.input :website
+    = f.input :description
 
     = f.input :had_direct_interactions,
               label: "Should have had direct interactions?"
 
     = f.input :location_ids,
               as: :multi_select,
-              label: 'Location',
+              label: 'Locations',
               collection: Location.collection,
               required: true,
               input_html: { class: "span6" }
 
     = f.input :sector_ids,
               as: :multi_select,
-              label: 'Sector',
+              label: 'Sectors',
               collection: Sector.collection,
               required: true,
               input_html: { class: "span6" }
