@@ -70,5 +70,32 @@ describe Api::V1 do
         expect(response.body).not_to match_json_expression invalid_response_pattern
       end
     end
+
+    context 'with filter by activity' do
+      let(:scheme) { create :scheme, activity_ids: [Activity.first.id] }
+      let(:scheme_with_activity) { create :scheme, activity_ids: [Activity.last.id] }
+      let(:response_pattern) {
+        { schemes: [ { id: scheme_with_activity.id }.ignore_extra_keys! ] }
+      }
+
+      let(:invalid_response_pattern) {
+        { schemes: [ { id: scheme.id }.ignore_extra_keys!] }
+      }
+
+      before {
+        scheme
+        scheme_with_activity
+
+        get '/api/v1/schemes.json', activities: scheme_with_activity.activity_ids
+      }
+
+      it 'returns schemes specific to provided activity' do
+        expect(response.body).to match_json_expression response_pattern
+      end
+
+      it 'does not return irrelevant scheme' do
+        expect(response.body).not_to match_json_expression invalid_response_pattern
+      end
+    end
   end
 end

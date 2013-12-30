@@ -4,7 +4,8 @@ module Api
       def index
         @schemes = SchemeSearch.new(
           locations: params[:locations],
-          sectors: params[:sectors]
+          sectors: params[:sectors],
+          activities: params[:activities]
         ).results
       end
     end
