@@ -1,6 +1,10 @@
 Scheme finder api
 ======
 
+## Code organization
+
+* `app/searches` contains `Searchlight::Search` derivate classes.
+
 ## Hosted on Rackspace
 
 ## Deploy

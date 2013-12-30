@@ -1,5 +1,6 @@
 require "codeclimate-test-reporter"
 require "capybara/poltergeist"
+require 'json_expressions/rspec'
 
 CodeClimate::TestReporter.start
 Capybara.javascript_driver = :poltergeist

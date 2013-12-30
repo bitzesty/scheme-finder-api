@@ -8,12 +8,12 @@ class Scheme < ActiveRecord::Base
 
   mount_uploader :logo, LogoUploader
 
-  validates :scheme_location_relationships, presence: true
-  validates :scheme_sector_relationships, presence: true
-  validates :scheme_activity_relationships, presence: true
-  validates :scheme_age_range_relationships, presence: true
-  validates :scheme_commitment_length_relationships, presence: true
-  validates :scheme_company_size_relationships, presence: true
+  # validates :scheme_location_relationships, presence: true
+  # validates :scheme_sector_relationships, presence: true
+  # validates :scheme_activity_relationships, presence: true
+  # validates :scheme_age_range_relationships, presence: true
+  # validates :scheme_commitment_length_relationships, presence: true
+  # validates :scheme_company_size_relationships, presence: true
 
   ## Active Hash associations
   # has_many :locations, through: :scheme_location_relationships
