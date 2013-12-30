@@ -8,6 +8,8 @@ gem "newrelic_rpm"
 gem "pundit"
 
 gem "pg"
+gem "postgres_ext"
+gem "pg_array_parser"
 
 gem "devise", "~> 3.2.0"
 gem "simple_form", "~> 3.0.0"

@@ -11,77 +11,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131230083026) do
+ActiveRecord::Schema.define(version: 20131230120045) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "scheme_activity_relationships", force: true do |t|
-    t.integer  "scheme_id"
-    t.string   "activity_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "scheme_activity_relationships", ["activity_id", "scheme_id"], name: "index_scheme_activity_relationship", unique: true, using: :btree
-  add_index "scheme_activity_relationships", ["scheme_id"], name: "index_scheme_activity_relationships_on_scheme_id", using: :btree
-
-  create_table "scheme_age_range_relationships", force: true do |t|
-    t.integer  "scheme_id"
-    t.string   "age_range_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "scheme_age_range_relationships", ["age_range_id", "scheme_id"], name: "index_scheme_age_range_relationship", unique: true, using: :btree
-  add_index "scheme_age_range_relationships", ["scheme_id"], name: "index_scheme_age_range_relationships_on_scheme_id", using: :btree
-
-  create_table "scheme_commitment_length_relationships", force: true do |t|
-    t.integer  "scheme_id"
-    t.string   "commitment_length_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "scheme_commitment_length_relationships", ["commitment_length_id", "scheme_id"], name: "index_scheme_commitment_length_relationship", unique: true, using: :btree
-  add_index "scheme_commitment_length_relationships", ["scheme_id"], name: "index_scheme_commitment_length_relationships_on_scheme_id", using: :btree
-
-  create_table "scheme_company_size_relationships", force: true do |t|
-    t.integer  "scheme_id"
-    t.string   "company_size_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "scheme_company_size_relationships", ["company_size_id", "scheme_id"], name: "index_scheme_company_size_relationship", unique: true, using: :btree
-  add_index "scheme_company_size_relationships", ["scheme_id"], name: "index_scheme_company_size_relationships_on_scheme_id", using: :btree
-
-  create_table "scheme_location_relationships", force: true do |t|
-    t.integer  "scheme_id"
-    t.string   "location_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "scheme_location_relationships", ["location_id", "scheme_id"], name: "index_scheme_location_relationship", unique: true, using: :btree
-  add_index "scheme_location_relationships", ["scheme_id"], name: "index_scheme_location_relationships_on_scheme_id", using: :btree
-
-  create_table "scheme_sector_relationships", force: true do |t|
-    t.integer  "scheme_id"
-    t.string   "sector_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "scheme_sector_relationships", ["scheme_id"], name: "index_scheme_sector_relationships_on_scheme_id", using: :btree
-  add_index "scheme_sector_relationships", ["sector_id", "scheme_id"], name: "index_scheme_sector_relationship", unique: true, using: :btree
 
   create_table "schemes", force: true do |t|
     t.boolean  "had_direct_interactions"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "logo"
+    t.string   "location_ids",            default: [], array: true
+    t.string   "sector_ids",              default: [], array: true
+    t.string   "activity_ids",            default: [], array: true
+    t.string   "age_range_ids",           default: [], array: true
+    t.string   "commitment_length_ids",   default: [], array: true
+    t.string   "company_size_ids",        default: [], array: true
   end
+
+  add_index "schemes", ["activity_ids"], name: "index_schemes_on_activity_ids", using: :gin
+  add_index "schemes", ["age_range_ids"], name: "index_schemes_on_age_range_ids", using: :gin
+  add_index "schemes", ["commitment_length_ids"], name: "index_schemes_on_commitment_length_ids", using: :gin
+  add_index "schemes", ["company_size_ids"], name: "index_schemes_on_company_size_ids", using: :gin
+  add_index "schemes", ["location_ids"], name: "index_schemes_on_location_ids", using: :gin
+  add_index "schemes", ["sector_ids"], name: "index_schemes_on_sector_ids", using: :gin
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "",    null: false

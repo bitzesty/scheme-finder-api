@@ -4,8 +4,6 @@ class SchemeSearch < Searchlight::Search
   searches :locations
 
   def search_locations
-    search.where(
-      id: SchemeLocationRelationship.where(location_id: locations).pluck(:scheme_id)
-    )
+    search.where.overlap(location_ids: locations)
   end
 end
