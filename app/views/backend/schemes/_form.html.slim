@@ -13,14 +13,14 @@
 
     = f.input :location_ids,
               as: :multi_select,
-              label: 'Location',
+              label: 'Locations',
               collection: Location.collection,
               required: true,
               input_html: { class: "span6" }
 
     = f.input :sector_ids,
               as: :multi_select,
-              label: 'Sector',
+              label: 'Sectors',
               collection: Sector.collection,
               required: true,
               input_html: { class: "span6" }

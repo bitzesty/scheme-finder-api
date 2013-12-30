@@ -1,7 +1,7 @@
 module Backend
   class SchemesController < Backend::BaseController
     expose(:schemes)
-    expose(:scheme, attributes: :scheme_params)
+    expose_decorated(:scheme, attributes: :scheme_params)
 
     def create
       if scheme.save

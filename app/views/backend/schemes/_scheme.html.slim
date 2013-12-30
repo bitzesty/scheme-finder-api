@@ -1,0 +1,18 @@
+tr
+  td = image_tag scheme.logo.logo
+  td
+    = link_to "Show",
+              [:backend, scheme],
+              class: "btn btn-sm btn-default",
+              data: { action: "show" }
+    | &nbsp;
+    = link_to "Edit",
+              [:edit, :backend, scheme],
+              class: "btn btn-sm btn-default",
+              data: { action: "edit" }
+    | &nbsp;
+    = link_to "Remove",
+              [:backend, scheme],
+              method: :delete,
+              class: "btn btn-sm btn-danger",
+              data: { action: "delete" }

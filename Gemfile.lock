@@ -109,6 +109,8 @@ GEM
     database_cleaner (1.2.0)
     debug_inspector (0.0.2)
     debugger-linecache (1.2.0)
+    decent_decoration (0.0.6)
+      decent_exposure (>= 2.0)
     decent_exposure (2.3.0)
     descendants_tracker (0.0.3)
     devise (3.2.2)
@@ -372,6 +374,7 @@ DEPENDENCIES
   codeclimate-test-reporter
   coffee-rails (~> 4.0.0)
   database_cleaner
+  decent_decoration
   decent_exposure (~> 2.3.0)
   devise (~> 3.2.0)
   draper
