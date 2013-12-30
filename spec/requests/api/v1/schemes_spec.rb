@@ -126,10 +126,10 @@ describe Api::V1 do
     end
 
     context 'with filter by commiment length' do
-      let(:scheme) { create :scheme, commitment_length_ids: [CommitmentLength.first.id] }
-      let(:scheme_with_commitment_length) { create :scheme, commitment_length_ids: [CommitmentLength.last.id] }
+      let(:scheme) { create :scheme, company_size_ids: [CommitmentLength.first.id] }
+      let(:scheme_with_company_size) { create :scheme, company_size_ids: [CommitmentLength.last.id] }
       let(:response_pattern) {
-        { schemes: [ { id: scheme_with_commitment_length.id }.ignore_extra_keys! ] }
+        { schemes: [ { id: scheme_with_company_size.id }.ignore_extra_keys! ] }
       }
 
       let(:invalid_response_pattern) {
@@ -138,12 +138,39 @@ describe Api::V1 do
 
       before {
         scheme
-        scheme_with_commitment_length
+        scheme_with_company_size
 
-        get '/api/v1/schemes.json', commitment_lengths: scheme_with_commitment_length.commitment_length_ids
+        get '/api/v1/schemes.json', company_sizes: scheme_with_company_size.company_size_ids
       }
 
-      it 'returns schemes specific to provided commitment_length' do
+      it 'returns schemes specific to provided company_size' do
+        expect(response.body).to match_json_expression response_pattern
+      end
+
+      it 'does not return irrelevant scheme' do
+        expect(response.body).not_to match_json_expression invalid_response_pattern
+      end
+    end
+
+    context 'with filter by company size' do
+      let(:scheme) { create :scheme, company_size_ids: [CompanySize.first.id] }
+      let(:scheme_with_company_size) { create :scheme, company_size_ids: [CompanySize.last.id] }
+      let(:response_pattern) {
+        { schemes: [ { id: scheme_with_company_size.id }.ignore_extra_keys! ] }
+      }
+
+      let(:invalid_response_pattern) {
+        { schemes: [ { id: scheme.id }.ignore_extra_keys!] }
+      }
+
+      before {
+        scheme
+        scheme_with_company_size
+
+        get '/api/v1/schemes.json', company_sizes: scheme_with_company_size.company_size_ids
+      }
+
+      it 'returns schemes specific to provided company_size' do
         expect(response.body).to match_json_expression response_pattern
       end
 
