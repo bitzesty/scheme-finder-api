@@ -6,7 +6,8 @@ module Api
           locations: params[:locations],
           sectors: params[:sectors],
           activities: params[:activities],
-          age_ranges: params[:age_ranges]
+          age_ranges: params[:age_ranges],
+          commitment_lengths: params[:commitment_lengths]
         ).results
       end
     end
