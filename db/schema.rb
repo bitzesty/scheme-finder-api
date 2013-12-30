@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131230120045) do
+ActiveRecord::Schema.define(version: 20131230133716) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,12 @@ ActiveRecord::Schema.define(version: 20131230120045) do
     t.string   "age_range_ids",           default: [], array: true
     t.string   "commitment_length_ids",   default: [], array: true
     t.string   "company_size_ids",        default: [], array: true
+    t.string   "contact_name"
+    t.string   "contact_email"
+    t.string   "contact_phone"
+    t.string   "name"
+    t.string   "website"
+    t.string   "description"
   end
 
   add_index "schemes", ["activity_ids"], name: "index_schemes_on_activity_ids", using: :gin
@@ -34,6 +40,7 @@ ActiveRecord::Schema.define(version: 20131230120045) do
   add_index "schemes", ["commitment_length_ids"], name: "index_schemes_on_commitment_length_ids", using: :gin
   add_index "schemes", ["company_size_ids"], name: "index_schemes_on_company_size_ids", using: :gin
   add_index "schemes", ["location_ids"], name: "index_schemes_on_location_ids", using: :gin
+  add_index "schemes", ["name"], name: "index_schemes_on_name", unique: true, using: :btree
   add_index "schemes", ["sector_ids"], name: "index_schemes_on_sector_ids", using: :gin
 
   create_table "users", force: true do |t|

@@ -91,4 +91,18 @@ module ApplicationHelper
       opts[:for_empty]
     end
   end
+
+  def site_url(site)
+    if (url = site).present?
+      if url.starts_with?("http")
+        url
+      else
+        "http://#{url}"
+      end
+    end
+  end
+
+  def site_link(site)
+    link_to site, site_url(site)
+  end
 end
