@@ -7,8 +7,19 @@
               input_html: { class: "span5" }
 
     = f.input :logo_cache, as: :hidden
-    /* = f.input :had_direct_interactions, */
-    /*           label: "Should have had direct interactions?" */
+
+    = f.input :had_direct_interactions,
+              label: "Should have had direct interactions?"
+
+    = f.input :locations,
+              as: :multi_select,
+              collection: Location.collection,
+              input_html: { class: "span6" }
+
+    = f.input :sectors,
+              as: :multi_select,
+              collection: Sector.collection,
+              input_html: { class: "span6" }
 
   .form-actions
     = f.button :submit,
