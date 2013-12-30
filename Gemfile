@@ -84,5 +84,5 @@ group :development, :test do
   gem "forgery"
   gem "pry-rails"
   gem "byebug"
-  gem "rspec-rails", "~> 3.0.0.beta"
+  gem "rspec-rails", "~> 2.14.0"
 end
