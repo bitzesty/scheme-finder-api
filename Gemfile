@@ -22,7 +22,6 @@ gem "unf"
 gem "sass-rails", "~> 4.0.0"
 gem "coffee-rails", "~> 4.0.0"
 gem "uglifier", ">= 1.3.0"
-gem "jquery-rails"
 gem "execjs"
 
 gem "bootstrap-sass", ">= 3.0.0.0"
@@ -56,14 +55,12 @@ group :development do
   gem "capistrano-bundler"
   gem "better_errors"
   gem "binding_of_caller", platforms: [:mri_19, :mri_20, :rbx]
-  gem "quiet_assets"
   gem "rails_layout"
   gem "bullet"
   gem "rails_view_annotator"
 end
 
 group :test do
-  gem "quiet_assets"
   gem "capybara"
   gem "poltergeist"
   gem "launchy"
@@ -80,6 +77,7 @@ end
 
 group :development, :test do
   gem "factory_girl_rails"
+  gem "quiet_assets"
   gem "forgery"
   gem "pry-rails"
   gem "byebug"

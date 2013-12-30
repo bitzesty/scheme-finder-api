@@ -1,11 +1,14 @@
 = simple_form_for [:backend, scheme],
                   html: { class: "horizontal-form" } do |f|
   .form-inputs
-    = f.input :had_direct_interactions,
-              label: "Should have had direct interactions?"
-    = f.input :locations,
-              as: :multi_select,
-              collection: Location.collection
+    = f.input :logo,
+              as: :file,
+              label: false,
+              input_html: { class: "span5" }
+
+    = f.input :logo_cache, as: :hidden
+    /* = f.input :had_direct_interactions, */
+    /*           label: "Should have had direct interactions?" */
 
   .form-actions
     = f.button :submit,

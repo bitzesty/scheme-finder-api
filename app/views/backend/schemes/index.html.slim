@@ -14,14 +14,16 @@
   table.table.table-bordered.table-striped.table-hover.users-table
     thead
       tr
+        th
         th Had direct interactions
         th Employees number range
         th
     tbody
     - schemes.each do |scheme|
       tr
+        td = image_tag scheme.logo.logo
         td = scheme.had_direct_interactions
-        td = scheme.employees_number_range_id
+        /* td = scheme.employees_number_range_id */
         td
           = link_to "Edit",
                     [:edit, :backend, scheme],

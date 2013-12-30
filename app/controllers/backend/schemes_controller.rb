@@ -43,7 +43,7 @@ module Backend
 
     def scheme_params
       params.require(:scheme).permit(
-        :had_direct_interactions, :employees_number_range_id
+        :had_direct_interactions, :employees_number_range_id, :logo, :logo_cache
       )
     end
   end
