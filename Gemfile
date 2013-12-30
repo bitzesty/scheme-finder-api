@@ -73,6 +73,7 @@ group :test do
   gem "database_cleaner"
   gem "codeclimate-test-reporter", require: nil
   gem "timecop"
+  gem "json_expressions"
 end
 
 group :development, :test do

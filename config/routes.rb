@@ -11,5 +11,11 @@ SchemeFinderApi::Application.routes.draw do
     root to: 'dashboards#show'
   end
 
+  namespace :api do
+    namespace :v1 do
+      resources :schemes, only: [:index]
+    end
+  end
+
   root to: 'pages#about'
 end
