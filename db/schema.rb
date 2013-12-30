@@ -11,10 +11,50 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131230080636) do
+ActiveRecord::Schema.define(version: 20131230083026) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "scheme_activity_relationships", force: true do |t|
+    t.integer  "scheme_id"
+    t.string   "activity_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "scheme_activity_relationships", ["activity_id", "scheme_id"], name: "index_scheme_activity_relationship", unique: true, using: :btree
+  add_index "scheme_activity_relationships", ["scheme_id"], name: "index_scheme_activity_relationships_on_scheme_id", using: :btree
+
+  create_table "scheme_age_range_relationships", force: true do |t|
+    t.integer  "scheme_id"
+    t.string   "age_range_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "scheme_age_range_relationships", ["age_range_id", "scheme_id"], name: "index_scheme_age_range_relationship", unique: true, using: :btree
+  add_index "scheme_age_range_relationships", ["scheme_id"], name: "index_scheme_age_range_relationships_on_scheme_id", using: :btree
+
+  create_table "scheme_commitment_length_relationships", force: true do |t|
+    t.integer  "scheme_id"
+    t.string   "commitment_length_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "scheme_commitment_length_relationships", ["commitment_length_id", "scheme_id"], name: "index_scheme_commitment_length_relationship", unique: true, using: :btree
+  add_index "scheme_commitment_length_relationships", ["scheme_id"], name: "index_scheme_commitment_length_relationships_on_scheme_id", using: :btree
+
+  create_table "scheme_company_size_relationships", force: true do |t|
+    t.integer  "scheme_id"
+    t.string   "company_size_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "scheme_company_size_relationships", ["company_size_id", "scheme_id"], name: "index_scheme_company_size_relationship", unique: true, using: :btree
+  add_index "scheme_company_size_relationships", ["scheme_id"], name: "index_scheme_company_size_relationships_on_scheme_id", using: :btree
 
   create_table "scheme_location_relationships", force: true do |t|
     t.integer  "scheme_id"
@@ -25,6 +65,16 @@ ActiveRecord::Schema.define(version: 20131230080636) do
 
   add_index "scheme_location_relationships", ["location_id", "scheme_id"], name: "index_scheme_location_relationship", unique: true, using: :btree
   add_index "scheme_location_relationships", ["scheme_id"], name: "index_scheme_location_relationships_on_scheme_id", using: :btree
+
+  create_table "scheme_sector_relationships", force: true do |t|
+    t.integer  "scheme_id"
+    t.string   "sector_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "scheme_sector_relationships", ["scheme_id"], name: "index_scheme_sector_relationships_on_scheme_id", using: :btree
+  add_index "scheme_sector_relationships", ["sector_id", "scheme_id"], name: "index_scheme_sector_relationship", unique: true, using: :btree
 
   create_table "schemes", force: true do |t|
     t.boolean  "had_direct_interactions"
