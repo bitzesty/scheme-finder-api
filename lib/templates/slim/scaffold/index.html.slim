@@ -11,7 +11,7 @@
                 data: { action: "new" }
 
 - if <%= plural_name %>.any?
-  table.table.table-bordered.table-striped.table-hover.users-table
+  table.table.table-bordered.table-striped.table-hover.<%= plural_name %>-table
     thead
       tr
 <% attributes.each do |attribute| -%>

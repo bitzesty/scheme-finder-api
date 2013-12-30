@@ -32,6 +32,7 @@ RSpec.configure do |config|
   config.include ModalHelper
   config.include AuthenticationMacros, type: :feature
   config.include FeaturesHelpers, type: :feature
+  config.include UserSteps, type: :feature
 
   config.before :each do
     if Capybara.current_driver == :rack_test
