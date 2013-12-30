@@ -96,5 +96,16 @@ SchemeFinderApi::Application.configure do
 end
 
 CarrierWave.configure do |config|
-  config.storage = :file
+  config.fog_credentials = {
+    provider:             'Rackspace',
+    rackspace_username:   ENV['RACKSPACE_API_USERNAME'],
+    rackspace_api_key:    ENV['RACKSPACE_API_KEY'],
+    rackspace_auth_url:   Fog::Rackspace::UK_AUTH_ENDPOINT,
+    rackspace_region:     :lon,
+    rackspace_servicenet: true,
+  }
+
+  config.fog_directory = ENV['FOG_DIRECTORY']
+  config.fog_public = true
+  config.storage = :fog
 end
