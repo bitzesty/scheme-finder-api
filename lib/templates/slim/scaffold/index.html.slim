@@ -4,7 +4,7 @@
     small= "(#{<%= plural_name %>.count})"
     .height-half
     .pull-right
-      = link_to "New user",
+      = link_to "New <%= singular_name %>",
                 [:new, <%= ":#{class_path.join(", :")}, " if class_path.any? %>:<%= singular_name %>],
                 class: "btn btn-sm btn-primary",
                 id: "btn_new",

@@ -3,6 +3,9 @@
   .form-inputs
     = f.input :had_direct_interactions,
               label: "Should have had direct interactions?"
+    = f.input :locations,
+              as: :multi_select,
+              collection: Location.collection
 
   .form-actions
     = f.button :submit,

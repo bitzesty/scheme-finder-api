@@ -11,14 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131223115531) do
+ActiveRecord::Schema.define(version: 20131230070739) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "scheme_location_relationships", force: true do |t|
+    t.integer  "scheme_id"
+    t.string   "location_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "scheme_location_relationships", ["location_id", "scheme_id"], name: "index_scheme_location_relationship", unique: true, using: :btree
+  add_index "scheme_location_relationships", ["scheme_id"], name: "index_scheme_location_relationships_on_scheme_id", using: :btree
+
   create_table "schemes", force: true do |t|
     t.boolean  "had_direct_interactions"
-    t.string   "employees_number_range_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
