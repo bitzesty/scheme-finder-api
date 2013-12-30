@@ -13,18 +13,21 @@
 
     = f.input :location_ids,
               as: :multi_select,
+              label: 'Location',
               collection: Location.collection,
               required: true,
               input_html: { class: "span6" }
 
     = f.input :sector_ids,
               as: :multi_select,
+              label: 'Sector',
               collection: Sector.collection,
               required: true,
               input_html: { class: "span6" }
 
     = f.input :commitment_length_ids,
               as: :multi_select,
+              label: 'Commitment length',
               collection: CommitmentLength.collection,
               label: "Length of commitment",
               required: true,
@@ -33,17 +36,20 @@
     = f.input :activity_ids,
               as: :multi_select,
               collection: Activity.collection,
+              label: 'Activities',
               required: true,
               input_html: { class: "span6" }
 
     = f.input :company_size_ids,
               as: :multi_select,
               collection: CompanySize.collection,
+              label: 'Company size',
               required: true,
               input_html: { class: "span6" }
 
     = f.input :age_range_ids,
               as: :multi_select,
+              label: 'Age range',
               collection: AgeRange.collection,
               required: true,
               input_html: { class: "span6" }

@@ -2,9 +2,9 @@ require 'spec_helper'
 
 describe Api::V1 do
   describe 'scheme filtering' do
-    let(:scheme) { create :scheme }
 
     context 'no filter arguments supplied' do
+      let(:scheme) { create :scheme }
       let(:response_pattern) {
         { schemes: [ { id: scheme.id }.ignore_extra_keys!] }
       }
@@ -19,7 +19,8 @@ describe Api::V1 do
     end
 
     context 'with filter by location' do
-      let(:scheme_with_location) { create :scheme, :with_location }
+      let(:scheme) { create :scheme, location_ids: [Location.first.id] }
+      let(:scheme_with_location) { create :scheme, location_ids: [Location.last.id] }
       let(:response_pattern) {
         { schemes: [ { id: scheme_with_location.id }.ignore_extra_keys!] }
       }
