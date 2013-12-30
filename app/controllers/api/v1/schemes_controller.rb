@@ -3,7 +3,8 @@ module Api
     class SchemesController < ApiController
       def index
         @schemes = SchemeSearch.new(
-          locations: params[:locations]
+          locations: params[:locations],
+          sectors: params[:sectors]
         ).results
       end
     end
