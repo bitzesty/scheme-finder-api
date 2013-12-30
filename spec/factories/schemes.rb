@@ -7,5 +7,11 @@ FactoryGirl.define do
     activity_ids { Activity.ids.sample }
     company_size_ids { CompanySize.ids.sample }
     age_range_ids { AgeRange.ids.sample }
+
+    trait :with_location do
+      after(:create) { |scheme, evaluator|
+        create(:scheme_location_relationship, scheme: scheme)
+      }
+    end
   end
 end
