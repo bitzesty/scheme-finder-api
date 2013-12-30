@@ -14,6 +14,7 @@ class Sector < ActiveHash::Base
     { id: "business_services", name: "Professional Business Services" },
     { id: "rail", name: "Rail" },
     { id: "renewable_energy", name: "Renewable Energy" },
+    { id: "other", name: "Other" },
   ]
 
   def to_s

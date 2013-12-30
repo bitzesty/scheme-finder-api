@@ -14,11 +14,38 @@
     = f.input :locations,
               as: :multi_select,
               collection: Location.collection,
+              required: true,
               input_html: { class: "span6" }
 
     = f.input :sectors,
               as: :multi_select,
               collection: Sector.collection,
+              required: true,
+              input_html: { class: "span6" }
+
+    = f.input :commitment_lengths,
+              as: :multi_select,
+              collection: CommitmentLength.collection,
+              label: "Length of commitment",
+              required: true,
+              input_html: { class: "span6" }
+
+    = f.input :activities,
+              as: :multi_select,
+              collection: Activity.collection,
+              required: true,
+              input_html: { class: "span6" }
+
+    = f.input :company_sizes,
+              as: :multi_select,
+              collection: CompanySize.collection,
+              required: true,
+              input_html: { class: "span6" }
+
+    = f.input :age_ranges,
+              as: :multi_select,
+              collection: AgeRange.collection,
+              required: true,
               input_html: { class: "span6" }
 
   .form-actions
