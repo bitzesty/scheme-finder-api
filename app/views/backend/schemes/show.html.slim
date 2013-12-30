@@ -1,0 +1,12 @@
+p#notice = notice
+
+p
+  strong Had direct interactions:
+  = @backend_scheme.had_direct_interactions
+p
+  strong Employees number range:
+  = @backend_scheme.employees_number_range_id
+
+= link_to 'Edit', edit_backend_scheme_path(@backend_scheme)
+'|
+= link_to 'Back', backend_schemes_path

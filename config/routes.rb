@@ -6,6 +6,7 @@ SchemeFinderApi::Application.routes.draw do
   namespace :backend do
     resource  :dashboard
     resources :users
+    resources :schemes
 
     root to: 'dashboards#show'
   end

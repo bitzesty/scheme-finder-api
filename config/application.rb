@@ -16,11 +16,21 @@ module SchemeFinderApi
     # don't generate RSpec tests for views and helpers
     config.generators do |g|
       g.template_engine :slim
-      g.test_framework :rspec, fixture: true
+      g.test_framework :rspec,
+                       fixture: true,
+                       routing_specs: false,
+                       helper_specs: false,
+                       request_specs: false,
+                       decorator_specs: false
       g.fixture_replacement :factory_girl, dir: 'spec/factories'
       g.view_specs false
       g.helper_specs false
       g.controller_specs false
+      g.jbuilder false
+      g.stylesheets false
+      g.assets false
+      g.helper false
+      g.javascripts false
     end
 
     # Custom directories with classes and modules you want to be autoloadable.
