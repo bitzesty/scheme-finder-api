@@ -38,6 +38,8 @@ SchemeFinderApi::Application.configure do
 
   config.after_initialize do
     SchemeFinderApi.configure do |app_config|
+      # No auth required in test environment
+      app_config.api_access_token = nil
     end
   end
 end

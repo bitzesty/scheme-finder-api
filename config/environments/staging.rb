@@ -91,6 +91,7 @@ SchemeFinderApi::Application.configure do
 
   config.after_initialize do
     SchemeFinderApi.configure do |app_config|
+      app_config.api_access_token = ENV["API_ACCESS_TOKEN"]
     end
   end
 end
