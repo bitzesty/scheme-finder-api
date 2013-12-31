@@ -34,6 +34,12 @@ module Backend
     end
 
     def index
+      self.schemes = schemes.confirmed
+    end
+
+    def unconfirmed
+      self.schemes = schemes.unconfirmed
+      render :index
     end
 
     def show
@@ -43,7 +49,7 @@ module Backend
 
     def scheme_params
       params.require(:scheme).permit(
-        :had_direct_interactions,  :logo, :logo_cache,
+        :had_direct_interactions,  :logo, :logo_cache, :confirmed,
         :contact_name, :contact_email, :contact_phone,
         :name, :website, :description,
         location_ids: [],

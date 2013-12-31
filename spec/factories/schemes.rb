@@ -21,5 +21,10 @@ FactoryGirl.define do
     activity_ids { Activity.ids.sample }
     company_size_ids { CompanySize.ids.sample }
     age_range_ids { AgeRange.ids.sample }
+    confirmed true
+
+    trait :unconfirmed do
+      confirmed false
+    end
   end
 end

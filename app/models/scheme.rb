@@ -15,6 +15,8 @@ class Scheme < ActiveRecord::Base
   validates :company_size_ids, presence: true
 
   # scopes for filtering
+  scope :confirmed, -> { where confirmed: true }
+  scope :unconfirmed, -> { where confirmed: [false, nil] }
 
   # scopes for ordering
   scope :by_name, -> { order name: :asc }

@@ -1,6 +1,9 @@
 = simple_form_for [:backend, scheme],
                   html: { class: "horizontal-form" } do |f|
   .form-inputs
+    = f.input :confirmed,
+              label: "Confirmed by admin?"
+
     = f.input :logo,
               as: :file,
               input_html: { class: "span5" }
@@ -15,7 +18,7 @@
     = f.input :description
 
     = f.input :had_direct_interactions,
-              label: "Should have had direct interactions?"
+              label: "Should have engaged with schools before?"
 
     = f.input :location_ids,
               as: :multi_select,

@@ -30,6 +30,16 @@ describe 'Scheme management' do
     end
   end
 
+  describe "scheme confirmation" do
+    let(:existing_scheme) { create :scheme, :unconfirmed }
+
+    specify "scheme can be confirmed" do
+      verify scheme_not_confirmed?(existing_scheme)
+      confirm_scheme(existing_scheme)
+      verify scheme_confirmed?(existing_scheme)
+    end
+  end
+
   describe 'scheme removal' do
     let(:existing_scheme) { create :scheme }
 

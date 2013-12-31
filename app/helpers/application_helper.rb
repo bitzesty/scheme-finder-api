@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 module ApplicationHelper
   # From Lupin V2
   #
@@ -104,5 +106,13 @@ module ApplicationHelper
 
   def site_link(site)
     link_to site, site_url(site)
+  end
+
+  def confirmation_icon(value)
+    if value
+      content_tag(:span, '✓', class: 'badge badge-success')
+    else
+      content_tag(:span, '✘', class: 'badge badge-important')
+    end
   end
 end
