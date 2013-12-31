@@ -20,6 +20,7 @@ module Api
   }
 }
 )
+      before_action :authenticate, only: :create
       before_action :ensure_scheme_provided, only: :create
 
       def index
