@@ -4,7 +4,7 @@ class Location < ActiveHash::Base
     { id: "england", name: "All of England" },
     { id: "north_east", name: "North East" },
     { id: "north_west", name: "North West" },
-    { id: "yorkshire_humber", name: "Yorkshire and the Humber " },
+    { id: "yorkshire_humber", name: "Yorkshire and the Humber" },
     { id: "east_midlands", name: "East Midlands" },
     { id: "west_midlands", name: "West Midlands" },
     { id: "east_england", name: "East of England" },

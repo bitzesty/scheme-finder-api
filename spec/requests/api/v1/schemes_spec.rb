@@ -4,12 +4,17 @@ describe Api::V1 do
   describe 'scheme filtering' do
     context 'no filter arguments supplied' do
       let(:scheme) { create :scheme }
+      let(:unconfirmed_scheme) { create :scheme, :unconfirmed }
       let(:response_pattern) {
         { schemes: [ { id: scheme.id }.ignore_extra_keys!] }
       }
+      let(:empty_response_pattern) {
+        { schemes: [] }
+      }
 
-      it 'returns all available schemes' do
+      it 'returns all confirmed schemes' do
         scheme
+        unconfirmed_scheme
 
         get '/api/v1/schemes.json'
 

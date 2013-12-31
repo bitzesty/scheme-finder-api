@@ -1,5 +1,5 @@
 class SchemeSearch < Searchlight::Search
-  search_on Scheme
+  search_on Scheme.confirmed
 
   searches :locations, :sectors, :activities, :age_ranges,
            :commitment_lengths, :company_sizes
