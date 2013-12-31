@@ -2,6 +2,6 @@ pre-start script
   mkdir -p <%= log %>
   chown -R <%= user %> <%= log %>
 end script
-start on (started user-jobs)
+start on (started schemer)
 
-stop on (stopping user-jobs)
+stop on (stopping schemer)
