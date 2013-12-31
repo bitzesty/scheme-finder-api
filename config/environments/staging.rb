@@ -64,14 +64,14 @@ SchemeFinderApi::Application.configure do
   # the I18n.default_locale when a translation can not be found)
   config.i18n.fallbacks = true
 
-  mailer_domain = "schemer_vagrant.app"
+  mailer_domain = "scheme-finder-api.dev.bitzesty.com"
 
   ActionMailer::Base.smtp_settings = {
       :address        => "smtp.mailgun.org",
       :port           => 587,
       :authentication => :plain,
-      :user_name      => "matt@bitzesty.com",
-      :password       => "asdf12",
+      :user_name      => ENV["SMTP_USER_NAME"],
+      :password       => ENV["SMTP_PASSWORD"],
       :domain         => mailer_domain
   }
 
