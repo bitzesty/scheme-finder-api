@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131230133716) do
+ActiveRecord::Schema.define(version: 20131230145445) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,18 +21,19 @@ ActiveRecord::Schema.define(version: 20131230133716) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "logo"
-    t.string   "location_ids",            default: [], array: true
-    t.string   "sector_ids",              default: [], array: true
-    t.string   "activity_ids",            default: [], array: true
-    t.string   "age_range_ids",           default: [], array: true
-    t.string   "commitment_length_ids",   default: [], array: true
-    t.string   "company_size_ids",        default: [], array: true
+    t.string   "location_ids",            default: [],    array: true
+    t.string   "sector_ids",              default: [],    array: true
+    t.string   "activity_ids",            default: [],    array: true
+    t.string   "age_range_ids",           default: [],    array: true
+    t.string   "commitment_length_ids",   default: [],    array: true
+    t.string   "company_size_ids",        default: [],    array: true
     t.string   "contact_name"
     t.string   "contact_email"
     t.string   "contact_phone"
     t.string   "name"
     t.string   "website"
     t.string   "description"
+    t.boolean  "confirmed",               default: false
   end
 
   add_index "schemes", ["activity_ids"], name: "index_schemes_on_activity_ids", using: :gin

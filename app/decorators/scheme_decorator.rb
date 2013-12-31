@@ -27,6 +27,10 @@ class SchemeDecorator < ApplicationDecorator
     h.confirmation_icon had_direct_interactions?
   end
 
+  def confirmed_icon
+    h.confirmation_icon confirmed?
+  end
+
   def contact_email_link
     h.mail_to contact_email
   end

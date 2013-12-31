@@ -20,6 +20,7 @@ module Backend
       ensure_on new_backend_scheme_path
 
       within(:css, dom_id_selector(scheme)) do
+        check "scheme_confirmed" if scheme.confirmed
         fill_in "scheme_contact_name", with: scheme.contact_name
         fill_in "scheme_contact_phone", with: scheme.contact_phone
         fill_in "scheme_contact_email", with: scheme.contact_email
@@ -74,6 +75,39 @@ module Backend
 
     def schemes_table
       "table.schemes-table"
+    end
+
+    # Query
+    #
+    # Checks if scheme is listed among unconfirmed ones
+    def scheme_not_confirmed?(scheme)
+      unless scheme_confirmed?(scheme)
+        ensure_on unconfirmed_backend_schemes_path
+        page.has_css?(schemes_table) &&
+        within(schemes_table) do
+          page.has_content?(scheme.name)
+        end
+      end
+    end
+
+    # Command
+    #
+    # Confirms scheme
+    def confirm_scheme(scheme, new_details = {})
+      ensure_on edit_backend_scheme_path(scheme)
+
+      check "scheme_confirmed"
+
+      click_button "submit_btn"
+    end
+
+    # Query
+    #
+    # Checks if scheme was confirmed
+    def scheme_confirmed?(scheme)
+      ensure_on edit_backend_scheme_path(scheme)
+
+      has_checked_field?("scheme_confirmed")
     end
   end
 end

@@ -10,8 +10,13 @@ nav.navbar.navbar-inverse.navbar-fixed-top
     .collapse.navbar-collapse
       ul.nav.navbar-nav
         - if access_policy.permitted?(:user_management)
-          = nav_item("Users", backend_users_path, "users")
+          = nav_item "Users", backend_users_path, "users"
         - if access_policy.permitted?(:scheme_management)
-          = nav_item("Schemes", backend_schemes_path, "schemes")
+          = nav_item "Schemes",
+                     backend_schemes_path,
+                     schemes: %w(index show new edit)
+          = nav_item "Applications",
+                     unconfirmed_backend_schemes_path,
+                     schemes: "unconfirmed"
         li
           = link_to "Sign out", destroy_user_session_path, method: :delete

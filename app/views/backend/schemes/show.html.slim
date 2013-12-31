@@ -1,4 +1,8 @@
 p
+  strong Confirmed?:
+  '
+  = scheme.confirmed_icon
+p
   strong Contact name:
   '
   = scheme.contact_name
@@ -23,7 +27,7 @@ p
   '
   = scheme.description
 p
-  strong Should have had direct interactions?
+  strong Should have engaged with schools before?
   '
   = scheme.require_direct_interactions_icon
 p
@@ -57,4 +61,4 @@ p
 
 = link_to 'Edit', edit_backend_scheme_path(scheme)
 '|
-= link_to 'Back', backend_schemes_path
+= link_to 'Back', :back
