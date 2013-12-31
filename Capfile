@@ -24,6 +24,9 @@ require "capistrano/rails"
 require "whenever/capistrano"
 require "airbrake/capistrano3"
 require "hipchat/capistrano"
+require 'dotenv'
+
+Dotenv.load # loads .env for various deploy settings
 
 # Loads custom tasks from `lib/capistrano/tasks" if you have any defined.
 Dir.glob("lib/capistrano/tasks/*.rake").each { |r| import r }

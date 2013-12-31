@@ -1,6 +1,15 @@
 Scheme finder api
 ======
 
+## Configuration
+
+* To use hipchat deploy notifications create a `.env` file in project
+  root with the following content:
+
+  ```
+  HIPCHAT_TOKEN=<token>
+  ```
+
 ## Code organization
 
 * `app/searches` contains `Searchlight::Search` derivate classes.

@@ -2,7 +2,7 @@ set :application, "scheme-finder-api"
 set :repo_url, "git@github.com:bitzesty/#{fetch(:application)}.git"
 set :user, "schemer"
 
-set :hipchat_token, "94fcb0db90a76e9e61f4965a1f2f83"
+set :hipchat_token, ENV["HIPCHAT_TOKEN"]
 set :hipchat_room_name, "BIS"
 set :hipchat_announce, false
 set :hipchat_color, "yellow"
@@ -22,7 +22,7 @@ set :format, :pretty
 set :log_level, :info
 set :pty, true
 
-set :linked_files, %w{config/database.yml}
+set :linked_files, %w{config/database.yml .env}
 set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle
                      public/system}
 
