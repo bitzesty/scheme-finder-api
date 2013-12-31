@@ -8,9 +8,6 @@ describe Api::V1 do
       let(:response_pattern) {
         { schemes: [ { id: scheme.id }.ignore_extra_keys!] }
       }
-      let(:empty_response_pattern) {
-        { schemes: [] }
-      }
 
       it 'returns all confirmed schemes' do
         scheme
