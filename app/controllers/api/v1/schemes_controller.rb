@@ -41,8 +41,7 @@ module Api
           render json: "Scheme created",
                  status: :ok
         else
-          render json: { errors: scheme.errors.full_messages,
-                         request_example: SCHEMA_EXAMPLE },
+          render json: { errors: scheme.errors },
                  status: :unprocessable_entity
         end
       end
