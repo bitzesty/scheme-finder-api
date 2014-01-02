@@ -9,7 +9,7 @@ describe Api::V1 do
         end
       }
       let(:response_pattern) {
-        { errors: ["Location ids can't be blank"] }.ignore_extra_keys!
+        { errors: Hash }
       }
 
       it 'returns error message' do
