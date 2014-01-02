@@ -54,4 +54,24 @@ describe 'Scheme management' do
       verify !scheme_created?(existing_scheme)
     end
   end
+
+  describe 'scheme listing' do
+    let(:confirmed_scheme) { create :scheme, :confirmed }
+    let(:unconfirmed_scheme) { create :scheme, :unconfirmed }
+
+    before do
+      confirmed_scheme
+      unconfirmed_scheme
+    end
+
+    specify 'lists confirmed schemes in confirmed schemes page' do
+      verify scheme_listed?(confirmed_scheme, backend_schemes_path)
+      verify !scheme_listed?(unconfirmed_scheme, backend_schemes_path)
+    end
+
+    specify 'lists unconfirmed schemes in unconfirmed schemes page' do
+      verify !scheme_listed?(confirmed_scheme, unconfirmed_backend_schemes_path)
+      verify scheme_listed?(unconfirmed_scheme, unconfirmed_backend_schemes_path)
+    end
+  end
 end

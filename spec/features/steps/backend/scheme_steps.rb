@@ -104,5 +104,17 @@ module Backend
 
       has_checked_field?("scheme_confirmed")
     end
+
+    # Query
+    #
+    # Check if scheme is listed in the supplied page
+    def scheme_listed?(scheme, path)
+      ensure_on path
+
+      page.has_css?(schemes_table) &&
+        within(schemes_table) do
+          page.has_content?(scheme.name)
+        end
+    end
   end
 end
