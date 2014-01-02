@@ -68,4 +68,14 @@ class Scheme < ActiveRecord::Base
   def company_size_ids=(company_size_ids)
     super(Array(company_size_ids).reject(&:blank?))
   end
+
+  def persist
+    begin
+      save
+    rescue ActiveRecord::RecordNotUnique
+      errors.add(:name, 'is already taken')
+
+      false
+    end
+  end
 end

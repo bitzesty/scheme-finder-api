@@ -4,25 +4,20 @@ module Backend
     expose_decorated(:scheme, attributes: :scheme_params)
 
     def create
-      if scheme.save
-        redirect_to [:backend, scheme],
-                    notice: "Scheme created"
-      else
-        render :new
-      end
+      flash.notice = 'Scheme successfully created' if scheme.persist
+
+      respond_with(scheme, location: [:backend, scheme])
     end
 
     def update
-      if scheme.save
-        redirect_to [:backend, scheme],
-                    notice: "Scheme updated"
-      else
-        render :edit
-      end
+      flash.notice = 'Scheme successfully updated' if scheme.persist
+
+      respond_with(scheme, location: [:backend, scheme])
     end
 
     def destroy
       scheme.destroy
+
       redirect_to [:backend, scheme],
                   notice: "Scheme deleted"
     end
@@ -39,6 +34,7 @@ module Backend
 
     def unconfirmed
       self.schemes = schemes.unconfirmed
+
       render :index
     end
 

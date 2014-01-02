@@ -33,9 +33,17 @@ module Backend
         select scheme.activities.first, from: "scheme_activity_ids"
         select scheme.company_sizes.first, from: "scheme_company_size_ids"
         select scheme.age_ranges.first, from: "scheme_age_range_ids"
+
+        yield if block_given?
       end
 
       click_button "submit_btn"
+    end
+
+    def create_confirmed_scheme(scheme)
+      create_scheme(scheme) do
+        check "scheme_confirmed"
+      end
     end
 
     # Command
@@ -59,6 +67,8 @@ module Backend
         fill_in "scheme_#{field}", with: value
       end
 
+      yield if block_given?
+
       click_button "submit_btn"
     end
 
@@ -77,28 +87,13 @@ module Backend
       "table.schemes-table"
     end
 
-    # Query
-    #
-    # Checks if scheme is listed among unconfirmed ones
-    def scheme_not_confirmed?(scheme)
-      unless scheme_confirmed?(scheme)
-        ensure_on unconfirmed_backend_schemes_path
-        page.has_css?(schemes_table) &&
-        within(schemes_table) do
-          page.has_content?(scheme.name)
-        end
-      end
-    end
-
     # Command
     #
     # Confirms scheme
-    def confirm_scheme(scheme, new_details = {})
-      ensure_on edit_backend_scheme_path(scheme)
-
-      check "scheme_confirmed"
-
-      click_button "submit_btn"
+    def confirm_scheme(scheme)
+      update_scheme(scheme) do
+        check "scheme_confirmed"
+      end
     end
 
     # Query
@@ -108,6 +103,18 @@ module Backend
       ensure_on edit_backend_scheme_path(scheme)
 
       has_checked_field?("scheme_confirmed")
+    end
+
+    # Query
+    #
+    # Check if scheme is listed in the supplied page
+    def scheme_listed?(scheme, path)
+      ensure_on path
+
+      page.has_css?(schemes_table) &&
+        within(schemes_table) do
+          page.has_content?(scheme.name)
+        end
     end
   end
 end

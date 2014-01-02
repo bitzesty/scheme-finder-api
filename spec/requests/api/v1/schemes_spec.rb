@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Api::V1 do
   describe 'scheme filtering' do
     context 'no filter arguments supplied' do
-      let(:scheme) { create :scheme }
+      let(:scheme) { create :scheme, :confirmed }
       let(:unconfirmed_scheme) { create :scheme, :unconfirmed }
       let(:response_pattern) {
         { schemes: [ { id: scheme.id }.ignore_extra_keys!] }
@@ -20,8 +20,8 @@ describe Api::V1 do
     end
 
     context 'with filter by location' do
-      let(:scheme) { create :scheme, location_ids: [Location.first.id] }
-      let(:scheme_with_location) { create :scheme, location_ids: [Location.last.id] }
+      let(:scheme) { create :scheme, :confirmed, location_ids: [Location.first.id] }
+      let(:scheme_with_location) { create :scheme, :confirmed, location_ids: [Location.last.id] }
       let(:response_pattern) {
         { schemes: [ { id: scheme_with_location.id }.ignore_extra_keys!] }
       }
@@ -47,8 +47,8 @@ describe Api::V1 do
     end
 
     context 'with filter by sector' do
-      let(:scheme) { create :scheme, sector_ids: [Sector.first.id] }
-      let(:scheme_with_sector) { create :scheme, sector_ids: [Sector.last.id] }
+      let(:scheme) { create :scheme, :confirmed, sector_ids: [Sector.first.id] }
+      let(:scheme_with_sector) { create :scheme, :confirmed, sector_ids: [Sector.last.id] }
       let(:response_pattern) {
         { schemes: [ { id: scheme_with_sector.id }.ignore_extra_keys! ] }
       }
@@ -74,8 +74,8 @@ describe Api::V1 do
     end
 
     context 'with filter by activity' do
-      let(:scheme) { create :scheme, activity_ids: [Activity.first.id] }
-      let(:scheme_with_activity) { create :scheme, activity_ids: [Activity.last.id] }
+      let(:scheme) { create :scheme, :confirmed, activity_ids: [Activity.first.id] }
+      let(:scheme_with_activity) { create :scheme, :confirmed, activity_ids: [Activity.last.id] }
       let(:response_pattern) {
         { schemes: [ { id: scheme_with_activity.id }.ignore_extra_keys! ] }
       }
@@ -101,8 +101,8 @@ describe Api::V1 do
     end
 
     context 'with filter by age range' do
-      let(:scheme) { create :scheme, age_range_ids: [AgeRange.first.id] }
-      let(:scheme_with_age_range) { create :scheme, age_range_ids: [AgeRange.last.id] }
+      let(:scheme) { create :scheme, :confirmed, age_range_ids: [AgeRange.first.id] }
+      let(:scheme_with_age_range) { create :scheme, :confirmed, age_range_ids: [AgeRange.last.id] }
       let(:response_pattern) {
         { schemes: [ { id: scheme_with_age_range.id }.ignore_extra_keys! ] }
       }
@@ -128,8 +128,8 @@ describe Api::V1 do
     end
 
     context 'with filter by commiment length' do
-      let(:scheme) { create :scheme, company_size_ids: [CommitmentLength.first.id] }
-      let(:scheme_with_company_size) { create :scheme, company_size_ids: [CommitmentLength.last.id] }
+      let(:scheme) { create :scheme, :confirmed, company_size_ids: [CommitmentLength.first.id] }
+      let(:scheme_with_company_size) { create :scheme, :confirmed, company_size_ids: [CommitmentLength.last.id] }
       let(:response_pattern) {
         { schemes: [ { id: scheme_with_company_size.id }.ignore_extra_keys! ] }
       }
@@ -155,8 +155,8 @@ describe Api::V1 do
     end
 
     context 'with filter by company size' do
-      let(:scheme) { create :scheme, company_size_ids: [CompanySize.first.id] }
-      let(:scheme_with_company_size) { create :scheme, company_size_ids: [CompanySize.last.id] }
+      let(:scheme) { create :scheme, :confirmed, company_size_ids: [CompanySize.first.id] }
+      let(:scheme_with_company_size) { create :scheme, :confirmed, company_size_ids: [CompanySize.last.id] }
       let(:response_pattern) {
         { schemes: [ { id: scheme_with_company_size.id }.ignore_extra_keys! ] }
       }

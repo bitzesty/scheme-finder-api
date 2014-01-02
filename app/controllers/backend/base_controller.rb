@@ -4,6 +4,8 @@ module Backend
 
     layout 'backend'
 
+    respond_to :html
+
     before_filter :authenticate_user!
 
     rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized

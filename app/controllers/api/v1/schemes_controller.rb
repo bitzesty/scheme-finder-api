@@ -37,7 +37,7 @@ module Api
       def create
         scheme = Scheme.new(scheme_params)
 
-        if scheme.save
+        if scheme.persist
           render json: "Scheme created",
                  status: :ok
         else
