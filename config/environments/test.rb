@@ -41,9 +41,10 @@ SchemeFinderApi::Application.configure do
       # No auth required in test environment
       app_config.api_access_token = nil
     end
-  end
-end
 
-CarrierWave.configure do |config|
-  config.storage = :file
+    CarrierWave.configure do |config|
+      config.storage = :file
+      config.enable_processing = false
+    end
+  end
 end

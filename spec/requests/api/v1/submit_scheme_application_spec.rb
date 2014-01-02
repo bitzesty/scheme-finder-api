@@ -41,11 +41,7 @@ describe Api::V1 do
     end
 
     context 'with all attributes correct' do
-      let(:scheme_attributes) {
-        build(:scheme).attributes.select do |k, v|
-          !ignored_scheme_attributes.include?(k)
-        end
-      }
+      let(:scheme_attributes) { attributes_for(:scheme) }
       let(:response_pattern) {
         "Scheme created"
       }
@@ -57,11 +53,5 @@ describe Api::V1 do
         expect(response.body).to eq response_pattern
       end
     end
-  end
-
-  private
-
-  def ignored_scheme_attributes
-    %w(created_at updated_at id confirmed)
   end
 end

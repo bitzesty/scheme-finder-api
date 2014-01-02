@@ -33,6 +33,7 @@ module Backend
         select scheme.activities.first, from: "scheme_activity_ids"
         select scheme.company_sizes.first, from: "scheme_company_size_ids"
         select scheme.age_ranges.first, from: "scheme_age_range_ids"
+        attach_file 'scheme_logo', File.join(Rails.root, 'spec', 'fixtures', 'logo.png')
 
         yield if block_given?
       end
