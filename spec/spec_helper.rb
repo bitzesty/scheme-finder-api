@@ -33,4 +33,10 @@ RSpec.configure do |config|
   config.include ModalHelper
   config.include AuthenticationMacros, type: :feature
   config.include FeaturesHelpers, type: :feature
+
+  # Cleanup for carrierwave files
+  # See config/environments/test.rb for more details
+  config.after(:suite) do
+    FileUtils.rm_rf(Dir["#{Rails.root}/tmp/uploads"])
+  end
 end

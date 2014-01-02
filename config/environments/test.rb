@@ -46,5 +46,27 @@ SchemeFinderApi::Application.configure do
       config.storage = :file
       config.enable_processing = false
     end
+
+    # Crazy upload cleanup hack from:
+    # http://goo.gl/bA1Edh
+    # Uploaders have to be explicitly required otherwise
+    # CarrierWave::Uploader::Base won't have any descendats
+    Dir[File.join(Rails.root, 'app', 'uploaders', '*.rb')].each do |file|
+      require file
+    end
+
+    CarrierWave::Uploader::Base.descendants.each do |klass|
+      next if klass.anonymous?
+      klass.class_eval do
+        def cache_dir
+          "#{Rails.root}/tmp/uploads/tmp"
+        end
+
+        def store_dir
+          "#{Rails.root}/tmp/uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+        end
+      end
+    end
   end
 end
+
