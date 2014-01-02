@@ -74,7 +74,6 @@ group :test do
   gem "simplecov", require: false
   gem "simplecov-rcov", require: false
   gem "brakeman", require: false
-  gem "database_cleaner"
   gem "codeclimate-test-reporter", require: nil
   gem "timecop"
   gem "json_expressions"

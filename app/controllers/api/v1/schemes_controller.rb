@@ -37,17 +37,10 @@ module Api
       def create
         scheme = Scheme.new(scheme_params)
 
-        begin
-          if scheme.save
-            render json: "Scheme created",
-                   status: :ok
-          else
-            render json: { errors: scheme.errors },
-                   status: :unprocessable_entity
-          end
-        rescue ActiveRecord::RecordNotUnique
-          scheme.errors.add(:name, 'is already taken')
-
+        if scheme.persist
+          render json: "Scheme created",
+                 status: :ok
+        else
           render json: { errors: scheme.errors },
                  status: :unprocessable_entity
         end

@@ -106,7 +106,6 @@ GEM
       execjs
     coffee-script-source (1.6.3)
     columnize (0.3.6)
-    database_cleaner (1.2.0)
     debug_inspector (0.0.2)
     debugger-linecache (1.2.0)
     decent_decoration (0.0.6)
@@ -375,7 +374,6 @@ DEPENDENCIES
   carrierwave
   codeclimate-test-reporter
   coffee-rails (~> 4.0.0)
-  database_cleaner
   decent_decoration
   decent_exposure (~> 2.3.0)
   devise (~> 3.2.0)
