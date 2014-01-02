@@ -180,5 +180,29 @@ describe Api::V1 do
         expect(response.body).not_to match_json_expression invalid_response_pattern
       end
     end
+
+    context 'with page filter' do
+      let(:scheme) { create :scheme }
+      let(:other_scheme) { create :scheme }
+      let(:response_pattern) {
+        {
+          schemes: [ { id: scheme.id }.ignore_extra_keys! ],
+          total: 2,
+          page: 1,
+          per_page: 1,
+        }
+      }
+
+      before {
+        scheme
+        other_scheme
+
+        get '/api/v1/schemes.json', page: "1", per_page: "1"
+      }
+
+      it 'returns schemes for given page' do
+        expect(response.body).to match_json_expression response_pattern
+      end
+    end
   end
 end

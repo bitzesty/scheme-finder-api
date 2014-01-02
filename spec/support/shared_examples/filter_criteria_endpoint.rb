@@ -3,7 +3,7 @@ require 'spec_helper'
 shared_examples_for 'Filter Criteria endpoint for' do |filter_type|
   describe 'criteria value listing' do
     let(:response_pattern) {
-      [ { id: String, name: String} ].ignore_extra_values!
+      { filter_type => [ { id: String, name: String} ].ignore_extra_values! }
     }
 
     it 'returns names and ids of the criterion' do
