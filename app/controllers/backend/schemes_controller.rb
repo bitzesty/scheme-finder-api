@@ -39,6 +39,7 @@ module Backend
 
     def unconfirmed
       self.schemes = schemes.unconfirmed
+
       render :index
     end
 

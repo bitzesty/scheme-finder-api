@@ -15,16 +15,19 @@ FactoryGirl.define do
     website "example.com"
     description "Host a short visit"
     had_direct_interactions { [false, true].sample }
-    location_ids { Location.ids.sample }
-    sector_ids { Sector.ids.sample }
-    commitment_length_ids { CommitmentLength.ids.sample }
-    activity_ids { Activity.ids.sample }
-    company_size_ids { CompanySize.ids.sample }
-    age_range_ids { AgeRange.ids.sample }
-    confirmed true
+    location_ids { [Location.ids.sample] }
+    sector_ids { [Sector.ids.sample] }
+    commitment_length_ids { [CommitmentLength.ids.sample] }
+    activity_ids { [Activity.ids.sample] }
+    company_size_ids { [CompanySize.ids.sample] }
+    age_range_ids { [AgeRange.ids.sample] }
+
+    trait :confirmed do
+      confirmed { true }
+    end
 
     trait :unconfirmed do
-      confirmed false
+      confirmed { false }
     end
   end
 end
