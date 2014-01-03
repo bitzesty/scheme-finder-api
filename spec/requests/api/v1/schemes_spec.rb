@@ -182,22 +182,22 @@ describe Api::V1 do
     end
 
     context 'with page filter' do
-      let(:scheme) { create :scheme }
-      let(:other_scheme) { create :scheme }
+      let(:scheme) { create :scheme, name: "first" }
+      let(:second_scheme) { create :scheme, name: "second" }
       let(:response_pattern) {
         {
-          schemes: [ { id: scheme.id }.ignore_extra_keys! ],
+          schemes: [ { id: second_scheme.id }.ignore_extra_keys! ],
           total: 2,
-          page: 1,
+          page: 2,
           per_page: 1,
         }
       }
 
       before {
         scheme
-        other_scheme
+        second_scheme
 
-        get '/api/v1/schemes.json', page: "1", per_page: "1"
+        get '/api/v1/schemes.json', page: "2", per_page: "1"
       }
 
       it 'returns schemes for given page' do
