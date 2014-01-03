@@ -1,6 +1,7 @@
 module Api
   module V1
     class SchemesController < ApiController
+      PER_PAGE = 10
       SCHEMA_EXAMPLE = %q(
 {
   'scheme' => {
@@ -32,6 +33,13 @@ module Api
           commitment_lengths: params[:commitment_lengths],
           company_sizes: params[:company_sizes]
         ).results
+
+        if filter_page
+          @total = @schemes.count
+          @page = filter_page
+          @per_page = filter_per_page
+          @schemes = @schemes.page(filter_page).per(filter_per_page)
+        end
       end
 
       def create
@@ -47,6 +55,14 @@ module Api
       end
 
       private
+
+      def filter_page
+        params[:page] && params[:page].to_i
+      end
+
+      def filter_per_page
+        (params[:per_page] || PER_PAGE).to_i
+      end
 
       def ensure_scheme_provided
         render json: { request_example: SCHEMA_EXAMPLE } unless params[:scheme]
