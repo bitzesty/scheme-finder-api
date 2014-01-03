@@ -46,15 +46,11 @@ describe Api::V1 do
           !ignored_scheme_attributes.include?(k)
         end
       }
-      let(:response_pattern) {
-        "Scheme created"
-      }
 
       it 'returns success message' do
         post '/api/v1/schemes.json', scheme: scheme_attributes
 
-        expect(response.status).to eq 200
-        expect(response.body).to eq response_pattern
+        expect(response.status).to eq 201
       end
     end
   end

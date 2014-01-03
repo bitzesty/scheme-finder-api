@@ -45,13 +45,9 @@ module Api
       def create
         scheme = Scheme.new(scheme_params)
 
-        if scheme.persist
-          render json: "Scheme created",
-                 status: :ok
-        else
-          render json: { errors: scheme.errors },
-                 status: :unprocessable_entity
-        end
+        scheme.persist
+
+        respond_with scheme, location: [:api, :v1, :schemes]
       end
 
       private
