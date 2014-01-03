@@ -182,8 +182,8 @@ describe Api::V1 do
     end
 
     context 'with page filter' do
-      let(:scheme) { create :scheme, name: "first" }
-      let(:second_scheme) { create :scheme, name: "second" }
+      let(:scheme) { create :scheme, :confirmed, name: "first" }
+      let(:second_scheme) { create :scheme, :confirmed, name: "second" }
       let(:response_pattern) {
         {
           schemes: [ { id: second_scheme.id }.ignore_extra_keys! ],
