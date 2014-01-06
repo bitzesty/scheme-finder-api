@@ -40,6 +40,6 @@ class SchemeSearch < Searchlight::Search
 
   private
   def locations_including_whole_england_coverage(locations)
-    (locations + Location.for_england).uniq
+    (locations + Location.for_england.map(&:id)).uniq
   end
 end
