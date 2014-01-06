@@ -26,4 +26,12 @@ class Location < ActiveHash::Base
   def self.ids
     all.map(&:id)
   end
+
+  def self.all_of_england_id
+    "england"
+  end
+
+  def self.for_england
+    where(group: "England")
+  end
 end
