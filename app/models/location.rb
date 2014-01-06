@@ -1,19 +1,18 @@
 class Location < ActiveHash::Base
   self.data = [
-    { id: "any", name: "Any Location" },
-    { id: "england", name: "All of England" },
-    { id: "north_east", name: "North East" },
-    { id: "north_west", name: "North West" },
-    { id: "yorkshire_humber", name: "Yorkshire and the Humber" },
-    { id: "east_midlands", name: "East Midlands" },
-    { id: "west_midlands", name: "West Midlands" },
-    { id: "east_england", name: "East of England" },
-    { id: "london", name: "London" },
-    { id: "south_england", name: "South East" },
-    { id: "south_west", name: "South West" },
-    { id: "northern_ireland", name: "Northern Ireland" },
-    { id: "scotland", name: "Scotland" },
-    { id: "wales", name: "Wales" },
+    { id: "england", name: "All of England", group: "England" },
+    { id: "north_east", name: "North East", group: "England" },
+    { id: "north_west", name: "North West", group: "England" },
+    { id: "yorkshire_humber", name: "Yorkshire and the Humber", group: "England" },
+    { id: "east_midlands", name: "East Midlands", group: "England" },
+    { id: "west_midlands", name: "West Midlands", group: "England" },
+    { id: "east_england", name: "East of England", group: "England" },
+    { id: "london", name: "London", group: "England" },
+    { id: "south_england", name: "South East", group: "England" },
+    { id: "south_west", name: "South West", group: "England" },
+    { id: "northern_ireland", name: "All of Northern Ireland", group: "Nothern Ireland" },
+    { id: "scotland", name: "All of Scotland", group: "Scotland" },
+    { id: "wales", name: "All of Wales", group: "Wales" },
   ]
 
   def to_s
@@ -21,7 +20,7 @@ class Location < ActiveHash::Base
   end
 
   def self.collection
-    all
+    all.group_by(&:group)
   end
 
   def self.ids

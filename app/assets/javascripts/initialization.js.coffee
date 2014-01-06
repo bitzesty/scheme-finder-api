@@ -11,7 +11,9 @@ sfa.apply_content_load_js = ($context) ->
   #########
   ## Select2
   for select in $context.find("select.js-select2")
-    options = {}
+    options = {
+      width: 'resolve',
+    }
     # has placeholder and empty option
     if $(select).filter("[placeholder]").find("option[value='']").length
       allow_clear_options =
