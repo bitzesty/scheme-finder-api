@@ -21,11 +21,12 @@
               label: "Should have engaged with schools before?"
 
     = f.input :location_ids,
-              as: :multi_select,
+              as: :grouped_select,
+              group_method: :last,
               label: 'Locations',
               collection: Location.collection,
               required: true,
-              input_html: { class: "span6" }
+              input_html: { class: "span6 js-select2", multiple: true }
 
     = f.input :sector_ids,
               as: :multi_select,
