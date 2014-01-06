@@ -15,9 +15,10 @@
     = f.input :contact_phone
     = f.input :name
     = f.input :website
-    = f.input :description
+    = f.input :description,
+              input_html: { rows: 5 }
 
-    = f.input :had_direct_interactions,
+    //= f.input :had_direct_interactions,
               label: "Should have engaged with schools before?"
 
     = f.input :location_ids,
