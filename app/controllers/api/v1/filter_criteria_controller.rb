@@ -7,6 +7,11 @@ module Api
         self.class.name.demodulize.chomp("Controller").underscore
       end
       helper_method :criteria_scope
+
+      def criteria_attributes
+        [:id, :name]
+      end
+      helper_method :criteria_attributes
     end
   end
 end

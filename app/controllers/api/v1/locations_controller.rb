@@ -4,6 +4,11 @@ module Api
       def index
         @criteria = Location.all
       end
+
+      private
+      def criteria_attributes
+        [:id, :name, :group]
+      end
     end
   end
 end
