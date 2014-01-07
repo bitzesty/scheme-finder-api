@@ -1,0 +1,16 @@
+<% attributes.each do |attribute| -%>
+p
+  strong <%= attribute.human_name %>:
+  '
+  = <%= singular_name %>.<%= attribute.name %>
+<% end -%>
+
+= link_to "Edit",
+          [:edit, <%= ":#{class_path.join(", :")}, " if class_path.any? %><%= singular_name %>],
+          class: "btn btn-sm btn-default",
+          data: { action: "edit" }
+| &nbsp;
+= link_to "Back",
+          [<%= ":#{class_path.join(", :")}, " if class_path.any? %><%= singular_name %>],
+          class: "btn btn-sm btn-default",
+          data: { action: "back" }
