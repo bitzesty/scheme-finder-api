@@ -57,3 +57,4 @@ pickle-email-*.html
 /config/application.yml
 public/uploads
 .env
+public/backend

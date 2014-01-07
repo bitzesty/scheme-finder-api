@@ -1,6 +1,10 @@
 class LogoUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
 
+  def store_dir
+    File.join(Rails.root, 'public', 'backend', 'uploads')
+  end
+
   version :logo do
     process resize_to_fill: [50, 50]
   end
