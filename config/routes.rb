@@ -23,8 +23,9 @@ SchemeFinderApi::Application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :schemes, only: [:index, :create]
-      resources :feedbacks, only: [:index, :create]
+      resources :schemes, only: [:index, :create] do
+        resources :feedbacks, only: [:index, :create]
+      end
       resources :activities, only: [:index]
       resources :age_ranges, only: [:index]
       resources :commitment_lengths, only: [:index]
