@@ -6,7 +6,7 @@
     .height-half
     .pull-right
       = link_to "New feedback",
-                [:new, :backend, :feedback],
+                [:new, :feedback],
                 class: "btn btn-sm btn-primary",
                 id: "btn_new",
                 data: { action: "new" }
@@ -27,12 +27,12 @@
         td = feedback.truncated_description
         td
           = link_to "Edit",
-                    [:edit, :backend, feedback],
+                    [:edit, feedback],
                     class: "btn btn-sm btn-default",
                     data: { action: "edit" }
           | &nbsp;
           = link_to "Remove",
-                    [:backend, feedback],
+                    feedback,
                     method: :delete,
                     class: "btn btn-sm btn-danger",
                     data: { action: "delete" }

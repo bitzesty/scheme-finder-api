@@ -1,6 +1,6 @@
 class FeedbackDecorator < ApplicationDecorator
   def scheme_link
-    h.object_link scheme, ->(scheme) { [:backend, scheme] }
+    h.object_link scheme, ->(scheme) { scheme }
   end
 
   def truncated_description

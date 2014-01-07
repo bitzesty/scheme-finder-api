@@ -10,7 +10,7 @@
         th Email
         th Admin?
         th
-          = link_to 'New user', new_backend_user_path, class: 'btn btn-sm btn-primary'
+          = link_to 'New user', new_account_path, class: 'btn btn-sm btn-primary'
     tbody
       - users.each do |user|
         tr
@@ -19,7 +19,7 @@
           td
             = confirmation_icon(user.admin?)
           td
-            = link_to 'Edit', edit_backend_user_path(user), class: 'btn btn-sm btn-default'
+            = link_to 'Edit', edit_account_path(user), class: 'btn btn-sm btn-default'
             | &nbsp;
             - unless current_user == user
-              = link_to 'Remove', backend_user_path(user), method: :delete, class: 'btn btn-sm btn-danger'
+              = link_to 'Remove', account_path(user), method: :delete, class: 'btn btn-sm btn-danger'

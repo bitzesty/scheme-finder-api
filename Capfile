@@ -20,7 +20,7 @@ require "capistrano/deploy"
 # require "capistrano/chruby"
 
 require "capistrano/bundler"
-require "capistrano/rails"
+require 'capistrano/rails/migrations'
 require "whenever/capistrano"
 require "airbrake/capistrano3"
 require "hipchat/capistrano"

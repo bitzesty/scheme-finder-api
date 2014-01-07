@@ -65,13 +65,13 @@ describe 'Feedback management' do
     end
 
     specify 'lists approved feedbacks in approved feedbacks page' do
-      verify feedback_listed?(approved_feedback, backend_feedbacks_path)
-      verify !feedback_listed?(unapproved_feedback, backend_feedbacks_path)
+      verify feedback_listed?(approved_feedback, feedbacks_path)
+      verify !feedback_listed?(unapproved_feedback, feedbacks_path)
     end
 
     specify 'lists unapproved feedbacks in unapproved feedbacks page' do
-      verify !feedback_listed?(approved_feedback, unapproved_backend_feedbacks_path)
-      verify feedback_listed?(unapproved_feedback, unapproved_backend_feedbacks_path)
+      verify !feedback_listed?(approved_feedback, unapproved_feedbacks_path)
+      verify feedback_listed?(unapproved_feedback, unapproved_feedbacks_path)
     end
   end
 end

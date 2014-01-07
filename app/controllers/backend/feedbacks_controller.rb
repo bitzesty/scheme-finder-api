@@ -5,7 +5,7 @@ module Backend
 
     def create
       if feedback.save
-        redirect_to [:backend, feedback],
+        redirect_to feedback,
                     notice: "Feedback created"
       else
         render :new
@@ -14,7 +14,7 @@ module Backend
 
     def update
       if feedback.save
-        redirect_to [:backend, feedback],
+        redirect_to feedback,
                     notice: "Feedback updated"
       else
         render :edit
@@ -23,7 +23,7 @@ module Backend
 
     def destroy
       feedback.destroy
-      redirect_to [:backend, feedback],
+      redirect_to feedback,
                   notice: "Feedback deleted"
     end
 

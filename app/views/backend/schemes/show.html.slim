@@ -60,14 +60,14 @@ p
   = image_tag scheme.logo.logo
 
 = link_to "Edit",
-          [:edit, :backend, scheme],
+          [:edit, scheme],
           class: "btn btn-sm btn-default",
           data: { action: "edit" }
 | &nbsp;
 = link_to 'Back to schemes',
-          [:backend, :schemes],
+          schemes_path,
           class: "btn btn-sm btn-default"
 | &nbsp;
 = link_to 'Back to unconfirmed schemes',
-          [:unconfirmed, :backend, :schemes],
+          [:unconfirmed, :schemes],
           class: "btn btn-sm btn-default"

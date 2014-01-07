@@ -5,7 +5,7 @@ module Backend
     # returns true if scheme is created, i.e. can be seen in admin
     # scheme list UI
     def scheme_created?(scheme)
-      ensure_on backend_schemes_path
+      ensure_on schemes_path
 
       page.has_css?(schemes_table) &&
       within(schemes_table) do
@@ -17,7 +17,7 @@ module Backend
     #
     # creates a scheme given mock scheme instance
     def create_scheme(scheme)
-      ensure_on new_backend_scheme_path
+      ensure_on new_scheme_path
 
       within(:css, dom_id_selector(scheme)) do
         check "scheme_confirmed" if scheme.confirmed
@@ -50,7 +50,7 @@ module Backend
     #
     # Removes scheme using backend interface
     def remove_scheme(scheme)
-      ensure_on backend_schemes_path
+      ensure_on schemes_path
 
       within(schemes_table) do
         click_link "Remove"
@@ -61,7 +61,7 @@ module Backend
     #
     # Updates scheme's details
     def update_scheme(scheme, new_details = {})
-      ensure_on edit_backend_scheme_path(scheme)
+      ensure_on edit_scheme_path(scheme)
 
       new_details.each do |field, value|
         fill_in "scheme_#{field}", with: value
@@ -76,7 +76,7 @@ module Backend
     #
     # Checks if scheme details were updated
     def scheme_updated?(scheme, updated_details = {})
-      ensure_on edit_backend_scheme_path(scheme)
+      ensure_on edit_scheme_path(scheme)
 
       updated_details.all? { |field, value|
         has_field?("scheme_#{field}", with: value)
@@ -100,7 +100,7 @@ module Backend
     #
     # Checks if scheme was confirmed
     def scheme_confirmed?(scheme)
-      ensure_on edit_backend_scheme_path(scheme)
+      ensure_on edit_scheme_path(scheme)
 
       has_checked_field?("scheme_confirmed")
     end
