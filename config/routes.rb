@@ -18,8 +18,6 @@ SchemeFinderApi::Application.routes.draw do
           get :unapproved
         }
       end
-
-      root to: 'dashboards#show'
     end
 
     namespace :api do

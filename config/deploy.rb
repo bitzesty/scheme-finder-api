@@ -29,7 +29,7 @@ set :pty, true
 
 set :linked_files, %w{config/database.yml .env}
 set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle
-                     public/system}
+                     public/system public/backend/uploads}
 
 set :default_env, {
   "LANG" => "en_US.UTF-8",
