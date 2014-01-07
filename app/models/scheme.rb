@@ -21,6 +21,10 @@ class Scheme < ActiveRecord::Base
   # scopes for ordering
   scope :by_name, -> { order name: :asc }
 
+  def to_s
+    name
+  end
+
   def locations
     Location.find(location_ids)
   end

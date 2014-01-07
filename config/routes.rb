@@ -12,6 +12,12 @@ SchemeFinderApi::Application.routes.draw do
       }
     end
 
+    resources :feedbacks do
+      collection {
+        get :unapproved
+      }
+    end
+
     root to: 'dashboards#show'
   end
 

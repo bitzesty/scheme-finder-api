@@ -1,0 +1,29 @@
+p
+  strong Scheme:
+  '
+  = feedback.scheme_link
+p
+  strong Score:
+  '
+  = feedback.score
+p
+  strong Description:
+  '
+  = feedback.description
+p
+  strong Approved:
+  '
+  = feedback.approved_icon
+
+= link_to "Edit",
+          [:edit, :backend, feedback],
+          class: "btn btn-sm btn-default",
+          data: { action: "edit" }
+| &nbsp;
+= link_to 'Back to feedbacks',
+          [:backend, :feedbacks],
+          class: "btn btn-sm btn-default"
+| &nbsp;
+= link_to 'Back to unapproved feedbacks',
+          [:unapproved, :backend, :feedbacks],
+          class: "btn btn-sm btn-default"

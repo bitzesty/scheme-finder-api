@@ -18,5 +18,8 @@ nav.navbar.navbar-inverse.navbar-fixed-top
           = nav_item "Applications",
                      unconfirmed_backend_schemes_path,
                      schemes: "unconfirmed"
+          = nav_item "Feedbacks",
+                     [:unapproved, :backend, :feedbacks],
+                     "feedbacks"
         li
           = link_to "Sign out", destroy_user_session_path, method: :delete

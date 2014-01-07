@@ -11,10 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140106095519) do
+ActiveRecord::Schema.define(version: 20140106141813) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "feedbacks", force: true do |t|
+    t.integer  "scheme_id"
+    t.integer  "score"
+    t.text     "description"
+    t.boolean  "approved",    default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "feedbacks", ["approved"], name: "index_feedbacks_on_approved", using: :btree
+  add_index "feedbacks", ["scheme_id"], name: "index_feedbacks_on_scheme_id", using: :btree
 
   create_table "schemes", force: true do |t|
     t.boolean  "had_direct_interactions"
