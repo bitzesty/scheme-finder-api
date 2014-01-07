@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Api::V1::Schemes::FeedbacksController do
+describe Api::V1::FeedbacksController do
   describe 'feedback fetching' do
     context 'for scheme' do
       let(:scheme) { create :scheme }
