@@ -6,19 +6,19 @@ module Backend
     def create
       flash.notice = 'Scheme successfully created' if scheme.persist
 
-      respond_with(scheme, location: [:backend, scheme])
+      respond_with(scheme, location: scheme)
     end
 
     def update
       flash.notice = 'Scheme successfully updated' if scheme.persist
 
-      respond_with(scheme, location: [:backend, scheme])
+      respond_with(scheme, location: scheme)
     end
 
     def destroy
       scheme.destroy
 
-      redirect_to [:backend, scheme],
+      redirect_to scheme,
                   notice: "Scheme deleted"
     end
 

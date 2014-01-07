@@ -1,0 +1,5 @@
+.page-header
+  h2 New user
+
+= simple_form_for user, url: accounts_path do |f|
+  = render 'fields', f: f

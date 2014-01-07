@@ -65,13 +65,13 @@ describe 'Scheme management' do
     end
 
     specify 'lists confirmed schemes in confirmed schemes page' do
-      verify scheme_listed?(confirmed_scheme, backend_schemes_path)
-      verify !scheme_listed?(unconfirmed_scheme, backend_schemes_path)
+      verify scheme_listed?(confirmed_scheme, schemes_path)
+      verify !scheme_listed?(unconfirmed_scheme, schemes_path)
     end
 
     specify 'lists unconfirmed schemes in unconfirmed schemes page' do
-      verify !scheme_listed?(confirmed_scheme, unconfirmed_backend_schemes_path)
-      verify scheme_listed?(unconfirmed_scheme, unconfirmed_backend_schemes_path)
+      verify !scheme_listed?(confirmed_scheme, unconfirmed_schemes_path)
+      verify scheme_listed?(unconfirmed_scheme, unconfirmed_schemes_path)
     end
   end
 end

@@ -6,17 +6,17 @@ nav.navbar.navbar-inverse.navbar-fixed-top
         span.icon-bar
         span.icon-bar
         span.icon-bar
-      = link_to "Dashboard", backend_root_path, class: "navbar-brand"
+      = link_to "Dashboard", root_path, class: "navbar-brand"
     .collapse.navbar-collapse
       ul.nav.navbar-nav
         - if access_policy.permitted?(:user_management)
-          = nav_item "Users", backend_users_path, "users"
+          = nav_item "Users", accounts_path, "accounts"
         - if access_policy.permitted?(:scheme_management)
           = nav_item "Schemes",
-                     backend_schemes_path,
+                     schemes_path,
                      schemes: %w(index show new edit)
           = nav_item "Applications",
-                     unconfirmed_backend_schemes_path,
+                     unconfirmed_schemes_path,
                      schemes: "unconfirmed"
           = nav_item "Feedbacks",
                      [:unapproved, :backend, :feedbacks],

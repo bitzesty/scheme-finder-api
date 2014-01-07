@@ -1,12 +1,12 @@
 SchemeFinderApi::Application.routes.draw do
-  scope '/backend' do
+  scope Rails.application.config.relative_url_root do
     devise_for :users
 
     get '/pages/about', to: 'pages#about', as: :about
 
-    namespace :backend do
+    scope module: 'backend' do
       resource  :dashboard
-      resources :users
+      resources :accounts
       resources :schemes do
         collection {
           get :unconfirmed
@@ -34,6 +34,6 @@ SchemeFinderApi::Application.routes.draw do
       end
     end
 
-    root to: 'pages#about'
+    root to: 'backend/dashboards#show'
   end
 end

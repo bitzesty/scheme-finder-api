@@ -1,16 +1,19 @@
 module Backend
-  class UsersController < Backend::BaseController
+  class AccountsController < Backend::BaseController
     expose(:users)
     expose(:user, attributes: :user_params)
 
     before_filter :authorize
+
+    def index
+    end
 
     def new
     end
 
     def create
       if user.save
-        redirect_to backend_users_url, notice: 'User successfully created'
+        redirect_to accounts_url, notice: 'User successfully created'
       else
         render :new
       end
@@ -18,7 +21,7 @@ module Backend
 
     def update
       if user_updated?(user, user_params)
-        redirect_to backend_users_url, notice: 'User information successfully updated'
+        redirect_to accounts_url, notice: 'User information successfully updated'
       else
         render :edit
       end
@@ -30,7 +33,7 @@ module Backend
     def destroy
       user.destroy
 
-      redirect_to backend_users_url, notice: 'User successfully removed'
+      redirect_to accounts_url, notice: 'User successfully removed'
     end
 
     private
