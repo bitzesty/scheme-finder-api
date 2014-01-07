@@ -16,14 +16,14 @@ p
   = feedback.approved_icon
 
 = link_to "Edit",
-          [:edit, :backend, feedback],
+          [:edit, feedback],
           class: "btn btn-sm btn-default",
           data: { action: "edit" }
 | &nbsp;
 = link_to 'Back to feedbacks',
-          [:backend, :feedbacks],
+          feedbacks_path,
           class: "btn btn-sm btn-default"
 | &nbsp;
 = link_to 'Back to unapproved feedbacks',
-          [:unapproved, :backend, :feedbacks],
+          [:unapproved, :feedbacks],
           class: "btn btn-sm btn-default"

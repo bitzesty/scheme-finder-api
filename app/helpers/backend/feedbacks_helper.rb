@@ -10,11 +10,10 @@ module Backend
 
     def feedbacks_switch_link
       if action_name == "unapproved"
-        link_to "Switch to approved ones",
-                [:backend, :feedbacks]
+        link_to "Switch to approved ones", feedbacks_path
       else
         link_to "Switch to unapproved ones",
-                [:unapproved, :backend, :feedbacks]
+                [:unapproved, :feedbacks]
       end
     end
   end

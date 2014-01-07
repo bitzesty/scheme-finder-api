@@ -23,7 +23,11 @@ SchemeFinderApi::Application.routes.draw do
     namespace :api do
       namespace :v1 do
         scope defaults: { format: 'json' } do
-          resources :schemes, only: [:index, :create]
+          resources :schemes, only: [:index, :create] do
+            scope module: :schemes do
+              resources :feedbacks, only: [:index, :create]
+            end
+          end
           resources :activities, only: [:index]
           resources :age_ranges, only: [:index]
           resources :commitment_lengths, only: [:index]

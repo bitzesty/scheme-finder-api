@@ -19,7 +19,7 @@ nav.navbar.navbar-inverse.navbar-fixed-top
                      unconfirmed_schemes_path,
                      schemes: "unconfirmed"
           = nav_item "Feedbacks",
-                     [:unapproved, :backend, :feedbacks],
+                     [:unapproved, :feedbacks],
                      "feedbacks"
         li
           = link_to "Sign out", destroy_user_session_path, method: :delete
