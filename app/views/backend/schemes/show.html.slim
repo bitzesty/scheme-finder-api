@@ -59,6 +59,15 @@ p
   '
   = image_tag scheme.logo.logo
 
-= link_to 'Edit', edit_backend_scheme_path(scheme)
-'|
-= link_to 'Back', :back
+= link_to "Edit",
+          [:edit, :backend, scheme],
+          class: "btn btn-sm btn-default",
+          data: { action: "edit" }
+| &nbsp;
+= link_to 'Back to schemes',
+          [:backend, :schemes],
+          class: "btn btn-sm btn-default"
+| &nbsp;
+= link_to 'Back to unconfirmed schemes',
+          [:unconfirmed, :backend, :schemes],
+          class: "btn btn-sm btn-default"

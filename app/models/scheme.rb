@@ -1,6 +1,8 @@
 class Scheme < ActiveRecord::Base
   mount_uploader :logo, LogoUploader
 
+  has_many :feedbacks
+
   validates :contact_name, presence: true
   validates :contact_phone, presence: true
   validates :contact_email, presence: true, email: true
@@ -20,6 +22,10 @@ class Scheme < ActiveRecord::Base
 
   # scopes for ordering
   scope :by_name, -> { order name: :asc }
+
+  def to_s
+    name
+  end
 
   def locations
     Location.find(location_ids)

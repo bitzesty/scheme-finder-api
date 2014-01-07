@@ -12,12 +12,23 @@ SchemeFinderApi::Application.routes.draw do
       }
     end
 
+    resources :feedbacks do
+      collection {
+        get :unapproved
+      }
+    end
+
     root to: 'dashboards#show'
   end
 
   namespace :api do
     namespace :v1 do
-      resources :schemes, only: [:index, :create]
+      resources :schemes, only: [:index, :create] do
+        scope module: :schemes do
+          resources :feedbacks, only: [:index, :create]
+        end
+      end
+
       resources :activities, only: [:index]
       resources :age_ranges, only: [:index]
       resources :commitment_lengths, only: [:index]
