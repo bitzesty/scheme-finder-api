@@ -99,4 +99,7 @@ end
 
 CarrierWave.configure do |config|
   config.storage = :file
+  config.asset_host = proc do |file|
+    ENV["HOST"]
+  end
 end
