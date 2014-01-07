@@ -86,6 +86,7 @@ SchemeFinderApi::Application.configure do
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
+  config.relative_url_root = "/backend"
 
   config.log_formatter = ::Logger::Formatter.new
 
