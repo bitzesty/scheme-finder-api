@@ -36,4 +36,7 @@ set :unicorn_pid, "#{shared_path}/pids/unicorn.pid"
 set :nginx_site_conf, "/etc/nginx/sites-enabled/#{fetch(:application)}.conf"
 
 set :bundle_flags, "--deployment --quiet --binstubs --shebang ruby-local-exec"
-fetch(:default_env).merge!(rails_env: fetch(:stage))
+fetch(:default_env).merge!(
+  rails_env: fetch(:stage),
+  rails_relative_url_root: "/backend"
+)
