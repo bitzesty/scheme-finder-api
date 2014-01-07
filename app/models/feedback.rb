@@ -8,6 +8,7 @@ class Feedback < ActiveRecord::Base
   # scopes for filtering
   scope :approved, -> { where approved: true }
   scope :unapproved, -> { where approved: [false, nil] }
+  scope :for_scheme_id, ->(scheme_id) { where scheme_id: scheme_id }
 
   # scopes for ordering
   scope :by_latest, -> { order created_at: :desc }

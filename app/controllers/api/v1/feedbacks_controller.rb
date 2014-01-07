@@ -17,7 +17,7 @@ module Api
       def index
         @feedbacks = Feedback.approved
         if scheme_id_param.present?
-          @feedbacks = @feedbacks.for_scheme(scheme_id_param)
+          @feedbacks = @feedbacks.for_scheme_id(scheme_id_param)
         end
       end
 
