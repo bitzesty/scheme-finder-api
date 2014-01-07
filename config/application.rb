@@ -27,6 +27,7 @@ module SchemeFinderApi
       g.helper_specs false
       g.controller_specs false
       g.jbuilder false
+      g.decorator false
       g.stylesheets false
       g.assets false
       g.helper false
