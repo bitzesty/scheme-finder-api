@@ -2,7 +2,7 @@ class LogoUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
 
   def store_dir
-    File.join(Rails.root, 'public', 'backend', 'uploads')
+    File.join('public', 'backend', 'uploads')
   end
 
   version :logo do
