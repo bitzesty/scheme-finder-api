@@ -51,6 +51,8 @@ gem "airbrake", github: "viperdezigns/airbrake", branch: "capistrano3"
 gem "underscore-rails"
 gem "gon"
 
+gem "obscenity"
+
 group :development do
   gem "spring"
   gem "spring-commands-rspec"
