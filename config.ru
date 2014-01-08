@@ -2,6 +2,10 @@
 
 require ::File.expand_path('../config/environment',  __FILE__)
 
-map Rails.application.config.relative_url_root do
+if Rails.application.config.relative_url_root
+  map Rails.application.config.relative_url_root do
+    run Rails.application
+  end
+else
   run Rails.application
 end

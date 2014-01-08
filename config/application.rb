@@ -70,15 +70,12 @@ module SchemeFinderApi
     # config.active_record.schema_format = :sql
 
     # config.assets.paths << "#{Rails.root}/vendor/assets/fonts"
-    # default url root
-    config.relative_url_root = "/"
 
     # Enable the asset pipeline
     config.assets.enabled = true
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
-    config.assets.prefix = 'backend/assets'
 
     config.assets.precompile += %w( email.css )
 
