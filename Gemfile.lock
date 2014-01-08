@@ -204,6 +204,7 @@ GEM
     newrelic_rpm (3.7.1.180)
     nokogiri (1.6.1)
       mini_portile (~> 0.5.0)
+    obscenity (1.0.2)
     orm_adapter (0.5.0)
     pg (0.17.1)
     pg_array_parser (0.0.9)
@@ -397,6 +398,7 @@ DEPENDENCIES
   memoist
   mini_magick
   newrelic_rpm
+  obscenity
   pg
   pg_array_parser
   poltergeist

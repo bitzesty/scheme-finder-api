@@ -3,7 +3,7 @@ class Feedback < ActiveRecord::Base
 
   validates :scheme, presence: true
   validates :score, presence: true
-  validates :description, presence: true
+  validates :description, presence: true, obscenity: true
 
   # scopes for filtering
   scope :approved, -> { where approved: true }
