@@ -2,9 +2,9 @@ module Backend
   module FeedbacksHelper
     def feedbacks_index_title
       if action_name == "unapproved"
-        "Unapproved feedbacks"
+        "Unapproved feedback"
       else
-        "Feedbacks"
+        "Feedback"
       end
     end
 
