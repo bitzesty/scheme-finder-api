@@ -1,22 +1,23 @@
-.page-header
-  h2
-    =' schemes_index_title
-    small= "(#{schemes.count})"
-    .height-half
-    .pull-right
-      = link_to "New scheme",
-                [:new, :scheme],
-                class: "btn btn-sm btn-primary",
-                id: "btn_new",
-                data: { action: "new" }
+.container
+  .page-header
+    h2
+      =' schemes_index_title
+      small= "(#{schemes.count})"
+      span.pull-right
+        = link_to "New scheme",
+                  [:new, :scheme],
+                  class: "btn btn-sm btn-primary",
+                  id: "btn_new",
+                  data: { action: "new" }
 
-- if schemes.any?
-  table.table.table-bordered.table-striped.table-hover.schemes-table
-    thead
-      tr
-        th
-        th Name
-        th
-    tbody
-      - schemes.decorate.each do |scheme|
-        = render scheme
+  - if schemes.none?
+    h4 No schemes created.
+  - else
+    table.table.table-middle.table-striped.table-hover.schemes-table
+      colgroup
+        col width="65"
+        col width="700"
+        col width="200"
+      tbody
+        - schemes.decorate.each do |scheme|
+          = render scheme

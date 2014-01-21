@@ -1,5 +1,6 @@
-.page-header
-  h2 New user
+.container
+  .page-header
+    h2 New user
 
-= simple_form_for user, url: accounts_path do |f|
-  = render 'fields', f: f
+  = simple_form_for user, url: accounts_path, wrapper: :bootstrap3_horizontal do |f|
+    = render 'fields', f: f

@@ -1,10 +1,22 @@
-h2
-  | Resend confirmation instructions
-= simple_form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f|
-  = f.error_notification
-  = f.full_error :confirmation_token
-  .form-inputs
-    = f.input :email, required: true, autofocus: true
-  .form-actions
-    = f.button :submit, "Resend confirmation instructions"
-= render "devise/shared/links"
+.container
+  h2
+    | Resend confirmation instructions
+  br
+  = simple_form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }, wrapper: :bootstrap3_horizontal) do |f|
+    .form-inputs
+      = f.error_notification
+      = f.full_error :confirmation_token
+
+      = f.input :email,
+                required: true,
+                autofocus: true,
+                label_html: { class: "col-sm-2" },
+                right_column_html: { class: "col-sm-3" }
+
+    .form-group
+      .col-sm-offset-2
+        = f.button :submit,
+                    "Resend confirmation instructions",
+                    class: "btn btn-primary"
+
+  = render "devise/shared/links"

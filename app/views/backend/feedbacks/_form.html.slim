@@ -1,17 +1,29 @@
 = simple_form_for feedback,
-                  html: { class: "form-horizontal" } do |f|
-  .form-inputs
+                  html: { class: "form-horizontal" },
+                  wrapper: :bootstrap3_horizontal do |f|
+  .form-inputs.form-horizontal
     = f.association :scheme,
-                    input_html: { class: "js-select2" }
+                    input_html: { class: "js-select2" },
+                    label_html: { class: "col-sm-2" },
+                    right_column_html: { class: "col-sm-3" }
     = f.input :score,
-              input_html: { min: 0, max: 5 }
-    = f.input :description,
-              input_html: { rows: 5 }
-    = f.input :approved,
-              label: "Approved?"
+              input_html: { min: 0, max: 5 },
+              label_html: { class: "col-sm-2" },
+              right_column_html: { class: "col-sm-1" }
 
-  .form-actions
-    = f.button :submit,
-               class: "btn btn-primary",
-               id: "submit_btn",
-               data: { action: "submit" }
+    = f.input :description,
+              input_html: { rows: 5 },
+              label_html: { class: "col-sm-2" },
+              right_column_html: { class: "col-sm-5" }
+
+    = f.input :approved,
+              label: "Approved?",
+              label_html: { class: "col-sm-2" },
+              right_column_html: { class: "col-sm-3" }
+
+    .form-actions
+      .col-sm-offset-2
+        = f.button :submit,
+                    class: "btn btn-primary",
+                    id: "submit_btn",
+                    data: { action: "submit" }

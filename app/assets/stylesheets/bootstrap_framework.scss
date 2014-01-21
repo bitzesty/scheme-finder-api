@@ -5,44 +5,119 @@
 img {
   @extend .img-responsive;
   margin: 0 auto;
-  }
-// override for the 'Home' navigation link
+}
+
+abbr[title] {
+  border: none;
+}
+
 .navbar-brand {
   font-size: inherit;
-  }
+}
 
-// THESE ARE EXAMPLES YOU CAN MODIFY
-// create your own classes
-// to make views framework-neutral
 .column {
   @extend .col-md-6;
   @extend .text-center;
-  }
+}
+
 .form {
   @extend .col-md-6;
-  }
+}
+
 .form-centered {
   @extend .col-md-6;
   @extend .text-center;
-  }
+}
+
 .submit {
   @extend .btn;
   @extend .btn-primary;
   @extend .btn-lg;
-  }
-// apply styles to HTML elements
-// to make views framework-neutral
+}
+
 main {
   @extend .container;
-  background-color: #eee;
   padding-bottom: 80px;
   width: 100%;
   margin-top: 51px; // accommodate the navbar
-  }
+}
+
 section {
   @extend .row;
   margin-top: 20px;
+}
+
+.alert {
+  z-index: 9999;
+  position: fixed;
+  width: 80%;
+  max-width: 1170px;
+  top: 40px;
+  left: 10%;
+  margin: 0;
+  padding: 10px 15px;
+  text-align: center;
+}
+
+.page-header {
+  border: none;
+  h1 img {
+    position: relative;
+    float: left;
+    margin-top: -5px;
+    margin-right: 20px;
   }
+}
+
+.input-checkbox {
+  .control-label {
+    text-align: left;
+    position: relative;
+    padding-left: 35px;
+
+    &.col-sm-2 {
+      left: 16.6666666%;
+    }
+  }
+}
+
+input.file {
+  padding-left: 0;
+  border: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.select2-container {
+  height: 26px;
+  padding: 0;
+  border: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+
+  &.select2-container-multi {
+    height: auto;
+  }
+
+  .select2-choices {
+    border-color: #ccc;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+  }
+
+  &.select2-dropdown-open .select2-choices {
+    -moz-border-radius: 3px 3px 0 0;
+    -webkit-border-radius: 3px 3px 0 0;
+    border-radius: 3px 3px 0 0;
+  }
+}
+
+table.table.table-middle tr td{
+  vertical-align: middle;
+}
 
 .badge-default {
   @include label-variant($label-default-bg);

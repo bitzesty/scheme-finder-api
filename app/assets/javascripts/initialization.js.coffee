@@ -8,6 +8,8 @@ sfa.activate_link = ($link, up_to_element = "ul") ->
 sfa.apply_content_load_js = ($context) ->
   $context ||= $("body")
 
+  $(".alert").delay(5000).fadeOut("slow")
+
   #########
   ## Select2
   for select in $context.find("select.js-select2")

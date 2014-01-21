@@ -1,25 +1,50 @@
 = simple_form_for scheme,
-                  html: { class: "horizontal-form" } do |f|
-  .form-inputs
+                  html: { class: "horizontal-form" },
+                  wrapper: :bootstrap3_horizontal do |f|
+  .form-inputs.form-horizontal
     = f.input :confirmed,
-              label: "Confirmed by admin?"
+              label: "Confirmed by admin?",
+              label_html: { class: "col-sm-2" },
+              right_column_html: { class: "col-sm-3" }
 
     = f.input :logo,
               as: :file,
-              input_html: { class: "span5" }
+              input_html: { class: "span5" },
+              label_html: { class: "col-sm-2" },
+              right_column_html: { class: "col-sm-3" }
 
     = f.input :logo_cache, as: :hidden
 
-    = f.input :contact_name
-    = f.input :contact_email
-    = f.input :contact_phone
-    = f.input :name
-    = f.input :website
+    = f.input :contact_name,
+              label_html: { class: "col-sm-2" },
+              right_column_html: { class: "col-sm-3" }
+
+    = f.input :contact_email,
+              label_html: { class: "col-sm-2" },
+              right_column_html: { class: "col-sm-3" }
+
+    = f.input :contact_phone,
+              label_html: { class: "col-sm-2" },
+              right_column_html: { class: "col-sm-3" }
+
+    = f.input :name,
+              label_html: { class: "col-sm-2" },
+              right_column_html: { class: "col-sm-3" }
+
+    = f.input :website,
+              label_html: { class: "col-sm-2" },
+              right_column_html: { class: "col-sm-3" }
+
     = f.input :description,
-              input_html: { rows: 5 }
+              input_html: { rows: 5 },
+              label_html: { class: "col-sm-2" },
+              right_column_html: { class: "col-sm-5" }
+
 
     //= f.input :had_direct_interactions,
-              label: "Should have engaged with schools before?"
+              label: "Should have engaged with schools before?",
+              label_html: { class: "col-sm-2" },
+              right_column_html: { class: "col-sm-3" }
 
     = f.input :location_ids,
               as: :grouped_select,
@@ -27,14 +52,18 @@
               label: 'Locations',
               collection: Location.collection,
               required: true,
-              input_html: { class: "span6 js-select2", multiple: true }
+              input_html: { class: "span6 js-select2", multiple: true },
+              label_html: { class: "col-sm-2" },
+              right_column_html: { class: "col-sm-3" }
 
     = f.input :sector_ids,
               as: :multi_select,
               label: 'Sectors',
               collection: Sector.collection,
               required: true,
-              input_html: { class: "span6" }
+              input_html: { class: "span6" },
+              label_html: { class: "col-sm-2" },
+              right_column_html: { class: "col-sm-3" }
 
     = f.input :commitment_length_ids,
               as: :multi_select,
@@ -42,31 +71,40 @@
               collection: CommitmentLength.collection,
               label: "Length of commitment",
               required: true,
-              input_html: { class: "span6" }
+              input_html: { class: "span6" },
+              label_html: { class: "col-sm-2" },
+              right_column_html: { class: "col-sm-3" }
 
     = f.input :activity_ids,
               as: :multi_select,
               collection: Activity.collection,
               label: 'Activities',
               required: true,
-              input_html: { class: "span6" }
+              input_html: { class: "span6" },
+              label_html: { class: "col-sm-2" },
+              right_column_html: { class: "col-sm-3" }
 
     = f.input :company_size_ids,
               as: :multi_select,
               collection: CompanySize.collection,
               label: 'Company size',
               required: true,
-              input_html: { class: "span6" }
+              input_html: { class: "span6" },
+              label_html: { class: "col-sm-2" },
+              right_column_html: { class: "col-sm-3" }
 
     = f.input :age_range_ids,
               as: :multi_select,
               label: 'Age range',
               collection: AgeRange.collection,
               required: true,
-              input_html: { class: "span6" }
+              input_html: { class: "span6" },
+              label_html: { class: "col-sm-2" },
+              right_column_html: { class: "col-sm-3" }
 
   .form-actions
-    = f.button :submit,
-               class: "btn btn-primary",
-               id: "submit_btn",
-               data: { action: "submit" }
+    .col-sm-offset-2
+      = f.button :submit,
+                  id: "submit_btn",
+                  data: { action: "submit" },
+                  class: "btn btn-primary"

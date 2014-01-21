@@ -1,25 +1,30 @@
-.page-header
-  h2
-    | Users&nbsp;
-    small= "(#{users.count})"
+.container
+  .page-header
+    h2
+      | Users&nbsp;
+      small= "(#{users.count})"
+      span.pull-right
+        = link_to 'New user', new_account_path, class: 'btn btn-sm btn-primary'
 
-- if users.any?
-  table.table.table-bordered.table-striped.table-hover.users-table
-    thead
-      tr
-        th Email
-        th Admin?
-        th
-          = link_to 'New user', new_account_path, class: 'btn btn-sm btn-primary'
-    tbody
-      - users.each do |user|
+  - if users.any?
+    table.table.table-middle.table-striped.table-hover.users-table
+      colgroup
+        col width="65"
+        col width="900"
+        col width="200"
+      thead
         tr
-          td
-            = mail_to user.email
-          td
-            = confirmation_icon(user.admin?)
-          td
-            = link_to 'Edit', edit_account_path(user), class: 'btn btn-sm btn-default'
-            | &nbsp;
-            - unless current_user == user
-              = link_to 'Remove', account_path(user), method: :delete, class: 'btn btn-sm btn-danger'
+          th.text-center Admin?
+          th Email
+          th &nbsp;
+      tbody
+        - users.each do |user|
+          tr
+            td.text-center = confirmation_icon(user.admin?)
+            td = mail_to user.email
+            td
+              .pull-right
+                = link_to 'Edit', edit_account_path(user), class: 'btn btn-sm btn-default'
+                | &nbsp;
+                - unless current_user == user
+                  = link_to 'Remove', account_path(user), method: :delete, class: 'btn btn-sm btn-danger'

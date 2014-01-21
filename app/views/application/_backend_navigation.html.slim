@@ -9,8 +9,6 @@ nav.navbar.navbar-inverse.navbar-fixed-top
       = link_to "Dashboard", root_path, class: "navbar-brand"
     .collapse.navbar-collapse
       ul.nav.navbar-nav
-        - if access_policy.permitted?(:user_management)
-          = nav_item "Users", accounts_path, "accounts"
         - if access_policy.permitted?(:scheme_management)
           = nav_item "Schemes",
                      schemes_path,
@@ -21,5 +19,8 @@ nav.navbar.navbar-inverse.navbar-fixed-top
           = nav_item "Feedback",
                      [:unapproved, :feedbacks],
                      "feedbacks"
+        - if access_policy.permitted?(:user_management)
+          = nav_item "Users", accounts_path, "accounts"
+      ul.nav.navbar-nav.pull-right
         li
           = link_to "Sign out", destroy_user_session_path, method: :delete

@@ -1,38 +1,46 @@
-.page-header
-  h2
-    =' feedbacks_index_title
-    small=' "(#{feedbacks.count})"
-    small= feedbacks_switch_link
-    .height-half
-    .pull-right
-      = link_to "New feedback",
-                [:new, :feedback],
-                class: "btn btn-sm btn-primary",
-                id: "btn_new",
-                data: { action: "new" }
+.container
+  .page-header
+    h2
+      =' feedbacks_index_title
+      small=' "(#{feedbacks.count})"
+      small= feedbacks_switch_link
+      span.pull-right
+        = link_to "New feedback",
+                  [:new, :feedback],
+                  class: "btn btn-sm btn-primary",
+                  id: "btn_new",
+                  data: { action: "new" }
 
-- if feedbacks.any?
-  table.table.table-bordered.table-striped.table-hover.feedbacks-table
-    thead
-      tr
-        th Scheme
-        th Score
-        th Description
-        th
-    tbody
-    - feedbacks.decorate.each do |feedback|
-      tr
-        td = feedback.scheme_link
-        td = feedback.score
-        td = feedback.truncated_description
-        td
-          = link_to "Edit",
-                    [:edit, feedback],
-                    class: "btn btn-sm btn-default",
-                    data: { action: "edit" }
-          | &nbsp;
-          = link_to "Remove",
-                    feedback,
-                    method: :delete,
-                    class: "btn btn-sm btn-danger",
-                    data: { action: "delete" }
+  - if feedbacks.none?
+    h4 No feedback recieved;
+  - else
+    table.table.table-middle.table-striped.table-hover.feedbacks-table
+      colgroup
+        col width="65"
+        col width="300"
+        col width="500"
+        col width="200"
+      thead
+        tr
+          th.text-center Score
+          th Scheme
+          th Description
+          th &nbsp;
+      tbody
+        - feedbacks.decorate.each do |feedback|
+          tr
+            td.text-center = feedback.score
+            td = feedback.scheme_link
+            td = feedback.truncated_description
+            td
+              .pull-right
+                = link_to "Edit",
+                          [:edit, feedback],
+                          class: "btn btn-sm btn-default",
+                          data: { action: "edit" }
+                | &nbsp;
+                = link_to "Remove",
+                          feedback,
+                          method: :delete,
+                          class: "btn btn-sm btn-danger",
+                          data: { action: "delete" }

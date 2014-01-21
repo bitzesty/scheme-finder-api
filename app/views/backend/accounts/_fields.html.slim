@@ -1,7 +1,23 @@
-= f.input :email
-= f.input :password
-= f.input :password_confirmation
-= f.input :admin
+.form-inputs.form-horizontal
+  = f.input :email,
+            label_html: { class: "col-sm-2" },
+            right_column_html: { class: "col-sm-3" }
 
-.form-actions
-  = f.button :submit, class: 'btn btn-primary', data: { disable_with: 'Working' }
+  = f.input :password,
+            label_html: { class: "col-sm-2" },
+            right_column_html: { class: "col-sm-3" }
+
+  = f.input :password_confirmation,
+            label_html: { class: "col-sm-2" },
+            right_column_html: { class: "col-sm-3" }
+
+  = f.input :admin,
+            label_html: { class: "col-sm-2" },
+            right_column_html: { class: "col-sm-3" }
+
+
+  .form-action
+    .col-sm-offset-2
+      = f.button :submit,
+                  class: "btn btn-primary",
+                  data: { disable_with: 'Working' }
