@@ -8,13 +8,6 @@ class Scheme < ActiveRecord::Base
   validates :contact_email, presence: true, email: true
   validates :name, presence: true
   validates :website, presence: true
-  validates :description, presence: true
-  validates :location_ids, presence: true
-  validates :sector_ids, presence: true
-  validates :activity_ids, presence: true
-  validates :age_range_ids, presence: true
-  validates :commitment_length_ids, presence: true
-  validates :company_size_ids, presence: true
 
   # scopes for filtering
   scope :confirmed, -> { where confirmed: true }
