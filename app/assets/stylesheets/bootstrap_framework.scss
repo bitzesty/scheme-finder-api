@@ -181,7 +181,7 @@ table.table.table-middle tr td{
 
       @include device-pixel-ratio {
         background-image: image-url('icon-star-rating@2.png');
-        background-size: 23px 23px;
+        background-size: 23px 72px;
       }
 
       &.active,
@@ -209,7 +209,7 @@ table.table.table-middle tr td{
 
   @include device-pixel-ratio {
     background-image: image-url('icon-star-rating@2.png');
-    background-size: 23px 23px;
+    background-size: 23px 72px;
   }
 
   &.active {
