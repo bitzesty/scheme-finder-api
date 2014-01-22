@@ -1,29 +1,34 @@
-p
-  strong Scheme:
-  '
-  = feedback.scheme_link
-p
-  strong Score:
-  '
-  = feedback.score
-p
-  strong Description:
-  '
-  = feedback.description
-p
-  strong Approved:
-  '
-  = feedback.approved_icon
+.container
+  .page-header
+    h2
+      strong Scheme:
+      '
+      = feedback.scheme_link
 
-= link_to "Edit",
-          [:edit, feedback],
-          class: "btn btn-sm btn-default",
-          data: { action: "edit" }
-| &nbsp;
-= link_to 'Back to feedback',
-          feedbacks_path,
-          class: "btn btn-sm btn-default"
-| &nbsp;
-= link_to 'Back to unapproved feedback',
-          [:unapproved, :feedbacks],
-          class: "btn btn-sm btn-default"
+      span.pull-right
+        = link_to "Edit",
+                  [:edit, feedback],
+                  class: "btn btn-primary",
+                  data: { action: "edit" }
+  .form-horizontal
+    p.clearfix
+      strong.col-sm-2.text-right Approved:
+      span.col-sm-10 = feedback.approved_icon
+
+    p.clearfix
+      strong.col-sm-2.text-right Score:
+      span.col-sm-10 = feedback.score
+
+    p.clearfix
+      strong.col-sm-2.text-right Description:
+      span.col-sm-10 = feedback.description
+
+  br
+  br
+  = link_to 'Back to feedback',
+            feedbacks_path,
+            class: "btn btn-link"
+  | &nbsp;
+  = link_to 'Back to unapproved feedback',
+            [:unapproved, :feedbacks],
+            class: "btn btn-link"

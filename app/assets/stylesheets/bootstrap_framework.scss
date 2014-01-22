@@ -119,6 +119,10 @@ table.table.table-middle tr td{
   vertical-align: middle;
 }
 
+.form-horizontal > p.clearfix {
+  margin-bottom: 20px;
+}
+
 .badge-default {
   @include label-variant($label-default-bg);
 }
