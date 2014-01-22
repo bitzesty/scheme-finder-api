@@ -33,7 +33,7 @@ set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle
 
 set :default_env, {
   "LANG" => "en_US.UTF-8",
-  "PATH" => "$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH",
+  "PATH" => "$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH"
 }
 set :keep_releases, 5
 
