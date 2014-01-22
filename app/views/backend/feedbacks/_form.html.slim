@@ -6,10 +6,15 @@
                     input_html: { class: "js-select2" },
                     label_html: { class: "col-sm-2" },
                     right_column_html: { class: "col-sm-3" }
-    = f.input :score,
-              input_html: { min: 0, max: 5 },
-              label_html: { class: "col-sm-2" },
-              right_column_html: { class: "col-sm-1" }
+    .form-group
+      label.col-sm-2.required.text-right
+        abbr title="required"
+          ' *
+        ' Score
+      .radio-collection.col-sm-10
+        = f.collection_radio_buttons :score,
+                  [[1],[2],[3],[4],[5]], :first, :last,
+                  required: true
 
     = f.input :description,
               input_html: { rows: 5 },

@@ -16,20 +16,23 @@
   - else
     table.table.table-middle.table-striped.table-hover.feedbacks-table
       colgroup
-        col width="65"
+        col width="100"
         col width="300"
         col width="500"
         col width="200"
       thead
         tr
-          th.text-center Score
+          th Score
           th Scheme
           th Description
           th &nbsp;
       tbody
         - feedbacks.decorate.each do |feedback|
           tr
-            td.text-center = feedback.score
+            td
+              .star-ratings
+                - (0..4).each do |star|
+                  .star-rating class="#{'active' if star < feedback.score}"
             td = feedback.scheme_link
             td = feedback.truncated_description
             td

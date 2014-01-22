@@ -17,7 +17,10 @@
 
     p.clearfix
       strong.col-sm-2.text-right Score:
-      span.col-sm-10 = feedback.score
+      span.col-sm-10
+        span.star-ratings
+          - (0..4).each do |star|
+            span.star-rating class="#{'active' if star < feedback.score}"
 
     p.clearfix
       strong.col-sm-2.text-right Description:

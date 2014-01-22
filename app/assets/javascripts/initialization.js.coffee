@@ -10,6 +10,16 @@ sfa.apply_content_load_js = ($context) ->
 
   $(".alert").delay(5000).fadeOut("slow")
 
+  selected = $(".radio-collection span").index($(".radio-collection input:checked").closest("span"))
+  for s in [0..selected]
+    $(".radio-collection span:eq("+s+") input").addClass("active")
+  $(".radio-collection input").on("change", -> (
+    selected = $(".radio-collection span").index($(this).closest("span"))
+    $(".radio-collection input.active").removeClass("active")
+    for s in [0..selected]
+      $(".radio-collection span:eq("+s+") input").addClass("active")
+  ))
+
   #########
   ## Select2
   for select in $context.find("select.js-select2")

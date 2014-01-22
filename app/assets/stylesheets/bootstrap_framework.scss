@@ -1,5 +1,20 @@
 // import the CSS framework
 @import "bootstrap";
+@mixin appearance($appearance) {
+  -webkit-appearance: $appearance;
+     -moz-appearance: $appearance;
+}
+
+@mixin device-pixel-ratio($ratio: 2) {
+  @media only screen and (-webkit-min-device-pixel-ratio: $ratio),
+  only screen and (min--moz-device-pixel-ratio: $ratio),
+  only screen and (  -o-min-device-pixel-ratio: #{($ratio*10)}/10),
+  only screen and (     min-device-pixel-ratio: $ratio),
+  only screen and (             min-resolution: #{($ratio*96)}dpi),
+  only screen and (             min-resolution: #{$ratio}dppx) { 
+    @content;
+  }
+}
 
 // make all images responsive by default
 img {
@@ -145,4 +160,59 @@ table.table.table-middle tr td{
 
 .badge-danger {
   @include label-variant($label-danger-bg);
+}
+
+.radio-collection {
+  span {
+    position: relative;
+
+    label {
+      float: none;
+      display: none;
+    }
+
+    input {
+      display: inline-block;
+      width: 23px;
+      height: 23px;
+      margin: 0;
+      background: image-url('icon-star-rating.png');
+      @include appearance(none);
+
+      @include device-pixel-ratio {
+        background-image: image-url('icon-star-rating@2.png');
+        background-size: 23px 23px;
+      }
+
+      &.active,
+      &:checked {
+        background-position: 0 -50px;
+      }
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+}
+
+.star-ratings {
+  width: 115px;
+}
+
+.star-rating {
+  display: inline-block;
+  width: 23px;
+  height: 23px;
+  background: image-url('icon-star-rating.png');
+  @include appearance(none);
+
+  @include device-pixel-ratio {
+    background-image: image-url('icon-star-rating@2.png');
+    background-size: 23px 23px;
+  }
+
+  &.active {
+    background-position: 0 -50px;
+  }
 }
