@@ -165,39 +165,42 @@ table.table.table-middle tr td{
 .radio-collection {
   span {
     position: relative;
+    overflow: hidden;
+    display: inline-block;
+    width: 23px;
+    height: 23px;
+    background: image-url('icon-star-rating.png') no-repeat;
+
+    @include device-pixel-ratio {
+      background-image: image-url('icon-star-rating@2.png');
+      background-size: 23px 72px;
+    }
 
     label {
       float: none;
-      display: none;
+      display: block;
+      text-indent: -9999px;
     }
 
     input {
-      display: inline-block;
-      width: 23px;
-      height: 23px;
-      margin: 0;
-      background: image-url('icon-star-rating.png');
-      @include appearance(none);
-
-      @include device-pixel-ratio {
-        background-image: image-url('icon-star-rating@2.png');
-        background-size: 23px 72px;
-      }
-
-      &.active,
-      &:checked {
-        background-position: 0 -50px;
-      }
+      position: absolute;
+      top: -100px !important;
 
       &:focus {
         outline: none;
       }
     }
+
+    &.active {
+      background-position: 0 -50px;
+    }
   }
 }
 
+.radio-collection,
 .star-ratings {
-  width: 115px;
+  display: inline-block;
+  min-width: 115px;
 }
 
 .star-rating {
