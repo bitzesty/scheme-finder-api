@@ -5,7 +5,7 @@ class SchemeSearch < Searchlight::Search
            :commitment_lengths, :company_sizes
 
   def locations
-    locs = Array.wrap(super) << Location.id_for_all
+    locs = Array.wrap(super) << ExposableViaApi::ID_FOR_ALL
 
     if locs.include? Location.all_of_england_id
       locations_including_whole_england_coverage(locs)
