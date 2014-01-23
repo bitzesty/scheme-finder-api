@@ -15,5 +15,14 @@ shared_examples_for 'Filter Criteria endpoint for' do |filter_type|
 
       expect(response.body).to match_json_expression response_pattern
     end
+
+    it "does not include selection 'all'" do
+      get "/api/v1/#{filter_type}.json"
+
+      result = MultiJson.decode(response.body).with_indifferent_access
+      result[filter_type].each do |result|
+        expect(result["id"]).to_not eq ExposableViaApi::ID_FOR_ALL
+      end
+    end
   end
 end

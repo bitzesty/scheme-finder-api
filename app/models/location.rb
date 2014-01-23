@@ -1,5 +1,8 @@
 class Location < ActiveHash::Base
+  include ExposableViaApi
+
   self.data = [
+    { id: ID_FOR_ALL, name: "Applicable everywhere", group: "National" },
     { id: "england", name: "All of England", group: "England" },
     { id: "north_east", name: "North East", group: "England" },
     { id: "north_west", name: "North West", group: "England" },

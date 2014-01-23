@@ -6,7 +6,6 @@ module Api
 {
   'scheme' => {
     'had_direct_interactions'=>'false',
-    'logo'=>nil,
     'sector_ids'=>['business_services'],
     'activity_ids'=>['lesson_materials'],
     'age_range_ids'=>['over_18'],
@@ -67,7 +66,7 @@ module Api
       def scheme_params
         # make sure to not add "confirmed" attribute here
         params.require(:scheme).permit(
-          :had_direct_interactions,  :logo,
+          :had_direct_interactions, :logo,
           :contact_name, :contact_email, :contact_phone,
           :name, :website, :description,
           location_ids: [],

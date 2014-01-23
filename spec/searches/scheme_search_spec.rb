@@ -30,6 +30,47 @@ describe SchemeSearch do
       it "Then returns north east locations" do
         expect(result).to eq [north_east_scheme]
       end
+
+      context "When scheme location is marked as 'all'" do
+        let!(:all_locations_scheme) { create :scheme, :confirmed, location_ids: ["all"] }
+        let(:locations) { ["wales"] }
+
+        it "Then returns the location" do
+          expect(result).to eq [all_locations_scheme]
+        end
+      end
+    end
+  end
+
+  describe "#search_activities" do
+    let!(:auto_sheme) { create :scheme, :confirmed, activity_ids: ["auto"] }
+    let!(:aero_sheme) { create :scheme, :confirmed, activity_ids: ["aero"] }
+    let!(:all_activities_scheme) { create :scheme, :confirmed, activity_ids: ["all"] }
+
+    let(:search_params) do
+      { activities: activities }
+    end
+    let(:activities) { ["auto"] }
+
+    it "returns searched activity schemes + schemes applicable for all activities" do
+      expect(result).to include auto_sheme, all_activities_scheme
+      expect(result).to_not include aero_sheme
+    end
+  end
+
+  describe "#search_sectors" do
+    let!(:auto_sheme) { create :scheme, :confirmed, sector_ids: ["auto"] }
+    let!(:aero_sheme) { create :scheme, :confirmed, sector_ids: ["aero"] }
+    let!(:all_sectors_scheme) { create :scheme, :confirmed, sector_ids: ["all"] }
+
+    let(:search_params) do
+      { sectors: sectors }
+    end
+    let(:sectors) { ["auto"] }
+
+    it "returns searched sector schemes + schemes applicable for all sectors" do
+      expect(result).to include auto_sheme, all_sectors_scheme
+      expect(result).to_not include aero_sheme
     end
   end
 end

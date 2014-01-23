@@ -1,5 +1,8 @@
 class Activity < ActiveHash::Base
+  include ExposableViaApi
+
   self.data = [
+    { id: ID_FOR_ALL, name: "All Activities" },
     { id: "apprenticeships", name: "Apprenticeships" },
     { id: "work_experience", name: "Work experience" },
     { id: "workplace_visits", name: "Workplace visits" },
