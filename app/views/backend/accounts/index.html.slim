@@ -23,7 +23,7 @@
             td.text-center = confirmation_icon(user.admin?)
             td = mail_to user.email
             td
-              .pull-right
+              .pull-right.text-right
                 = link_to 'Edit', edit_account_path(user), class: 'btn btn-sm btn-default'
                 | &nbsp;
                 - unless current_user == user

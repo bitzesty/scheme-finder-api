@@ -17,6 +17,12 @@
 }
 
 // make all images responsive by default
+
+html,
+body {
+  min-width: 320px;
+}
+
 img {
   @extend .img-responsive;
   margin: 0 auto;
@@ -54,13 +60,11 @@ abbr[title] {
   @extend .container;
   padding-bottom: 80px;
   width: 100%;
-  max-width: 960px;
-  margin-left: auto;
-  margin-right: auto;
   margin-top: 51px; // accommodate the navbar
-
+}
+.container, #main {
   .ie6 & {
-    width: 960px;
+    width: 970px;
   }
 }
 
@@ -110,10 +114,30 @@ section {
 
 input.file {
   padding-left: 0;
+  height: auto;
+  line-height: 1;
   border: none;
   -moz-box-shadow: none;
   -webkit-box-shadow: none;
   box-shadow: none;
+}
+
+.form-group {
+  &.file,
+  &.boolean {
+    @media (max-width: 767px) {
+      div {
+        &,
+        & label {
+          display: inline-block;
+        }
+
+        label {
+          padding: 0;
+        }
+      }
+    }
+  }
 }
 
 .select2-container {
@@ -142,8 +166,15 @@ input.file {
   }
 }
 
-table.table.table-middle tr td{
-  vertical-align: middle;
+table.table {
+  &.table-middle tr td{
+    vertical-align: middle;
+  }
+
+  .pull-right .btn {
+    margin-top: 2px;
+    margin-bottom: 2px;
+  }
 }
 
 .form-horizontal > p.clearfix {
