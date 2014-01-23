@@ -79,7 +79,12 @@ module SchemeFinderApi
     config.assets.version = '1.0'
     config.assets.prefix = '/backend/assets'
 
-    config.assets.precompile += %w( email.css )
+    config.assets.precompile += %w(
+      application-ie8.css
+      application-ie7.css
+      application-ie6.css
+      email.css
+    )
 
     config.i18n.enforce_available_locales = true
   end
