@@ -28,7 +28,7 @@
           th &nbsp;
       tbody
         - feedbacks.decorate.each do |feedback|
-          tr
+          tr class="#{cycle 'odd', 'even'}"
             td
               .star-ratings
                 - (0..4).each do |star|

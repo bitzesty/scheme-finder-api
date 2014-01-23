@@ -116,6 +116,11 @@ section {
       top: -5px;
     }
   }
+
+  .ie6 & {
+    position: absolute;
+    margin-left: -470px;
+  }
 }
 
 .page-header {
@@ -161,6 +166,14 @@ section {
 
   .lt-ie8 & .checkbox {
     left: 0 !important;
+  }
+
+  .ie6 & {
+    padding-bottom: 20px;
+
+    .checkbox {
+      left: -20px !important;
+    }
   }
 }
 
@@ -222,17 +235,18 @@ input.file {
 }
 
 table.table {
-  &.table-middle tr td{
-    vertical-align: middle;
-  }
-
   .pull-right .btn {
     margin-top: 2px;
     margin-bottom: 2px;
   }
 }
 
-.form-horizontal > p.clearfix {
+.table-middle tbody tr td,
+.table-middle tbody tr th {
+  vertical-align: middle !important;
+}
+
+.form-horizontal p.clearfix {
   margin-bottom: 20px;
 
   .lt-ie8 & {
@@ -495,5 +509,77 @@ table.table {
     &.password {
       height: 1.4285em;
     }
+  }
+}
+
+.ie6 {
+  .navbar-nav {
+    li {
+      position: relative;
+      display: block;
+      background: transparent;
+
+      a {
+        position: relative;
+        display: block;
+        padding: 15px;
+        color: #999;
+        line-height: 20px;
+        
+        &:hover {
+          color: #fff;
+          text-decoration: none;
+        }
+      }
+
+      &.active a {
+        &,
+        &:hover,
+        &:focus {
+          color: #FFF;
+          background-color: #090909;
+        }
+      }
+    }
+  }
+
+  .table-striped tbody tr.odd td,
+  .table-striped tbody tr.odd th {
+    background-color: #F9F9F9;
+  }
+
+  .table-hover tbody tr:hover td,
+  .table-hover tbody tr:hover th {
+    background-color: #F9F9F9;
+  }
+
+  .table {
+    thead,
+    tbody,
+    tfoot {
+      tr td,
+      tr th {
+        padding: 8px;
+        line-height: 1.428571429;
+        vertical-align: top;
+        border-top: 1px solid #DDD;
+      }
+    }
+
+    thead {
+      tr td,
+      tr th {
+        border-top: none;
+      }
+    }
+  }
+
+  .btn-link {
+    border: none !important;
+  }
+
+  .form-actions {
+    padding-top: 30px;
+    padding-left: 15px;
   }
 }

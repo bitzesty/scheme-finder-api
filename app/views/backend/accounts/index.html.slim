@@ -19,7 +19,7 @@
           th &nbsp;
       tbody
         - users.each do |user|
-          tr
+          tr class="#{cycle 'odd', 'even'}"
             td.text-center = confirmation_icon(user.admin?)
             td = mail_to user.email
             td
