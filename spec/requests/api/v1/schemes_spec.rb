@@ -20,8 +20,8 @@ describe Api::V1 do
     end
 
     context 'with filter by location' do
-      let(:scheme) { create :scheme, :confirmed, location_ids: [Location.first.id] }
-      let(:scheme_with_location) { create :scheme, :confirmed, location_ids: [Location.last.id] }
+      let(:scheme) { create :scheme, :confirmed, location_ids: ["north_east"] }
+      let(:scheme_with_location) { create :scheme, :confirmed, location_ids: ["wales"] }
       let(:response_pattern) {
         { schemes: [ { id: scheme_with_location.id }.ignore_extra_keys!] }
       }
@@ -47,8 +47,8 @@ describe Api::V1 do
     end
 
     context 'with filter by sector' do
-      let(:scheme) { create :scheme, :confirmed, sector_ids: [Sector.first.id] }
-      let(:scheme_with_sector) { create :scheme, :confirmed, sector_ids: [Sector.last.id] }
+      let(:scheme) { create :scheme, :confirmed, sector_ids: ["auto"] }
+      let(:scheme_with_sector) { create :scheme, :confirmed, sector_ids: ["aero"] }
       let(:response_pattern) {
         { schemes: [ { id: scheme_with_sector.id }.ignore_extra_keys! ] }
       }
@@ -74,8 +74,8 @@ describe Api::V1 do
     end
 
     context 'with filter by activity' do
-      let(:scheme) { create :scheme, :confirmed, activity_ids: [Activity.first.id] }
-      let(:scheme_with_activity) { create :scheme, :confirmed, activity_ids: [Activity.last.id] }
+      let(:scheme) { create :scheme, :confirmed, activity_ids: ["apprenticeships"] }
+      let(:scheme_with_activity) { create :scheme, :confirmed, activity_ids: ["lesson_materials"] }
       let(:response_pattern) {
         { schemes: [ { id: scheme_with_activity.id }.ignore_extra_keys! ] }
       }

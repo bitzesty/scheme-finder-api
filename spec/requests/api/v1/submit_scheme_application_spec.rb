@@ -2,23 +2,6 @@ require 'spec_helper'
 
 describe Api::V1 do
   describe 'submit scheme application' do
-    context 'with location missing' do
-      let(:scheme_attributes) {
-        attributes_for(:scheme).except(:location_ids)
-      }
-
-      let(:response_pattern) {
-        { errors: Hash }
-      }
-
-      it 'returns error message' do
-        post '/api/v1/schemes.json', scheme: scheme_attributes
-
-        expect(response.status).to eq 422
-        expect(response.body).to match_json_expression response_pattern
-      end
-    end
-
     context 'with duplicate name' do
       let(:scheme)            { create :scheme }
       let(:scheme_attributes) { attributes_for :scheme, name: scheme.name }

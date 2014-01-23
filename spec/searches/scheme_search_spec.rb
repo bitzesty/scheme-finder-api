@@ -41,4 +41,36 @@ describe SchemeSearch do
       end
     end
   end
+
+  describe "#search_activities" do
+    let!(:auto_sheme) { create :scheme, :confirmed, activity_ids: ["auto"] }
+    let!(:aero_sheme) { create :scheme, :confirmed, activity_ids: ["aero"] }
+    let!(:all_activities_scheme) { create :scheme, :confirmed, activity_ids: ["all"] }
+
+    let(:search_params) do
+      { activities: activities }
+    end
+    let(:activities) { ["auto"] }
+
+    it "returns searched activity schemes + schemes applicable for all activities" do
+      expect(result).to include auto_sheme, all_activities_scheme
+      expect(result).to_not include aero_sheme
+    end
+  end
+
+  describe "#search_sectors" do
+    let!(:auto_sheme) { create :scheme, :confirmed, sector_ids: ["auto"] }
+    let!(:aero_sheme) { create :scheme, :confirmed, sector_ids: ["aero"] }
+    let!(:all_sectors_scheme) { create :scheme, :confirmed, sector_ids: ["all"] }
+
+    let(:search_params) do
+      { sectors: sectors }
+    end
+    let(:sectors) { ["auto"] }
+
+    it "returns searched sector schemes + schemes applicable for all sectors" do
+      expect(result).to include auto_sheme, all_sectors_scheme
+      expect(result).to_not include aero_sheme
+    end
+  end
 end

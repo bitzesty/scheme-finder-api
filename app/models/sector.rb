@@ -1,5 +1,8 @@
 class Sector < ActiveHash::Base
+  include ExposableViaApi
+
   self.data = [
+    { id: ID_FOR_ALL, name: "All Sectors" },
     { id: "auto", name: "Auto" },
     { id: "aero", name: "Aero" },
     { id: "chemicals", name: "Chemicals" },

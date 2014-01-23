@@ -51,7 +51,6 @@
               group_method: :last,
               label: 'Locations',
               collection: Location.collection,
-              required: true,
               input_html: { class: "span6 js-select2", multiple: true },
               label_html: { class: "col-sm-2" },
               right_column_html: { class: "col-sm-3" }
@@ -60,7 +59,6 @@
               as: :multi_select,
               label: 'Sectors',
               collection: Sector.collection,
-              required: true,
               input_html: { class: "span6" },
               label_html: { class: "col-sm-2" },
               right_column_html: { class: "col-sm-3" }
@@ -70,7 +68,6 @@
               label: 'Commitment length',
               collection: CommitmentLength.collection,
               label: "Length of commitment",
-              required: true,
               input_html: { class: "span6" },
               label_html: { class: "col-sm-2" },
               right_column_html: { class: "col-sm-3" }
@@ -79,7 +76,6 @@
               as: :multi_select,
               collection: Activity.collection,
               label: 'Activities',
-              required: true,
               input_html: { class: "span6" },
               label_html: { class: "col-sm-2" },
               right_column_html: { class: "col-sm-3" }
@@ -88,7 +84,6 @@
               as: :multi_select,
               collection: CompanySize.collection,
               label: 'Company size',
-              required: true,
               input_html: { class: "span6" },
               label_html: { class: "col-sm-2" },
               right_column_html: { class: "col-sm-3" }
@@ -97,7 +92,6 @@
               as: :multi_select,
               label: 'Age range',
               collection: AgeRange.collection,
-              required: true,
               input_html: { class: "span6" },
               label_html: { class: "col-sm-2" },
               right_column_html: { class: "col-sm-3" }
