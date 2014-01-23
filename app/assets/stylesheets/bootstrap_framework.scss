@@ -107,10 +107,30 @@ section {
     left: 50%;
     margin-left: -450px;
   }
+
+  .lt-ie8 & {
+    padding-bottom: 0;
+
+    .close {
+      position: relative;
+      top: -5px;
+    }
+  }
 }
 
 .page-header {
   border: none;
+
+  .lt-ie8 & {
+    position: relative;
+
+    .pull-right {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+  }
+
   h1 img {
     position: relative;
     float: left;
@@ -133,6 +153,14 @@ section {
       position: absolute;
       left: 15px !important;
     }
+
+    .lt-ie8 & {
+      padding-left: 0;
+    }
+  }
+
+  .lt-ie8 & .checkbox {
+    left: 0 !important;
   }
 }
 
@@ -162,6 +190,13 @@ input.file {
           padding: 0;
         }
       }
+    }
+  }
+
+  .lt-ie8 & {
+    .select2-container {
+      position: relative;
+      left: -15px;
     }
   }
 }
@@ -199,6 +234,15 @@ table.table {
 
 .form-horizontal > p.clearfix {
   margin-bottom: 20px;
+
+  .lt-ie8 & {
+    clear: both;
+
+    strong,
+    span {
+      padding-bottom: 5px;
+    }
+  }
 }
 
 .badge-default {
@@ -231,7 +275,7 @@ table.table {
   text-indent: -9999px;
   width: 20px;
   height: 20px;
-  padding: 0;
+  padding: 0 !important;
   line-height: 0;
   background-repeat: no-repeat;
   background-position: center center;
@@ -253,6 +297,14 @@ table.table {
   @include device-pixel-ratio {
     background-image: image-url('icon-correct@2.png');
     background-size: 9px 9px;
+  }
+}
+
+.lt-ie8 .radio-collection-input {
+  padding-top: 15px;
+
+  .radio-collection {
+    margin-bottom: 10px;
   }
 }
 
@@ -295,6 +347,10 @@ table.table {
 .star-ratings {
   display: inline-block;
   min-width: 115px;
+
+  .lt-ie8 & {
+    width: 115px;
+  }
 }
 
 .star-rating {
@@ -312,6 +368,10 @@ table.table {
 
   &.active {
     background-position: 0 -50px;
+  }
+
+  .lte-ie8 & {
+    padding: 0 !important;
   }
 }
 
@@ -410,6 +470,30 @@ table.table {
   .form-horizontal {
     .control-label {
       text-align: right;
+    }
+  }
+}
+
+.lt-ie8 {
+  .form-group,
+  .form-actions {
+    clear: both;
+    padding-bottom: 15px;
+
+    .col-sm-offset-2 {
+      padding-left: 20px;
+    }
+
+    &.boolean .checkbox {
+      position: relative;
+      left: -15px;
+    }
+  }
+
+  input {
+    &.string,
+    &.password {
+      height: 1.4285em;
     }
   }
 }
