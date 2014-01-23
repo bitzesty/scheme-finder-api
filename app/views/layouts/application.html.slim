@@ -19,8 +19,8 @@ html prefix="og: http://ogp.me/ns#"
     == javascript_include_tag "application"
     == csrf_meta_tags
   body
-    header
+    #header
       == render 'navigation'
-    main#main[role="main"]
+    #main[role="main"]
       == render 'messages'
       == yield

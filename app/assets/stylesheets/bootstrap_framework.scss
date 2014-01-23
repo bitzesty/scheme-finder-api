@@ -5,6 +5,23 @@
      -moz-appearance: $appearance;
 }
 
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+          border-radius: $radius;
+}
+@mixin box-shadow($shadow) {
+  -webkit-box-shadow: $shadow;
+     -moz-box-shadow: $shadow;
+          box-shadow: $shadow;
+}
+
+@mixin opacity($trans) {
+  zoom: 1;
+  filter: alpha(opacity=#{$trans * 100});
+  opacity: $trans;
+}
+
 @mixin device-pixel-ratio($ratio: 2) {
   @media only screen and (-webkit-min-device-pixel-ratio: $ratio),
   only screen and (min--moz-device-pixel-ratio: $ratio),
@@ -62,8 +79,9 @@ abbr[title] {
   width: 100%;
   margin-top: 51px; // accommodate the navbar
 }
+
 .container, #main {
-  .ie6 & {
+  .ie & {
     width: 970px;
   }
 }
@@ -83,6 +101,12 @@ section {
   margin: 0;
   padding: 10px 15px;
   text-align: center;
+
+  .ie & {
+    width: 930px;
+    left: 50%;
+    margin-left: -450px;
+  }
 }
 
 .page-header {
@@ -117,9 +141,11 @@ input.file {
   height: auto;
   line-height: 1;
   border: none;
-  -moz-box-shadow: none;
-  -webkit-box-shadow: none;
-  box-shadow: none;
+  @include box-shadow(none);
+
+  .ie & {
+    border: 1px solid #ccc;
+  }
 }
 
 .form-group {
@@ -144,9 +170,7 @@ input.file {
   height: 26px;
   padding: 0;
   border: none;
-  -moz-box-shadow: none;
-  -webkit-box-shadow: none;
-  box-shadow: none;
+  @include box-shadow(none);
 
   &.select2-container-multi {
     height: auto;
@@ -154,15 +178,11 @@ input.file {
 
   .select2-choices {
     border-color: #ccc;
-    -moz-border-radius: 3px;
-    -webkit-border-radius: 3px;
-    border-radius: 3px;
+    @inlude border-radius(3px);
   }
 
   &.select2-dropdown-open .select2-choices {
-    -moz-border-radius: 3px 3px 0 0;
-    -webkit-border-radius: 3px 3px 0 0;
-    border-radius: 3px 3px 0 0;
+    @inlude border-radius(3px 3px 0 0);
   }
 }
 
@@ -203,6 +223,37 @@ table.table {
 
 .badge-danger {
   @include label-variant($label-danger-bg);
+}
+
+.icon-confirm,
+.icon-reject {
+  display: block;
+  text-indent: -9999px;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  line-height: 0;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.icon-reject {
+  background-image: image-url('icon-close.png');
+
+  @include device-pixel-ratio {
+    background-image: image-url('icon-close@2.png');
+    background-size: 9px 9px;
+  }
+}
+
+.icon-confirm {
+  background-image: image-url('icon-correct.png');
+  background-position: 5px center;
+
+  @include device-pixel-ratio {
+    background-image: image-url('icon-correct@2.png');
+    background-size: 9px 9px;
+  }
 }
 
 .radio-collection {
@@ -261,5 +312,104 @@ table.table {
 
   &.active {
     background-position: 0 -50px;
+  }
+}
+
+.ie {
+  .navbar-header {
+    float: left;
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  .navbar-toggle {
+    display: none;
+  }
+
+  .navbar-collapse {
+    overflow: visible;
+    display: block;
+    width: auto;
+    height: auto;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+    border-top: none;
+    @include box-shadow(none);
+  }
+
+  .navbar-nav {
+    float: left;
+    margin: 0;
+
+    li {
+      float: left;
+    }
+
+    > li > a {
+      padding-top: 15px;
+      padding-bottom: 15px;
+    }
+  }
+
+  .col-sm-12,
+  .col-sm-11,
+  .col-sm-10,
+  .col-sm-9,
+  .col-sm-8,
+  .col-sm-7,
+  .col-sm-6,
+  .col-sm-5,
+  .col-sm-4,
+  .col-sm-3,
+  .col-sm-2,
+  .col-sm-1 {
+    float: left;
+  }
+  .col-sm-1 {
+    width: 8.3333333333%;
+  }
+  .col-sm-2 {
+    width: 16.6666666667%;
+  }
+  .col-sm-3 {
+    width: 25%;
+  }
+  .col-sm-4 {
+    width: 33.3333333333%;
+  }
+  .col-sm-5 {
+    width: 41.6666666667%;
+  }
+  .col-sm-6 {
+    width: 50%;
+  }
+  .col-sm-7 {
+    width: 58.3333333333%;
+  }
+  .col-sm-8 {
+    width: 66.6666666667%;
+  }
+  .col-sm-9 {
+    width: 75%;
+  }
+  .col-sm-10 {
+    width: 83.3333333333%;
+  }
+  .col-sm-11 {
+    width: 91.6666666667%;
+  }
+  .col-sm-12 {
+    width: 100%;
+  }
+  .col-sm-offset-2 {
+    margin-left: 16.6666666667%;
+  }
+
+  .form-horizontal {
+    .control-label {
+      text-align: right;
+    }
   }
 }

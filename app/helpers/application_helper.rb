@@ -110,9 +110,9 @@ module ApplicationHelper
 
   def confirmation_icon(value)
     if value
-      content_tag(:span, '✓', class: 'badge badge-success')
+      content_tag(:span, '✓', class: 'badge badge-success icon-confirm')
     else
-      content_tag(:span, '✘', class: 'badge badge-important')
+      content_tag(:span, '✘', class: 'badge badge-important icon-reject')
     end
   end
 end
