@@ -1,5 +1,6 @@
 class Location < ActiveHash::Base
   self.data = [
+    { id: "all", name: "Applicable everywhere", group: "National" },
     { id: "england", name: "All of England", group: "England" },
     { id: "north_east", name: "North East", group: "England" },
     { id: "north_west", name: "North West", group: "England" },
@@ -29,6 +30,10 @@ class Location < ActiveHash::Base
 
   def self.all_of_england_id
     "england"
+  end
+
+  def self.id_for_all
+    "all"
   end
 
   def self.for_england

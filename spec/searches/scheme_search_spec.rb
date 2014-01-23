@@ -30,6 +30,15 @@ describe SchemeSearch do
       it "Then returns north east locations" do
         expect(result).to eq [north_east_scheme]
       end
+
+      context "When scheme location is marked as 'all'" do
+        let!(:all_locations_scheme) { create :scheme, :confirmed, location_ids: ["all"] }
+        let(:locations) { ["wales"] }
+
+        it "Then returns the location" do
+          expect(result).to eq [all_locations_scheme]
+        end
+      end
     end
   end
 end
