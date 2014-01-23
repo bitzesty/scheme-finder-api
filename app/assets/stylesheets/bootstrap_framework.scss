@@ -204,7 +204,8 @@ table.table.table-middle tr td{
 }
 
 .star-rating {
-  display: inline-block;
+  float: left;
+  display: block;
   width: 23px;
   height: 23px;
   background: image-url('icon-star-rating.png');

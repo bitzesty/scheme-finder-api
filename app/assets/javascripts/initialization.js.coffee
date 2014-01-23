@@ -13,12 +13,12 @@ sfa.apply_content_load_js = ($context) ->
   selected = $(".radio-collection span").index($(".radio-collection input:checked").closest("span"))
   if selected > -1
     for s in [0..selected]
-      $(".radio-collection span:eq("+s+") input").addClass("active")
+      $(".radio-collection span:eq("+s+")").addClass("active")
   $(".radio-collection input").on("change", -> (
     selected = $(".radio-collection span").index($(this).closest("span"))
-    $(".radio-collection input.active").removeClass("active")
+    $(".radio-collection .active").removeClass("active")
     for s in [0..selected]
-      $(".radio-collection span:eq("+s+") input").addClass("active")
+      $(".radio-collection span:eq("+s+")").addClass("active")
   ))
 
   #########
