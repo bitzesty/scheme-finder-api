@@ -93,6 +93,11 @@ section {
     &.col-sm-2 {
       left: 16.6666666%;
     }
+
+    @media (max-width: 767px) {
+      position: absolute;
+      left: 15px !important;
+    }
   }
 }
 
