@@ -1,5 +1,15 @@
-doctype
-html
+doctype html
+/[if lt IE 7]
+  | <html class="ie ie6 lt-ie9 lt-ie8 lt-ie7" prefix="og: http://ogp.me/ns#">
+/[if IE 7]
+  | <html class="ie ie7 lt-ie9 lt-ie8" prefix="og: http://ogp.me/ns#">
+/[if IE 8]
+  | <html class="ie ie8 lt-ie9" prefix="og: http://ogp.me/ns#">
+/[if IE 9]
+  | <html class="ie ie9" prefix="og: http://ogp.me/ns#">
+| <!--[if (gte IE 9)|!(IE)]<!-->
+html prefix="og: http://ogp.me/ns#"
+  | <!--<![endif]-->
   head
     meta[name="viewport" content="width=device-width, initial-scale=1.0"]
     title
@@ -11,6 +21,6 @@ html
   body
     header
       == render 'navigation'
-    main[role="main"]
+    main#main[role="main"]
       == render 'messages'
       == yield

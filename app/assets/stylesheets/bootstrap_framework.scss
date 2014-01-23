@@ -50,11 +50,18 @@ abbr[title] {
   @extend .btn-lg;
 }
 
-main {
+#main {
   @extend .container;
   padding-bottom: 80px;
   width: 100%;
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
   margin-top: 51px; // accommodate the navbar
+
+  .ie6 & {
+    width: 960px;
+  }
 }
 
 section {
