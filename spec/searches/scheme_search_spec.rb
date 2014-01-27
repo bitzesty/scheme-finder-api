@@ -27,8 +27,9 @@ describe SchemeSearch do
     context "When searching north east" do
       let(:locations) { ["north_east"] }
 
-      it "Then returns north east locations" do
-        expect(result).to eq [north_east_scheme]
+      it "Then returns north east locations and all of england location" do
+        expect(result).to include north_east_scheme, all_england_scheme
+        expect(result).to have(2).items
       end
 
       context "When scheme location is marked as 'all'" do
@@ -71,6 +72,26 @@ describe SchemeSearch do
     it "returns searched sector schemes + schemes applicable for all sectors" do
       expect(result).to include auto_sheme, all_sectors_scheme
       expect(result).to_not include aero_sheme
+    end
+  end
+
+  describe "#searching_for_some_england_location?" do
+    let(:result) { searcher.searching_for_some_england_location?(locations) }
+
+    context "When searching for some england location" do
+      let(:locations) { %w(north_west) }
+
+      it "Then returns true" do
+        expect(result).to be_true
+      end
+    end
+
+    context "When searching for some Wales location" do
+      let(:locations) { %w(wales) }
+
+      it "Then returns false" do
+        expect(result).to be_false
+      end
     end
   end
 end
