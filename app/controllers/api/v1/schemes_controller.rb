@@ -49,6 +49,11 @@ module Api
         respond_with scheme, location: [:api, :v1, :schemes]
       end
 
+      def show
+        scheme = Scheme.find(params[:id])
+        respond_with scheme
+      end
+
       private
 
       def filter_page
