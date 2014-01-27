@@ -12,14 +12,14 @@
                   data: { action: "new" }
 
   - if feedbacks.none?
-    h4 No feedback recieved;
+    h4 No feedback.
   - else
     table.table.table-middle.table-striped.table-hover.feedbacks-table
       colgroup
         col width="100"
-        col width="300"
+        col width="250"
         col width="500"
-        col width="200"
+        col width="250"
       thead
         tr
           th Score
@@ -27,23 +27,5 @@
           th Description
           th &nbsp;
       tbody
-        - feedbacks.decorate.each do |feedback|
-          tr class="#{cycle 'odd', 'even'}"
-            td
-              .star-ratings
-                - (0..4).each do |star|
-                  .star-rating class="#{'active' if star < feedback.score}"
-            td = feedback.scheme_link
-            td = feedback.truncated_description
-            td
-              .pull-right.text-right
-                = link_to "Edit",
-                          [:edit, feedback],
-                          class: "btn btn-sm btn-default",
-                          data: { action: "edit" }
-                | &nbsp;
-                = link_to "Remove",
-                          feedback,
-                          method: :delete,
-                          class: "btn btn-sm btn-danger",
-                          data: { action: "delete" }
+        = render partial: "feedback",
+                 collection: feedbacks.decorate

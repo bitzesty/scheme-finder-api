@@ -16,5 +16,9 @@ module Backend
                 [:unapproved, :feedbacks]
       end
     end
+
+    def for_not_approved_feedback(feedback)
+      yield unless feedback.approved?
+    end
   end
 end

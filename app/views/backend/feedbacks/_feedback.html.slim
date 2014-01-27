@@ -1,0 +1,26 @@
+tr class="#{cycle 'odd', 'even'}"
+  td
+    .star-ratings
+      - (0..4).each do |star|
+        .star-rating class="#{'active' if star < feedback.score}"
+  td = feedback.scheme_link
+  td = feedback.truncated_description
+  td
+    .pull-right.text-right
+      - for_not_approved_feedback feedback
+        = link_to "Approve",
+                  [:approve, feedback],
+                  class: "btn btn-sm btn-default",
+                  data: { action: "approve" },
+                  method: :put
+      | &nbsp;
+      = link_to "Edit",
+                [:edit, feedback],
+                class: "btn btn-sm btn-default",
+                data: { action: "edit" }
+      | &nbsp;
+      = link_to "Remove",
+                feedback,
+                method: :delete,
+                class: "btn btn-sm btn-danger",
+                data: { action: "delete" }

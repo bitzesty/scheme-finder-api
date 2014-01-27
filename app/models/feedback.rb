@@ -13,4 +13,9 @@ class Feedback < ActiveRecord::Base
 
   # scopes for ordering
   scope :by_latest, -> { order created_at: :desc }
+
+  def approve
+    self.approved = true
+    save
+  end
 end

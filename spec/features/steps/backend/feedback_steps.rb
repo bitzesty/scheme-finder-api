@@ -21,7 +21,7 @@ module Backend
 
       within(:css, dom_id_selector(feedback)) do
         check "feedback_approved" if feedback.approved
-        fill_in "feedback_score", with: feedback.score
+        choose "feedback_score_#{feedback.score}"
         fill_in "feedback_description", with: feedback.description
         select feedback.scheme, from: "feedback_scheme_id"
 
@@ -82,8 +82,9 @@ module Backend
     #
     # Approves feedback
     def approve_feedback(feedback)
-      update_feedback(feedback) do
-        check "feedback_approved"
+      ensure_on unapproved_feedbacks_path
+      within feedbacks_table do
+        click_on "approve"
       end
     end
 
