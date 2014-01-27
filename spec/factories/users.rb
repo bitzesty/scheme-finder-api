@@ -3,8 +3,8 @@ FactoryGirl.define do
 
   factory :user do
     email    { generate(:user_email) }
-    password { '12345678' }
-    password_confirmation { '12345678' }
+    password { 'As12Df34_!' }
+    password_confirmation { 'As12Df34_!' }
   end
 
   factory :admin, parent: :user do

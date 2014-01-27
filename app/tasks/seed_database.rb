@@ -10,8 +10,8 @@ class SeedDatabase
       user = User.find_or_initialize_by(
         email: 'user@example.com'
       )
-      user.password = '12345678'
-      user.password_confirmation = '12345678'
+      user.password = 'As12Df34_!'
+      user.password_confirmation = 'As12Df34_!'
       user.admin = true
       user.save!
       user
