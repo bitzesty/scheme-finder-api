@@ -7,11 +7,15 @@ class SchemeSearch < Searchlight::Search
   def locations
     locs = add_id_for_all(super)
 
-    if locs.include? Location.all_of_england_id
-      locations_including_whole_england_coverage(locs)
-    else
-      locs
+    if searching_for_all_of_england?(locs)
+      locs += locations_including_whole_england_coverage
     end
+
+    if searching_for_some_england_location?(locs)
+      locs << all_of_england_location
+    end
+
+    locs.uniq
   end
 
   def sectors
@@ -46,11 +50,6 @@ class SchemeSearch < Searchlight::Search
     search.where.overlap(company_size_ids: company_sizes)
   end
 
-  private
-  def locations_including_whole_england_coverage(locations)
-    (locations + Location.for_england.map(&:id)).uniq
-  end
-
   def add_id_for_all(selected_ids)
     selected_ids = Array.wrap(selected_ids)
     if selected_ids.any?
@@ -58,5 +57,21 @@ class SchemeSearch < Searchlight::Search
     else
       selected_ids
     end
+  end
+
+  def searching_for_all_of_england?(locations)
+    locations.include? Location.all_of_england_id
+  end
+
+  def locations_including_whole_england_coverage
+    Location.for_england.map(&:id)
+  end
+
+  def searching_for_some_england_location?(locations)
+    (Location.for_england.map(&:id) & locations).any?
+  end
+
+  def all_of_england_location
+    Location.all_of_england_id
   end
 end
