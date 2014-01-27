@@ -7,7 +7,7 @@ tr class="#{cycle 'odd', 'even'}"
   td = feedback.truncated_description
   td
     .pull-right.text-right
-      - for_not_approved_feedback feedback
+      - for_unapproved_feedback feedback
         = link_to "Approve",
                   [:approve, feedback],
                   class: "btn btn-sm btn-default",
