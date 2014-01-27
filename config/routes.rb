@@ -16,6 +16,9 @@ SchemeFinderApi::Application.routes.draw do
       collection {
         get :unapproved
       }
+      member {
+        put :approve
+      }
     end
   end
 

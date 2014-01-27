@@ -25,7 +25,6 @@ describe 'Feedback management' do
       verify feedback_created?(existing_feedback)
 
       update_feedback(existing_feedback, description: 'new_feedback_description')
-      approve_feedback(existing_feedback)
 
       verify feedback_updated?(existing_feedback, description: 'new_feedback_description')
     end

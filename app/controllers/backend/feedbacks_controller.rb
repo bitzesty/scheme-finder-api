@@ -46,6 +46,18 @@ module Backend
     def show
     end
 
+    def approve
+      self.feedback = Feedback.find(params[:id])
+
+      if feedback.approve
+        redirect_to [:unapproved, :feedbacks],
+                    notice: "Feedback approved"
+      else
+        redirect_to [:unapproved, :feedbacks],
+                    alert: "Could not approve feedback"
+      end
+    end
+
     private
 
     def feedback_params

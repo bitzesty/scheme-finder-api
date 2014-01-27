@@ -8,6 +8,7 @@ module ClickOnHelper
   #   click_on ':#save_foo' # <a href='#save_foo'>foo</a>
   #   click_on '/some/url'  # <a href='/some/url'>foo</a>
   #   click_on '+ New Foo'  # <a href='#'>+ New Foo</a>
+  #   click_on 'leave_feedback'  # <a href='#' data-action='leave_feedback'>Foo</a>
   #
   def click_on(locator)
     el = case locator[0]
@@ -24,7 +25,7 @@ module ClickOnHelper
             find %(a[href="#{locator}"])
 
            else
-             nil
+             find %(a[data-action="#{locator}"])
            end
          end
 
