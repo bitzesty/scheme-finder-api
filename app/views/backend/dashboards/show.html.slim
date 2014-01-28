@@ -1,3 +1,18 @@
 .container
   .page-header
-    h2 Dashboard
+    h2 About
+
+  p
+    | This is admin management application for scheme finder api.
+  p
+    | The client consuming the api is seen in iframe:
+
+
+  .row
+    = render "iframe",
+             title: "Businesses",
+             url: [SchemeFinderApi.frontend_app_url, "businesses"].join("/")
+
+    = render "iframe",
+             title: "Teachers",
+             url: [SchemeFinderApi.frontend_app_url, "teachers"].join("/")

@@ -1,6 +1,7 @@
 module SchemeFinderApi
   DEFAULT_PARAMS = {
-    api_access_token: "development"
+    api_access_token: "development",
+    frontend_app_url: "http://localhost:3001",
   }
 
   class << self
