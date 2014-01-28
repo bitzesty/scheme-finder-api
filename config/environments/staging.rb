@@ -93,7 +93,7 @@ SchemeFinderApi::Application.configure do
   config.after_initialize do
     SchemeFinderApi.configure do |app_config|
       app_config.api_access_token = ENV["API_ACCESS_TOKEN"]
-      app_config.frontend_app_url = "https://scheme-finder-frontend.dev.bitzesty.com"
+      app_config.frontend_app_url = "https://scheme-finder-api.dev.bitzesty.com"
     end
   end
 end
