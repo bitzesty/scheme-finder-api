@@ -4,6 +4,11 @@ module Api
       def index
         @criteria = Activity.exposable_via_api
       end
+
+      private
+      def criteria_attributes
+        [:id, :name, :for_businesses, :for_teachers]
+      end
     end
   end
 end
