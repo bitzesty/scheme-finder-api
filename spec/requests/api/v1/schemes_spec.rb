@@ -128,8 +128,8 @@ describe Api::V1 do
     end
 
     context 'with filter by commiment length' do
-      let(:scheme) { create :scheme, :confirmed, company_size_ids: [CommitmentLength.first.id] }
-      let(:scheme_with_company_size) { create :scheme, :confirmed, company_size_ids: [CommitmentLength.last.id] }
+      let(:scheme) { create :scheme, :confirmed, company_size_ids: [CompanySize.first.id] }
+      let(:scheme_with_company_size) { create :scheme, :confirmed, company_size_ids: [CompanySize.last.id] }
       let(:response_pattern) {
         { schemes: [ { id: scheme_with_company_size.id }.ignore_extra_keys! ] }
       }

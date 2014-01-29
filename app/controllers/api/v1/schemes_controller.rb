@@ -9,7 +9,6 @@ module Api
     'sector_ids'=>['business_services'],
     'activity_ids'=>['lesson_materials'],
     'age_range_ids'=>['over_18'],
-    'commitment_length_ids'=>['longer_term'],
     'company_size_ids'=>['250-500'],
     'contact_name'=>'Jim Bim',
     'contact_email'=>'person1@example.com',
@@ -29,7 +28,6 @@ module Api
           sectors: params[:sectors],
           activities: params[:activities],
           age_ranges: params[:age_ranges],
-          commitment_lengths: params[:commitment_lengths],
           company_sizes: params[:company_sizes]
         ).results
 
@@ -76,7 +74,6 @@ module Api
           :name, :website, :description,
           location_ids: [],
           sector_ids: [],
-          commitment_length_ids: [],
           activity_ids: [],
           company_size_ids: [],
           age_range_ids: []
