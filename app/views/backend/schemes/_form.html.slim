@@ -63,15 +63,6 @@
               label_html: { class: "col-sm-2" },
               right_column_html: { class: "col-sm-3" }
 
-    = f.input :commitment_length_ids,
-              as: :multi_select,
-              label: 'Commitment length',
-              collection: CommitmentLength.collection,
-              label: "Length of commitment",
-              input_html: { class: "span6" },
-              label_html: { class: "col-sm-2" },
-              right_column_html: { class: "col-sm-3" }
-
     = f.input :activity_ids,
               as: :multi_select,
               collection: Activity.collection,

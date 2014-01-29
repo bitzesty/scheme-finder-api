@@ -36,10 +36,6 @@ class Scheme < ActiveRecord::Base
     AgeRange.find(age_range_ids)
   end
 
-  def commitment_lengths
-    CommitmentLength.find(commitment_length_ids)
-  end
-
   def company_sizes
     CompanySize.find(company_size_ids)
   end
@@ -58,10 +54,6 @@ class Scheme < ActiveRecord::Base
 
   def age_range_ids=(age_range_ids)
     super(Array(age_range_ids).reject(&:blank?))
-  end
-
-  def commitment_length_ids=(commitment_length_ids)
-    super(Array(commitment_length_ids).reject(&:blank?))
   end
 
   def company_size_ids=(company_size_ids)
