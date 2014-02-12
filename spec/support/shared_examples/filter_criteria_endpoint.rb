@@ -10,7 +10,7 @@ shared_examples_for 'Filter Criteria endpoint for' do |filter_type|
       end
     }
 
-    it 'returns names and ids of the criterion' do
+    it 'returns names and ids of the criterion', :api_doc do
       get "/api/v1/#{filter_type}.json"
 
       expect(response.body).to match_json_expression response_pattern

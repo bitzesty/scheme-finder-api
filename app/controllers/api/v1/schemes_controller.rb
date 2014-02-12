@@ -22,6 +22,14 @@ module Api
       before_action :authenticate, only: :create
       before_action :ensure_scheme_provided, only: :create
 
+      api :GET, "/v1/schemes", "List schemes that apply to provided filters"
+      param :activities, Array[Integer], desc: "Filter: activity ids", required: false
+      param :age_ranges, Array[Integer], desc: "Filter: age range ids", required: false
+      param :company_sizes, Array[Integer], desc: "Filter: company size ids", required: false
+      param :locations, Array[Integer], desc: "Filter: location ids", required: false
+      param :sectors, Array[Integer], desc: "Filter: sector ids", required: false
+      param :page, Array[Integer], desc: "Filter: page, lists all schemes if no page provided", required: false
+      param :per_page, Array[Integer], desc: "Display records per page", required: false
       def index
         @schemes = SchemeSearch.new(
           locations: params[:locations],
@@ -39,6 +47,12 @@ module Api
         end
       end
 
+      api :POST, "/v1/schemes", "Submit scheme application for admin to review"
+      param :contact_name, String, desc: "Scheme contact name", required: true
+      param :contact_email, String, desc: "Scheme contact email", required: true
+      param :contact_phone, String, desc: "Scheme contact phone", required: true
+      param :name, String, desc: "Scheme name", required: true
+      param :website, String, desc: "Scheme website", required: true
       def create
         scheme = Scheme.new(scheme_params)
 

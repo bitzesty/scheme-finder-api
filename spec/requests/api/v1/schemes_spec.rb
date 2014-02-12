@@ -127,33 +127,6 @@ describe Api::V1 do
       end
     end
 
-    context 'with filter by commiment length' do
-      let(:scheme) { create :scheme, :confirmed, company_size_ids: [CompanySize.first.id] }
-      let(:scheme_with_company_size) { create :scheme, :confirmed, company_size_ids: [CompanySize.last.id] }
-      let(:response_pattern) {
-        { schemes: [ { id: scheme_with_company_size.id }.ignore_extra_keys! ] }
-      }
-
-      let(:invalid_response_pattern) {
-        { schemes: [ { id: scheme.id }.ignore_extra_keys!] }
-      }
-
-      before {
-        scheme
-        scheme_with_company_size
-
-        get '/api/v1/schemes.json', company_sizes: scheme_with_company_size.company_size_ids
-      }
-
-      it 'returns schemes specific to provided company_size' do
-        expect(response.body).to match_json_expression response_pattern
-      end
-
-      it 'does not return irrelevant scheme' do
-        expect(response.body).not_to match_json_expression invalid_response_pattern
-      end
-    end
-
     context 'with filter by company size' do
       let(:scheme) { create :scheme, :confirmed, company_size_ids: [CompanySize.first.id] }
       let(:scheme_with_company_size) { create :scheme, :confirmed, company_size_ids: [CompanySize.last.id] }
@@ -201,6 +174,35 @@ describe Api::V1 do
       }
 
       it 'returns schemes for given page' do
+        expect(response.body).to match_json_expression response_pattern
+      end
+    end
+
+    describe "with filter by all" do
+      let(:scheme) { create :scheme, :confirmed }
+      let(:response_pattern) {
+        {
+          schemes: [ { id: scheme.id }.ignore_extra_keys! ],
+          total: 1,
+          page: 1,
+          per_page: 5,
+        }
+      }
+
+      before {
+        scheme
+
+        get '/api/v1/schemes.json',
+            locations: [scheme.location_ids.first],
+            sectors: [scheme.sector_ids.first],
+            activities: [scheme.activity_ids.first],
+            age_ranges: [scheme.age_range_ids.first],
+            company_sizes: [scheme.company_size_ids.first],
+            page: 1,
+            per_page: 5
+      }
+
+      it "it returns the matched scheme", :api_doc do
         expect(response.body).to match_json_expression response_pattern
       end
     end

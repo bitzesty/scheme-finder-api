@@ -26,11 +26,11 @@ describe Api::V1 do
     context 'with all attributes correct' do
       let(:scheme_attributes) {
         build(:scheme).attributes.select do |k, v|
-          !ignored_scheme_attributes.include?(k)
+          allowed_scheme_attributes.include?(k)
         end
       }
 
-      it 'returns success message' do
+      it 'returns success message', :api_doc do
         post '/api/v1/schemes.json', scheme: scheme_attributes
 
         expect(response.status).to eq 201
@@ -40,7 +40,7 @@ describe Api::V1 do
 
   private
 
-  def ignored_scheme_attributes
-    %w(created_at updated_at id confirmed)
+  def allowed_scheme_attributes
+    %w(contact_name contact_email contact_phone name website)
   end
 end
