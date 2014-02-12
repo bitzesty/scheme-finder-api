@@ -19,7 +19,7 @@ describe Api::V1::Schemes::FeedbacksController do
         get "/api/v1/schemes/#{scheme.id}/feedbacks.json"
       }
 
-      it 'returns approved feedbacks specific to provided scheme' do
+      it 'returns approved feedbacks specific to provided scheme', :api_doc do
         expect(response.body).to match_json_expression response_pattern
       end
     end

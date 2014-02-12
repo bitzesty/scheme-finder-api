@@ -20,7 +20,7 @@ describe Api::V1::Schemes::FeedbacksController do
       end
     end
 
-    context 'with all attributes correct' do
+    context 'with all attributes correct', :api_doc do
       let(:feedback) { attributes_for(:feedback) }
 
       it 'returns success message' do

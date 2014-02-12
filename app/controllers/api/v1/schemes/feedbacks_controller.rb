@@ -15,10 +15,14 @@ module Api
         before_action :ensure_feedback_provided, only: :create
 
         # return all approved or filter by scheme
+        api :GET, "/v1/schemes/:scheme_id/feedbacks", "List feedbacks"
         def index
           @feedbacks = Feedback.approved.for_scheme(scheme)
         end
 
+        api :POST, "/v1/schemes/:scheme_id/feedbacks", "Create a feedback"
+        param :score, Integer, desc: "Feedback score from 1 to 5", required: true
+        param :description, String, desc: "Feedback text (description)", required: true
         def create
           feedback = scheme.feedbacks.build(feedback_params)
 

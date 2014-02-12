@@ -1,0 +1,303 @@
+--- !omap
+- v1-activities#index:
+  - !omap
+    - verb: :GET
+    - path: /api/v1/activities.json
+    - versions:
+      - '1.0'
+    - query: 
+    - request_data: 
+    - response_data:
+        activities:
+        - id: apprenticeships
+          name: Apprenticeships
+          for_businesses: Offer an apprenticeship
+          for_teachers: Organise an apprenticeship
+        - id: work_experience
+          name: Work experience
+          for_businesses: Offer work experience
+          for_teachers: Organise work experience
+        - id: workplace_visits
+          name: Workplace visits
+          for_businesses: Host a visit
+          for_teachers: Go on a visit
+        - id: hands_on_talks
+          name: Hands-on activities
+          for_businesses: Provide hands-on activities
+          for_teachers: Organise hands-on activites
+        - id: inspiring_talks
+          name: Inspiring talks
+          for_businesses: Give a talk
+          for_teachers: Host a talk
+        - id: ambasadors
+          name: Ambassadors
+          for_businesses: Be an ambassador
+          for_teachers: Work with an ambassador
+        - id: lesson_materials
+          name: Lesson materials
+          for_businesses: Provide lesson materials
+          for_teachers: Lesson materials
+        - id: mentoring
+          name: Mentoring
+          for_businesses: Be a mentor
+          for_teachers: Organise mentoring
+    - code: 200
+    - show_in_doc: 1
+    - recorded: true
+- v1-age_ranges#index:
+  - !omap
+    - verb: :GET
+    - path: /api/v1/age_ranges.json
+    - versions:
+      - '1.0'
+    - query: 
+    - request_data: 
+    - response_data:
+        age_ranges:
+        - id: primary_school_children
+          name: Primary school children
+        - id: secondary_school_children
+          name: Secondary school children
+        - id: over_18
+          name: 18+
+    - code: 200
+    - show_in_doc: 1
+    - recorded: true
+- v1-company_sizes#index:
+  - !omap
+    - verb: :GET
+    - path: /api/v1/company_sizes.json
+    - versions:
+      - '1.0'
+    - query: 
+    - request_data: 
+    - response_data:
+        company_sizes:
+        - id: 0-9
+          name: 0-9
+        - id: 10-249
+          name: 10-249
+        - id: 250-500
+          name: 250-500
+        - id: 501-1000
+          name: 501-1000
+        - id: 1000 +
+          name: 1000 +
+    - code: 200
+    - show_in_doc: 1
+    - recorded: true
+- v1-locations#index:
+  - !omap
+    - verb: :GET
+    - path: /api/v1/locations.json
+    - versions:
+      - '1.0'
+    - query: 
+    - request_data: 
+    - response_data:
+        locations:
+        - id: england
+          name: All of England
+          group: England
+        - id: north_east
+          name: North East
+          group: England
+        - id: north_west
+          name: North West
+          group: England
+        - id: yorkshire_humber
+          name: Yorkshire and the Humber
+          group: England
+        - id: east_midlands
+          name: East Midlands
+          group: England
+        - id: west_midlands
+          name: West Midlands
+          group: England
+        - id: east_england
+          name: East of England
+          group: England
+        - id: london
+          name: London
+          group: England
+        - id: south_england
+          name: South East
+          group: England
+        - id: south_west
+          name: South West
+          group: England
+        - id: northern_ireland
+          name: All of Northern Ireland
+          group: Nothern Ireland
+        - id: scotland
+          name: All of Scotland
+          group: Scotland
+        - id: wales
+          name: All of Wales
+          group: Wales
+    - code: 200
+    - show_in_doc: 1
+    - recorded: true
+- v1-schemes#create:
+  - !omap
+    - verb: :POST
+    - path: /api/v1/schemes.json
+    - versions:
+      - '1.0'
+    - query: 
+    - request_data: scheme[contact_name]=Jim+Bim&scheme[contact_email]=person3%40example.com&scheme[contact_phone]=0771233445&scheme[name]=Scheme+3&scheme[website]=example.com
+    - response_data:
+        id: 2624
+        had_direct_interactions: 
+        created_at: '2014-02-12T12:35:12.246+00:00'
+        updated_at: '2014-02-12T12:35:12.246+00:00'
+        logo:
+          url: /backend/assets/fallback/logo_default.png
+          logo:
+            url: /backend/assets/fallback/logo_default.png
+        location_ids: []
+        sector_ids: []
+        activity_ids: []
+        age_range_ids: []
+        company_size_ids: []
+        contact_name: Jim Bim
+        contact_email: person3@example.com
+        contact_phone: '0771233445'
+        name: Scheme 3
+        website: example.com
+        confirmed: false
+        description: 
+    - code: 201
+    - show_in_doc: 1
+    - recorded: true
+  - !omap
+    - verb: :POST
+    - path: /api/v1/schemes.json
+    - versions:
+      - '1.0'
+    - query: 
+    - request_data: scheme[contact_name]=Jim+Bim&scheme[contact_email]=person5%40example.com&scheme[contact_phone]=0771233445&scheme[name]=Scheme+4&scheme[website]=example.com&scheme[description]=Host+a+short+visit&scheme[had_direct_interactions]=false&scheme[location_ids][]=wales&scheme[sector_ids][]=other&scheme[activity_ids][]=hands_on_talks&scheme[company_size_ids][]=0-9&scheme[age_range_ids][]=secondary_school_children
+    - response_data:
+        errors:
+          name:
+          - is already taken
+    - code: 422
+    - show_in_doc: 0
+    - recorded: true
+- v1-schemes#index:
+  - !omap
+    - verb: :GET
+    - path: /api/v1/schemes.json
+    - versions:
+      - '1.0'
+    - query: locations[]=east_england&sectors[]=life_sciences&activities[]=work_experience&age_ranges[]=primary_school_children&company_sizes[]=250-500&page=1&per_page=5
+    - request_data: 
+    - response_data:
+        schemes:
+        - id: 2628
+          logo:
+            logo:
+              url: /backend/assets/fallback/logo_default.png
+              logo:
+                url: /backend/assets/fallback/logo_default.png
+          contact_name: Jim Bim
+          contact_email: person7@example.com
+          contact_phone: '0771233445'
+          name: Scheme 6
+          website: example.com
+          description: Host a short visit
+          location_ids:
+          - east_england
+          sector_ids:
+          - life_sciences
+          activity_ids:
+          - work_experience
+          company_size_ids:
+          - 250-500
+          age_range_ids:
+          - primary_school_children
+        total: 1
+        page: 1
+        per_page: 5
+    - code: 200
+    - show_in_doc: 1
+    - recorded: true
+- v1-schemes-feedbacks#create:
+  - !omap
+    - verb: :POST
+    - path: /api/v1/schemes/2627/feedbacks.json
+    - versions:
+      - '1.0'
+    - query: 
+    - request_data: feedback[score]=1&feedback[description]=This+is+good+scheme
+    - response_data:
+        id: 410
+        scheme_id: 2627
+        score: 1
+        description: This is good scheme
+        approved: false
+        created_at: '2014-02-12T12:35:12.291+00:00'
+        updated_at: '2014-02-12T12:35:12.291+00:00'
+    - code: 201
+    - show_in_doc: 1
+    - recorded: true
+- v1-schemes-feedbacks#index:
+  - !omap
+    - verb: :GET
+    - path: /api/v1/schemes/2623/feedbacks.json
+    - versions:
+      - '1.0'
+    - query: 
+    - request_data: 
+    - response_data:
+        feedbacks:
+        - id: 408
+          score: 1
+          description: This is good scheme
+          scheme_id: 2623
+    - code: 200
+    - show_in_doc: 1
+    - recorded: true
+- v1-sectors#index:
+  - !omap
+    - verb: :GET
+    - path: /api/v1/sectors.json
+    - versions:
+      - '1.0'
+    - query: 
+    - request_data: 
+    - response_data:
+        sectors:
+        - id: auto
+          name: Auto
+        - id: aero
+          name: Aero
+        - id: chemicals
+          name: Chemicals
+        - id: construction
+          name: Construction
+        - id: electronics
+          name: Electronics
+        - id: life_sciences
+          name: Life Sciences
+        - id: machinery
+          name: Machinery
+        - id: marine
+          name: Marine
+        - id: materials
+          name: Materials
+        - id: nuclear
+          name: Nuclear
+        - id: oil_gas
+          name: Oil and gas
+        - id: business_services
+          name: Professional Business Services
+        - id: rail
+          name: Rail
+        - id: renewable_energy
+          name: Renewable Energy
+        - id: other
+          name: Other
+    - code: 200
+    - show_in_doc: 1
+    - recorded: true

@@ -10,6 +10,14 @@ Scheme finder api
   HIPCHAT_TOKEN=<token>
   ```
 
+## Regenerate API documentation
+
+Run the specs with the apipie record env variable defined:
+
+```
+APIPIE_RECORD=all bundle exec rspec
+```
+
 ## Code organization
 
 * `app/searches` contains `Searchlight::Search` derivate classes.
