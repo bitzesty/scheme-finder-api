@@ -125,6 +125,6 @@ ask guys for password
 ### Production
 
 ```bash
-bundle exec knife solo cook <ip> nodes/production.json -x root
+bundle exec knife solo cook 89.200.142.59 nodes/production.json -x root
 ask guys for password
 ```
