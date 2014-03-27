@@ -2,7 +2,7 @@
 - v1-activities#index:
   - !omap
     - verb: :GET
-    - path: /api/v1/activities.json
+    - path: "/api/v1/activities.json"
     - versions:
       - '1.0'
     - query: 
@@ -47,7 +47,7 @@
 - v1-age_ranges#index:
   - !omap
     - verb: :GET
-    - path: /api/v1/age_ranges.json
+    - path: "/api/v1/age_ranges.json"
     - versions:
       - '1.0'
     - query: 
@@ -66,7 +66,7 @@
 - v1-company_sizes#index:
   - !omap
     - verb: :GET
-    - path: /api/v1/company_sizes.json
+    - path: "/api/v1/company_sizes.json"
     - versions:
       - '1.0'
     - query: 
@@ -89,7 +89,7 @@
 - v1-locations#index:
   - !omap
     - verb: :GET
-    - path: /api/v1/locations.json
+    - path: "/api/v1/locations.json"
     - versions:
       - '1.0'
     - query: 
@@ -141,81 +141,67 @@
 - v1-schemes#create:
   - !omap
     - verb: :POST
-    - path: /api/v1/schemes.json
+    - path: "/api/v1/schemes.json"
     - versions:
       - '1.0'
     - query: 
-    - request_data: scheme[contact_name]=Jim+Bim&scheme[contact_email]=person3%40example.com&scheme[contact_phone]=0771233445&scheme[name]=Scheme+3&scheme[website]=example.com
+    - request_data: scheme[contact_name]=Jim+Bim&scheme[contact_email]=person1%40example.com&scheme[contact_phone]=0771233445&scheme[name]=Scheme+1&scheme[website]=example.com
     - response_data:
-        id: 2624
+        id: 1
         had_direct_interactions: 
-        created_at: '2014-02-12T12:35:12.246+00:00'
-        updated_at: '2014-02-12T12:35:12.246+00:00'
+        created_at: '2014-03-27T10:32:44.193+00:00'
+        updated_at: '2014-03-27T10:32:44.193+00:00'
         logo:
-          url: /backend/assets/fallback/logo_default.png
+          url: "/backend/assets/fallback/logo_default.png"
           logo:
-            url: /backend/assets/fallback/logo_default.png
+            url: "/backend/assets/fallback/logo_default.png"
         location_ids: []
         sector_ids: []
         activity_ids: []
         age_range_ids: []
         company_size_ids: []
         contact_name: Jim Bim
-        contact_email: person3@example.com
+        contact_email: person1@example.com
         contact_phone: '0771233445'
-        name: Scheme 3
+        name: Scheme 1
         website: example.com
         confirmed: false
         description: 
     - code: 201
     - show_in_doc: 1
     - recorded: true
-  - !omap
-    - verb: :POST
-    - path: /api/v1/schemes.json
-    - versions:
-      - '1.0'
-    - query: 
-    - request_data: scheme[contact_name]=Jim+Bim&scheme[contact_email]=person5%40example.com&scheme[contact_phone]=0771233445&scheme[name]=Scheme+4&scheme[website]=example.com&scheme[description]=Host+a+short+visit&scheme[had_direct_interactions]=false&scheme[location_ids][]=wales&scheme[sector_ids][]=other&scheme[activity_ids][]=hands_on_talks&scheme[company_size_ids][]=0-9&scheme[age_range_ids][]=secondary_school_children
-    - response_data:
-        errors:
-          name:
-          - is already taken
-    - code: 422
-    - show_in_doc: 0
-    - recorded: true
 - v1-schemes#index:
   - !omap
     - verb: :GET
-    - path: /api/v1/schemes.json
+    - path: "/api/v1/schemes.json"
     - versions:
       - '1.0'
-    - query: locations[]=east_england&sectors[]=life_sciences&activities[]=work_experience&age_ranges[]=primary_school_children&company_sizes[]=250-500&page=1&per_page=5
+    - query: locations[]=south_west&sectors[]=renewable_energy&activities[]=ambasadors&age_ranges[]=secondary_school_children&company_sizes[]=501-1000&page=1&per_page=5
     - request_data: 
     - response_data:
         schemes:
-        - id: 2628
+        - id: 3
           logo:
             logo:
-              url: /backend/assets/fallback/logo_default.png
+              url: "/backend/assets/fallback/logo_default.png"
               logo:
-                url: /backend/assets/fallback/logo_default.png
+                url: "/backend/assets/fallback/logo_default.png"
           contact_name: Jim Bim
-          contact_email: person7@example.com
+          contact_email: person3@example.com
           contact_phone: '0771233445'
-          name: Scheme 6
+          name: Scheme 3
           website: example.com
           description: Host a short visit
           location_ids:
-          - east_england
+          - south_west
           sector_ids:
-          - life_sciences
+          - renewable_energy
           activity_ids:
-          - work_experience
+          - ambasadors
           company_size_ids:
-          - 250-500
+          - 501-1000
           age_range_ids:
-          - primary_school_children
+          - secondary_school_children
         total: 1
         page: 1
         per_page: 5
@@ -225,43 +211,43 @@
 - v1-schemes-feedbacks#create:
   - !omap
     - verb: :POST
-    - path: /api/v1/schemes/2627/feedbacks.json
+    - path: "/api/v1/schemes/2/feedbacks.json"
     - versions:
       - '1.0'
     - query: 
     - request_data: feedback[score]=1&feedback[description]=This+is+good+scheme
     - response_data:
-        id: 410
-        scheme_id: 2627
+        id: 1
+        scheme_id: 2
         score: 1
         description: This is good scheme
         approved: false
-        created_at: '2014-02-12T12:35:12.291+00:00'
-        updated_at: '2014-02-12T12:35:12.291+00:00'
+        created_at: '2014-03-27T10:32:44.373+00:00'
+        updated_at: '2014-03-27T10:32:44.373+00:00'
     - code: 201
     - show_in_doc: 1
     - recorded: true
 - v1-schemes-feedbacks#index:
   - !omap
     - verb: :GET
-    - path: /api/v1/schemes/2623/feedbacks.json
+    - path: "/api/v1/schemes/5/feedbacks.json"
     - versions:
       - '1.0'
     - query: 
     - request_data: 
     - response_data:
         feedbacks:
-        - id: 408
+        - id: 3
           score: 1
           description: This is good scheme
-          scheme_id: 2623
+          scheme_id: 5
     - code: 200
     - show_in_doc: 1
     - recorded: true
 - v1-sectors#index:
   - !omap
     - verb: :GET
-    - path: /api/v1/sectors.json
+    - path: "/api/v1/sectors.json"
     - versions:
       - '1.0'
     - query: 

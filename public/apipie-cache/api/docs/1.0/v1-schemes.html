@@ -18,7 +18,7 @@
       <div id='container'>
         <ul class='breadcrumb'>
   <li>
-    <a href='../../api/docs/1.0.html'>SchemeFinderApi 1.0</a>
+    <a href='../../api/docs/1.0'>SchemeFinderApi 1.0</a>
     <span class='divider'>/</span>
   </li>
   <li class='active'>
@@ -37,11 +37,12 @@
 
 
 
+
 <div class='accordion' id='accordion'>
 
     <hr>
     <div class='pull-right small'>
-      <a href='../../api/docs/1.0/v1-schemes/index.html'> >>> </a>
+      <a href='../../api/docs/1.0/v1-schemes/index'> >>> </a>
     </div>
     <div>
         <h2>
@@ -57,17 +58,19 @@
 
 
     <div id='description-index' class='collapse accordion-body'>
-      
+      <!-- begin: ../../../home/astrauka/.rvm/gems/ruby-2.1.0/gems/apipie-rails-0.1.2/app/views/apipie/apipies/_method_detail.erb (from ) -->
 
 
 
-        <h3>Examples</h3>
-          <pre class="prettyprint">GET /api/v1/schemes.json?locations[]=east_england&amp;sectors[]=life_sciences&amp;activities[]=work_experience&amp;age_ranges[]=primary_school_children&amp;company_sizes[]=250-500&amp;page=1&amp;per_page=5
+
+
+  <h3>Examples</h3>
+    <pre class="prettyprint">GET /api/v1/schemes.json?locations[]=south_west&amp;sectors[]=renewable_energy&amp;activities[]=ambasadors&amp;age_ranges[]=secondary_school_children&amp;company_sizes[]=501-1000&amp;page=1&amp;per_page=5
 200
 {
   &quot;schemes&quot;: [
     {
-      &quot;id&quot;: 2628,
+      &quot;id&quot;: 3,
       &quot;logo&quot;: {
         &quot;logo&quot;: {
           &quot;url&quot;: &quot;/backend/assets/fallback/logo_default.png&quot;,
@@ -77,25 +80,25 @@
         }
       },
       &quot;contact_name&quot;: &quot;Jim Bim&quot;,
-      &quot;contact_email&quot;: &quot;person7@example.com&quot;,
+      &quot;contact_email&quot;: &quot;person3@example.com&quot;,
       &quot;contact_phone&quot;: &quot;0771233445&quot;,
-      &quot;name&quot;: &quot;Scheme 6&quot;,
+      &quot;name&quot;: &quot;Scheme 3&quot;,
       &quot;website&quot;: &quot;example.com&quot;,
       &quot;description&quot;: &quot;Host a short visit&quot;,
       &quot;location_ids&quot;: [
-        &quot;east_england&quot;
+        &quot;south_west&quot;
       ],
       &quot;sector_ids&quot;: [
-        &quot;life_sciences&quot;
+        &quot;renewable_energy&quot;
       ],
       &quot;activity_ids&quot;: [
-        &quot;work_experience&quot;
+        &quot;ambasadors&quot;
       ],
       &quot;company_size_ids&quot;: [
-        &quot;250-500&quot;
+        &quot;501-1000&quot;
       ],
       &quot;age_range_ids&quot;: [
-        &quot;primary_school_children&quot;
+        &quot;secondary_school_children&quot;
       ]
     }
   ],
@@ -104,16 +107,16 @@
   &quot;per_page&quot;: 5
 }</pre>
 
-        <h3>Params</h3>
-        <table class='table'>
-          <thead>
-            <tr>
-              <th>Param name</th>
-              <th>Description</th>
-            </tr>
-          </thead>
-          <tbody>
-            <!-- begin: ../../../home/astrauka/.rvm/gems/ruby-2.1.0/gems/apipie-rails-0.0.24/app/views/apipie/apipies/_params.html.erb (from ) -->
+  <h3>Params</h3>
+  <table class='table'>
+    <thead>
+      <tr>
+        <th>Param name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- begin: ../../../home/astrauka/.rvm/gems/ruby-2.1.0/gems/apipie-rails-0.1.2/app/views/apipie/apipies/_params.html.erb (from ) -->
   <tr style='background-color:rgb(255,255,255);'>
     <td>
       <strong>activities </strong><br>
@@ -128,7 +131,10 @@
 
         <br>
         Value: Must be one of: Integer.
+
+
     </td>
+
   </tr>
 
   
@@ -146,7 +152,10 @@
 
         <br>
         Value: Must be one of: Integer.
+
+
     </td>
+
   </tr>
 
   
@@ -164,7 +173,10 @@
 
         <br>
         Value: Must be one of: Integer.
+
+
     </td>
+
   </tr>
 
   
@@ -182,7 +194,10 @@
 
         <br>
         Value: Must be one of: Integer.
+
+
     </td>
+
   </tr>
 
   
@@ -200,7 +215,10 @@
 
         <br>
         Value: Must be one of: Integer.
+
+
     </td>
+
   </tr>
 
   
@@ -218,7 +236,10 @@
 
         <br>
         Value: Must be one of: Integer.
+
+
     </td>
+
   </tr>
 
   
@@ -236,17 +257,21 @@
 
         <br>
         Value: Must be one of: Integer.
+
+
     </td>
+
   </tr>
 
   
-<!-- end: ../../../home/astrauka/.rvm/gems/ruby-2.1.0/gems/apipie-rails-0.0.24/app/views/apipie/apipies/_params.html.erb (from ) -->
-          </tbody>
-        </table>
+<!-- end: ../../../home/astrauka/.rvm/gems/ruby-2.1.0/gems/apipie-rails-0.1.2/app/views/apipie/apipies/_params.html.erb (from ) -->
+    </tbody>
+  </table>
+<!-- end: ../../../home/astrauka/.rvm/gems/ruby-2.1.0/gems/apipie-rails-0.1.2/app/views/apipie/apipies/_method_detail.erb (from ) -->
     </div>
     <hr>
     <div class='pull-right small'>
-      <a href='../../api/docs/1.0/v1-schemes/create.html'> >>> </a>
+      <a href='../../api/docs/1.0/v1-schemes/create'> >>> </a>
     </div>
     <div>
         <h2>
@@ -262,19 +287,21 @@
 
 
     <div id='description-create' class='collapse accordion-body'>
-      
+      <!-- begin: ../../../home/astrauka/.rvm/gems/ruby-2.1.0/gems/apipie-rails-0.1.2/app/views/apipie/apipies/_method_detail.erb (from ) -->
 
 
 
-        <h3>Examples</h3>
-          <pre class="prettyprint">POST /api/v1/schemes.json
-scheme[contact_name]=Jim+Bim&amp;scheme[contact_email]=person3%40example.com&amp;scheme[contact_phone]=0771233445&amp;scheme[name]=Scheme+3&amp;scheme[website]=example.com
+
+
+  <h3>Examples</h3>
+    <pre class="prettyprint">POST /api/v1/schemes.json
+scheme[contact_name]=Jim+Bim&amp;scheme[contact_email]=person1%40example.com&amp;scheme[contact_phone]=0771233445&amp;scheme[name]=Scheme+1&amp;scheme[website]=example.com
 201
 {
-  &quot;id&quot;: 2624,
+  &quot;id&quot;: 1,
   &quot;had_direct_interactions&quot;: null,
-  &quot;created_at&quot;: &quot;2014-02-12T12:35:12.246+00:00&quot;,
-  &quot;updated_at&quot;: &quot;2014-02-12T12:35:12.246+00:00&quot;,
+  &quot;created_at&quot;: &quot;2014-03-27T10:32:44.193+00:00&quot;,
+  &quot;updated_at&quot;: &quot;2014-03-27T10:32:44.193+00:00&quot;,
   &quot;logo&quot;: {
     &quot;url&quot;: &quot;/backend/assets/fallback/logo_default.png&quot;,
     &quot;logo&quot;: {
@@ -287,24 +314,24 @@ scheme[contact_name]=Jim+Bim&amp;scheme[contact_email]=person3%40example.com&amp
   &quot;age_range_ids&quot;: [],
   &quot;company_size_ids&quot;: [],
   &quot;contact_name&quot;: &quot;Jim Bim&quot;,
-  &quot;contact_email&quot;: &quot;person3@example.com&quot;,
+  &quot;contact_email&quot;: &quot;person1@example.com&quot;,
   &quot;contact_phone&quot;: &quot;0771233445&quot;,
-  &quot;name&quot;: &quot;Scheme 3&quot;,
+  &quot;name&quot;: &quot;Scheme 1&quot;,
   &quot;website&quot;: &quot;example.com&quot;,
   &quot;confirmed&quot;: false,
   &quot;description&quot;: null
 }</pre>
 
-        <h3>Params</h3>
-        <table class='table'>
-          <thead>
-            <tr>
-              <th>Param name</th>
-              <th>Description</th>
-            </tr>
-          </thead>
-          <tbody>
-            <!-- begin: ../../../home/astrauka/.rvm/gems/ruby-2.1.0/gems/apipie-rails-0.0.24/app/views/apipie/apipies/_params.html.erb (from ) -->
+  <h3>Params</h3>
+  <table class='table'>
+    <thead>
+      <tr>
+        <th>Param name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- begin: ../../../home/astrauka/.rvm/gems/ruby-2.1.0/gems/apipie-rails-0.1.2/app/views/apipie/apipies/_params.html.erb (from ) -->
   <tr style='background-color:rgb(255,255,255);'>
     <td>
       <strong>contact_name </strong><br>
@@ -319,7 +346,10 @@ scheme[contact_name]=Jim+Bim&amp;scheme[contact_email]=person3%40example.com&amp
 
         <br>
         Value: Must be String
+
+
     </td>
+
   </tr>
 
   
@@ -337,7 +367,10 @@ scheme[contact_name]=Jim+Bim&amp;scheme[contact_email]=person3%40example.com&amp
 
         <br>
         Value: Must be String
+
+
     </td>
+
   </tr>
 
   
@@ -355,7 +388,10 @@ scheme[contact_name]=Jim+Bim&amp;scheme[contact_email]=person3%40example.com&amp
 
         <br>
         Value: Must be String
+
+
     </td>
+
   </tr>
 
   
@@ -373,7 +409,10 @@ scheme[contact_name]=Jim+Bim&amp;scheme[contact_email]=person3%40example.com&amp
 
         <br>
         Value: Must be String
+
+
     </td>
+
   </tr>
 
   
@@ -391,13 +430,17 @@ scheme[contact_name]=Jim+Bim&amp;scheme[contact_email]=person3%40example.com&amp
 
         <br>
         Value: Must be String
+
+
     </td>
+
   </tr>
 
   
-<!-- end: ../../../home/astrauka/.rvm/gems/ruby-2.1.0/gems/apipie-rails-0.0.24/app/views/apipie/apipies/_params.html.erb (from ) -->
-          </tbody>
-        </table>
+<!-- end: ../../../home/astrauka/.rvm/gems/ruby-2.1.0/gems/apipie-rails-0.1.2/app/views/apipie/apipies/_params.html.erb (from ) -->
+    </tbody>
+  </table>
+<!-- end: ../../../home/astrauka/.rvm/gems/ruby-2.1.0/gems/apipie-rails-0.1.2/app/views/apipie/apipies/_method_detail.erb (from ) -->
     </div>
 </div>
 
@@ -407,6 +450,14 @@ scheme[contact_name]=Jim+Bim&amp;scheme[contact_email]=person3%40example.com&amp
     </div>
     <hr>
     <footer>  Copyright 2014 Bit Zesty
+  Copyright 2014 Bit Zesty
+  Copyright 2014 Bit Zesty
+  Copyright 2014 Bit Zesty
+  Copyright 2014 Bit Zesty
+  Copyright 2014 Bit Zesty
+  Copyright 2014 Bit Zesty
+  Copyright 2014 Bit Zesty
+  Copyright 2014 Bit Zesty
 </footer>
   </div>
   <script type='text/javascript' src='../../api/docs/javascripts/bundled/jquery-1.7.2.js'></script>
