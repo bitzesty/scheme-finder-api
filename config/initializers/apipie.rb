@@ -7,7 +7,6 @@ Apipie.configure do |config|
   # were is your API defined?
   config.api_controllers_matcher = File.join(Rails.root, "app", "controllers", "api", "**","*.rb")
 
-  config.use_cache               = Rails.env.production?
   config.namespaced_resources    = true
   # do not perform actual validations, apipie is used for documentation
   config.validate                = false
@@ -15,6 +14,8 @@ Apipie.configure do |config|
   config.validate_presence       = false
   # were is your API defined?
   config.markup                  = Apipie::Markup::Markdown.new
+
+  # do not cache in production, two app setup path issues...
 end
 
 class FileValidator < Apipie::Validator::BaseValidator
