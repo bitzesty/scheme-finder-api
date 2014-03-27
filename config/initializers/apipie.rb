@@ -1,6 +1,7 @@
 Apipie.configure do |config|
   config.app_name                = "SchemeFinderApi"
   config.copyright               = "Copyright #{Date.today.year} Bit Zesty"
+  config.default_version         = "1.0" # NOTE: has to be before app_info!
   config.api_base_url            = "/api"
   config.doc_base_url            = "/api/docs"
   # were is your API defined?
