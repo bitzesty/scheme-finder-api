@@ -1,8 +1,8 @@
 Apipie.configure do |config|
   config.app_name                = "SchemeFinderApi"
   config.copyright               = "Copyright #{Date.today.year} Bit Zesty"
-  config.api_base_url            = "/backend/api"
-  config.doc_base_url            = "/backend/api/docs"
+  config.api_base_url            = "/api"
+  config.doc_base_url            = "/api/docs"
   # were is your API defined?
   config.api_controllers_matcher = File.join(Rails.root, "app", "controllers", "api", "**","*.rb")
 
