@@ -31,7 +31,7 @@ gem "bootstrap-sass", ">= 3.0.0.0"
 gem "jquery-rails"
 gem "jquery-ui-rails"
 gem "bootstrap-datepicker-rails"
-gem "select2-rails"
+gem "select2-rails", "3.4.7"
 
 gem "draper"
 gem "decent_exposure", "~>2.3.0"
