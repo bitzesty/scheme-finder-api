@@ -12,6 +12,7 @@ html prefix="og: http://ogp.me/ns#"
   | <!--<![endif]-->
   head
     meta[name="viewport" content="width=device-width, initial-scale=1.0"]
+    meta http-equiv="content-type" content="text/html; charset=UTF-8"
     title
       = content_for?(:title) ? yield(:title) : 'Scheme Finder Api'
     meta name="description" content="#{content_for?(:description) ? yield(:description) : 'Scheme Finder Api'}"
