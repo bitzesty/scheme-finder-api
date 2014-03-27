@@ -1,7 +1,7 @@
 class Scheme < ActiveRecord::Base
   mount_uploader :logo, LogoUploader
 
-  has_many :feedbacks
+  has_many :feedbacks, dependent: :destroy
 
   validates :contact_name, presence: true
   validates :contact_phone, presence: true
