@@ -64,7 +64,7 @@ SchemeFinderApi::Application.configure do
   # the I18n.default_locale when a translation can not be found)
   config.i18n.fallbacks = true
 
-  mailer_domain = "makeitingreatbritain.bis.gov.uk"
+  mailer_domain = "makeitingreatbritain.bis.gov.uk/backend"
 
   ActionMailer::Base.smtp_settings = {
       :address        => "smtp.mailgun.org",
