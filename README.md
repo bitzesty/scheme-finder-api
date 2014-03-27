@@ -15,13 +15,7 @@ Scheme finder api
 Run the specs with the apipie record env variable defined:
 
 ```
-rm -f doc/apipie_examples.yml && rm -rf public/apipie-cache && APIPIE_RECORD=all bundle exec rspec
-```
-
-Once documentation is ready regenerate the cache
-
-```
-bundle exec rake apipie:cache
+rm -f doc/apipie_examples.yml && APIPIE_RECORD=all bundle exec rspec
 ```
 
 ## Code organization
