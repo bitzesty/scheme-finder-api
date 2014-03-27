@@ -17,7 +17,8 @@ SchemeFinderApi::Application.configure do
   config.assets.compress = true
 
   # Compress JavaScripts and CSS
-  config.assets.js_compressor  = :uglifier
+  require 'uglifier'
+  config.assets.js_compressor = Uglifier.new(output: {beautify: false, ascii_only: true, quote_keys: true}, screw_ie8: false)
   config.assets.css_compressor = :sass
 
   # Don't fallback to assets pipeline if a precompiled asset is missed
