@@ -18,6 +18,12 @@ Run the specs with the apipie record env variable defined:
 APIPIE_RECORD=all bundle exec rspec
 ```
 
+Once documentation is ready regenerate the cache
+
+```
+bundle exec rake apipie:cache
+```
+
 ## Code organization
 
 * `app/searches` contains `Searchlight::Search` derivate classes.

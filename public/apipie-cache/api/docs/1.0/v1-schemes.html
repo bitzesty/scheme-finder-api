@@ -65,12 +65,12 @@
 
 
   <h3>Examples</h3>
-    <pre class="prettyprint">GET /api/v1/schemes.json?locations[]=south_west&amp;sectors[]=renewable_energy&amp;activities[]=ambasadors&amp;age_ranges[]=secondary_school_children&amp;company_sizes[]=501-1000&amp;page=1&amp;per_page=5
+    <pre class="prettyprint">GET /api/v1/schemes.json?locations[]=scotland&amp;sectors[]=electronics&amp;activities[]=apprenticeships&amp;age_ranges[]=over_18&amp;company_sizes[]=250-500&amp;page=1&amp;per_page=5
 200
 {
   &quot;schemes&quot;: [
     {
-      &quot;id&quot;: 3,
+      &quot;id&quot;: 8,
       &quot;logo&quot;: {
         &quot;logo&quot;: {
           &quot;url&quot;: &quot;/backend/assets/fallback/logo_default.png&quot;,
@@ -86,19 +86,19 @@
       &quot;website&quot;: &quot;example.com&quot;,
       &quot;description&quot;: &quot;Host a short visit&quot;,
       &quot;location_ids&quot;: [
-        &quot;south_west&quot;
+        &quot;scotland&quot;
       ],
       &quot;sector_ids&quot;: [
-        &quot;renewable_energy&quot;
+        &quot;electronics&quot;
       ],
       &quot;activity_ids&quot;: [
-        &quot;ambasadors&quot;
+        &quot;apprenticeships&quot;
       ],
       &quot;company_size_ids&quot;: [
-        &quot;501-1000&quot;
+        &quot;250-500&quot;
       ],
       &quot;age_range_ids&quot;: [
-        &quot;secondary_school_children&quot;
+        &quot;over_18&quot;
       ]
     }
   ],
@@ -295,13 +295,13 @@
 
   <h3>Examples</h3>
     <pre class="prettyprint">POST /api/v1/schemes.json
-scheme[contact_name]=Jim+Bim&amp;scheme[contact_email]=person1%40example.com&amp;scheme[contact_phone]=0771233445&amp;scheme[name]=Scheme+1&amp;scheme[website]=example.com
+scheme[contact_name]=Jim+Bim&amp;scheme[contact_email]=person5%40example.com&amp;scheme[contact_phone]=0771233445&amp;scheme[name]=Scheme+5&amp;scheme[website]=example.com
 201
 {
-  &quot;id&quot;: 1,
+  &quot;id&quot;: 10,
   &quot;had_direct_interactions&quot;: null,
-  &quot;created_at&quot;: &quot;2014-03-27T10:32:44.193+00:00&quot;,
-  &quot;updated_at&quot;: &quot;2014-03-27T10:32:44.193+00:00&quot;,
+  &quot;created_at&quot;: &quot;2014-03-27T10:37:18.934+00:00&quot;,
+  &quot;updated_at&quot;: &quot;2014-03-27T10:37:18.934+00:00&quot;,
   &quot;logo&quot;: {
     &quot;url&quot;: &quot;/backend/assets/fallback/logo_default.png&quot;,
     &quot;logo&quot;: {
@@ -314,9 +314,9 @@ scheme[contact_name]=Jim+Bim&amp;scheme[contact_email]=person1%40example.com&amp
   &quot;age_range_ids&quot;: [],
   &quot;company_size_ids&quot;: [],
   &quot;contact_name&quot;: &quot;Jim Bim&quot;,
-  &quot;contact_email&quot;: &quot;person1@example.com&quot;,
+  &quot;contact_email&quot;: &quot;person5@example.com&quot;,
   &quot;contact_phone&quot;: &quot;0771233445&quot;,
-  &quot;name&quot;: &quot;Scheme 1&quot;,
+  &quot;name&quot;: &quot;Scheme 5&quot;,
   &quot;website&quot;: &quot;example.com&quot;,
   &quot;confirmed&quot;: false,
   &quot;description&quot;: null
