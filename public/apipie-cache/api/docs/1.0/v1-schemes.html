@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>API documentation</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <link type='text/css' rel='stylesheet' href='../../api/docs/stylesheets/bundled/bootstrap.min.css'/>
+<link type='text/css' rel='stylesheet' href='../../api/docs/stylesheets/bundled/prettify.css'/>
+<link type='text/css' rel='stylesheet' href='../../api/docs/stylesheets/bundled/bootstrap-responsive.min.css'/>
+  <link type='text/css' rel='stylesheet' href='../../api/docs/stylesheets/application.css'/>
+  <!-- IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div id='container'>
+        <ul class='breadcrumb'>
+  <li>
+    <a href='../../api/docs/1.0.html'>SchemeFinderApi 1.0</a>
+    <span class='divider'>/</span>
+  </li>
+  <li class='active'>
+    V1-schemes
+    
+  </li>
+</ul>
+
+<div class='page-header'>
+  <h1>
+    V1-schemes
+    <br>
+    <small></small>
+  </h1>
+</div>
+
+
+
+<div class='accordion' id='accordion'>
+
+    <hr>
+    <div class='pull-right small'>
+      <a href='../../api/docs/1.0/v1-schemes/index.html'> >>> </a>
+    </div>
+    <div>
+        <h2>
+          <a href='#description-index'
+           class='accordion-toggle'
+           data-toggle='collapse'
+           data-parent='#accordion'>
+            GET /api/v1/schemes
+          </a><br>
+          <small>List schemes that apply to provided filters</small>
+        </h2>
+    </div>
+
+
+    <div id='description-index' class='collapse accordion-body'>
+      
+
+
+
+        <h3>Examples</h3>
+          <pre class="prettyprint">GET /api/v1/schemes.json?locations[]=east_england&amp;sectors[]=life_sciences&amp;activities[]=work_experience&amp;age_ranges[]=primary_school_children&amp;company_sizes[]=250-500&amp;page=1&amp;per_page=5
+200
+{
+  &quot;schemes&quot;: [
+    {
+      &quot;id&quot;: 2628,
+      &quot;logo&quot;: {
+        &quot;logo&quot;: {
+          &quot;url&quot;: &quot;/backend/assets/fallback/logo_default.png&quot;,
+          &quot;logo&quot;: {
+            &quot;url&quot;: &quot;/backend/assets/fallback/logo_default.png&quot;
+          }
+        }
+      },
+      &quot;contact_name&quot;: &quot;Jim Bim&quot;,
+      &quot;contact_email&quot;: &quot;person7@example.com&quot;,
+      &quot;contact_phone&quot;: &quot;0771233445&quot;,
+      &quot;name&quot;: &quot;Scheme 6&quot;,
+      &quot;website&quot;: &quot;example.com&quot;,
+      &quot;description&quot;: &quot;Host a short visit&quot;,
+      &quot;location_ids&quot;: [
+        &quot;east_england&quot;
+      ],
+      &quot;sector_ids&quot;: [
+        &quot;life_sciences&quot;
+      ],
+      &quot;activity_ids&quot;: [
+        &quot;work_experience&quot;
+      ],
+      &quot;company_size_ids&quot;: [
+        &quot;250-500&quot;
+      ],
+      &quot;age_range_ids&quot;: [
+        &quot;primary_school_children&quot;
+      ]
+    }
+  ],
+  &quot;total&quot;: 1,
+  &quot;page&quot;: 1,
+  &quot;per_page&quot;: 5
+}</pre>
+
+        <h3>Params</h3>
+        <table class='table'>
+          <thead>
+            <tr>
+              <th>Param name</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- begin: ../../../home/astrauka/.rvm/gems/ruby-2.1.0/gems/apipie-rails-0.0.24/app/views/apipie/apipies/_params.html.erb (from ) -->
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>activities </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      
+<p>Filter: activity ids</p>
+
+        <br>
+        Value: Must be one of: Integer.
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>age_ranges </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      
+<p>Filter: age range ids</p>
+
+        <br>
+        Value: Must be one of: Integer.
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>company_sizes </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      
+<p>Filter: company size ids</p>
+
+        <br>
+        Value: Must be one of: Integer.
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>locations </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      
+<p>Filter: location ids</p>
+
+        <br>
+        Value: Must be one of: Integer.
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>sectors </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      
+<p>Filter: sector ids</p>
+
+        <br>
+        Value: Must be one of: Integer.
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>page </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      
+<p>Filter: page, lists all schemes if no page provided</p>
+
+        <br>
+        Value: Must be one of: Integer.
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>per_page </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      
+<p>Display records per page</p>
+
+        <br>
+        Value: Must be one of: Integer.
+    </td>
+  </tr>
+
+  
+<!-- end: ../../../home/astrauka/.rvm/gems/ruby-2.1.0/gems/apipie-rails-0.0.24/app/views/apipie/apipies/_params.html.erb (from ) -->
+          </tbody>
+        </table>
+    </div>
+    <hr>
+    <div class='pull-right small'>
+      <a href='../../api/docs/1.0/v1-schemes/create.html'> >>> </a>
+    </div>
+    <div>
+        <h2>
+          <a href='#description-create'
+           class='accordion-toggle'
+           data-toggle='collapse'
+           data-parent='#accordion'>
+            POST /api/v1/schemes
+          </a><br>
+          <small>Submit scheme application for admin to review</small>
+        </h2>
+    </div>
+
+
+    <div id='description-create' class='collapse accordion-body'>
+      
+
+
+
+        <h3>Examples</h3>
+          <pre class="prettyprint">POST /api/v1/schemes.json
+scheme[contact_name]=Jim+Bim&amp;scheme[contact_email]=person3%40example.com&amp;scheme[contact_phone]=0771233445&amp;scheme[name]=Scheme+3&amp;scheme[website]=example.com
+201
+{
+  &quot;id&quot;: 2624,
+  &quot;had_direct_interactions&quot;: null,
+  &quot;created_at&quot;: &quot;2014-02-12T12:35:12.246+00:00&quot;,
+  &quot;updated_at&quot;: &quot;2014-02-12T12:35:12.246+00:00&quot;,
+  &quot;logo&quot;: {
+    &quot;url&quot;: &quot;/backend/assets/fallback/logo_default.png&quot;,
+    &quot;logo&quot;: {
+      &quot;url&quot;: &quot;/backend/assets/fallback/logo_default.png&quot;
+    }
+  },
+  &quot;location_ids&quot;: [],
+  &quot;sector_ids&quot;: [],
+  &quot;activity_ids&quot;: [],
+  &quot;age_range_ids&quot;: [],
+  &quot;company_size_ids&quot;: [],
+  &quot;contact_name&quot;: &quot;Jim Bim&quot;,
+  &quot;contact_email&quot;: &quot;person3@example.com&quot;,
+  &quot;contact_phone&quot;: &quot;0771233445&quot;,
+  &quot;name&quot;: &quot;Scheme 3&quot;,
+  &quot;website&quot;: &quot;example.com&quot;,
+  &quot;confirmed&quot;: false,
+  &quot;description&quot;: null
+}</pre>
+
+        <h3>Params</h3>
+        <table class='table'>
+          <thead>
+            <tr>
+              <th>Param name</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- begin: ../../../home/astrauka/.rvm/gems/ruby-2.1.0/gems/apipie-rails-0.0.24/app/views/apipie/apipies/_params.html.erb (from ) -->
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>contact_name </strong><br>
+      <small>
+        required
+        
+      </small>
+    </td>
+    <td>
+      
+<p>Scheme contact name</p>
+
+        <br>
+        Value: Must be String
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>contact_email </strong><br>
+      <small>
+        required
+        
+      </small>
+    </td>
+    <td>
+      
+<p>Scheme contact email</p>
+
+        <br>
+        Value: Must be String
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>contact_phone </strong><br>
+      <small>
+        required
+        
+      </small>
+    </td>
+    <td>
+      
+<p>Scheme contact phone</p>
+
+        <br>
+        Value: Must be String
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>name </strong><br>
+      <small>
+        required
+        
+      </small>
+    </td>
+    <td>
+      
+<p>Scheme name</p>
+
+        <br>
+        Value: Must be String
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>website </strong><br>
+      <small>
+        required
+        
+      </small>
+    </td>
+    <td>
+      
+<p>Scheme website</p>
+
+        <br>
+        Value: Must be String
+    </td>
+  </tr>
+
+  
+<!-- end: ../../../home/astrauka/.rvm/gems/ruby-2.1.0/gems/apipie-rails-0.0.24/app/views/apipie/apipies/_params.html.erb (from ) -->
+          </tbody>
+        </table>
+    </div>
+</div>
+
+
+        
+      </div>
+    </div>
+    <hr>
+    <footer>  Copyright 2014 Bit Zesty
+</footer>
+  </div>
+  <script type='text/javascript' src='../../api/docs/javascripts/bundled/jquery-1.7.2.js'></script>
+<script type='text/javascript' src='../../api/docs/javascripts/bundled/bootstrap-collapse.js'></script>
+<script type='text/javascript' src='../../api/docs/javascripts/bundled/prettify.js'></script>
+<script type='text/javascript' src='../../api/docs/javascripts/apipie.js'></script>
+</body>
+</html>
