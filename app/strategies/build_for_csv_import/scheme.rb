@@ -48,7 +48,7 @@ module BuildForCsvImport
     end
 
     def assign_description
-      scheme.description = attributes[:description].gsub("\u00E2", "*").gsub("\u0080¢", "")
+      scheme.description = attributes[:description].gsub("\u00E2", "*").gsub("\u0080¢", " ")
     end
 
     def assign_locations
