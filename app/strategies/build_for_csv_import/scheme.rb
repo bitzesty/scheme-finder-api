@@ -2,7 +2,6 @@ module BuildForCsvImport
   class Scheme
     DIRECT_ATTRIBUTES = %w(
       name
-      description
       website
       contact_name
       contact_email
@@ -32,6 +31,7 @@ module BuildForCsvImport
       begin
         # transaction will "cancel" all the records that were created during scheme build
         ::Scheme.transaction do
+          assign_description
           assign_locations
           assign_sectors
           assign_activities
@@ -45,6 +45,10 @@ module BuildForCsvImport
       end
 
       self
+    end
+
+    def assign_description
+      scheme.description = attributes[:description].gsub("\u00E2", "*").gsub("\u0080¢", "")
     end
 
     def assign_locations
@@ -83,7 +87,7 @@ module BuildForCsvImport
     private
     def extract_ids_for(attribute)
       if attributes[attribute]
-        attributes[attribute].split(",").map(&:strip)
+        attributes[attribute].split(",").map(&:strip).map(&:downcase)
       end
     end
 

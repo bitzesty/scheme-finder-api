@@ -11,6 +11,7 @@ class Activity < ActiveHash::Base
     { id: "ambassadors", name: "Ambassadors", for_businesses: "Be an ambassador", for_teachers: "Work with an ambassador" },
     { id: "lesson_materials", name: "Lesson materials", for_businesses: "Provide lesson materials", for_teachers: "Lesson materials" },
     { id: "mentoring", name: "Mentoring", for_businesses: "Be a mentor", for_teachers: "Organise mentoring" },
+    { id: "other", name: "Other", for_businesses: "Other", for_teachers: "Other" },
   ]
 
   def to_s
