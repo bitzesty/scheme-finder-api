@@ -11,10 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140129072729) do
+ActiveRecord::Schema.define(version: 20140328154703) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "csv_imports", force: true do |t|
+    t.string   "file"
+    t.string   "file_cache"
+    t.string   "type"
+    t.string   "state"
+    t.integer  "total_count", default: 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "csv_imports", ["type"], name: "index_csv_imports_on_type", using: :btree
 
   create_table "feedbacks", force: true do |t|
     t.integer  "scheme_id"
@@ -27,6 +39,14 @@ ActiveRecord::Schema.define(version: 20140129072729) do
 
   add_index "feedbacks", ["approved"], name: "index_feedbacks_on_approved", using: :btree
   add_index "feedbacks", ["scheme_id"], name: "index_feedbacks_on_scheme_id", using: :btree
+
+  create_table "import_errors", force: true do |t|
+    t.integer  "csv_import_id"
+    t.text     "error_messages"
+    t.text     "input_values"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "schemes", force: true do |t|
     t.boolean  "had_direct_interactions"

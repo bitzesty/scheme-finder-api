@@ -21,6 +21,25 @@ SchemeFinderApi::Application.routes.draw do
         put :approve
       }
     end
+
+    # csv import
+    concern :importable do
+      collection {
+        get :import_form
+        post :import
+      }
+    end
+
+    namespace :import_via_csv, module: "import_via_csv", path: "import_via_csv" do
+      resources :schemes, only: [] do
+        concerns :importable
+      end
+
+      resources :objects, only: [:index, :show] do
+        resources :import_errors, only: [:index]
+      end
+    end
+    # END csv  import
   end
 
   namespace :api do

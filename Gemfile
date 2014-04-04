@@ -59,6 +59,8 @@ gem 'maruku'
 
 gem 'awesome_print'
 
+gem "import_csv", "0.0.1", git: "git@github.com:bitzesty/import_csv"
+
 group :development do
   gem "spring"
   gem "spring-commands-rspec"
