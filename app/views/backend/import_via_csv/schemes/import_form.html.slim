@@ -1,0 +1,28 @@
+.container-fluid
+  .row-fluid
+    .span12
+      h1
+        ' Import Schemes
+        small.pull-right
+          = link_to "Import Log",
+                    import_via_csv_objects_path(type: csv_import_type),
+                    class: "btn-link"
+
+      .form-margin.well
+        = simple_form_for csv_import,
+                          url: import_import_via_csv_schemes_path,
+                          method: :post,
+                          as: :csv_import,
+                          html: { multipart: true, class: 'form-horizontal form-container' } do |f|
+
+          = f.input :file,
+                    as: :file,
+                    hint: "#{link_to 'Download sample CSV',
+                                     '/downloads/schemes_sample.csv',
+                                     class: 'button white',
+                                     download: 'schemes_sample.csv'}".html_safe
+
+          = f.input :file_cache, as: :hidden
+
+          .form-indent
+            = f.button :submit, 'Import', class: 'btn-success'

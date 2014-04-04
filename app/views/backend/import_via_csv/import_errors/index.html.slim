@@ -1,0 +1,34 @@
+.container-fluid
+  .row-fluid
+    .span12
+      h1
+        | Import Results Log
+        small.pull-right
+          = link_to "Back to Import Log",
+                    import_via_csv_objects_path(type: csv_imports_type),
+                    class: "btn-link"
+
+      p
+        = "Successfully imported count: #{csv_import.saved_count}"
+
+      - if import_errors.any?
+        p The following objects were not imported
+
+        table.table
+          colgroup
+            col width="250"
+            col width="*"
+          thead
+            tr
+              th Name
+              th Error Messages
+          tbody
+            - import_errors.decorate.each do |import_error|
+              tr
+                td= import_error.name
+                td= import_error.error_message_for_display
+
+        .clear
+
+        #pagination
+          = paginate import_errors

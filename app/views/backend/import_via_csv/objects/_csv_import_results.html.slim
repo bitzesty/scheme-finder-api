@@ -1,0 +1,12 @@
+span.imported
+  span.saved_count
+    = csv_import.saved_count
+  span
+    ' &nbsp;imported,
+
+= link_to import_via_csv_object_import_errors_path(csv_import) do
+  span.failed_count
+    =' csv_import.failed_count
+  | failed
+
+
