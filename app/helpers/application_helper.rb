@@ -8,7 +8,7 @@ module ApplicationHelper
   #   nav_item 'Foo', '/foo', controller_foo: 'index', controller_bar: ['edit', 'new']
   #   nav_item 'Foo', '/foo', active_top_nav: :foos
   def nav_item(name, url, activator = '', opts = {})
-    if (activator.is_a?(String) && request.path.start_with?(activator)) ||
+    if (activator.is_a?(String) && (request.path.start_with?(activator) || controller_name == activator.to_s)) ||
       (activator.is_a?(Regexp) && request.path =~ activator) ||
       (activator.is_a?(Hash) && defined?(active_top_nav) && active_by_specified_activator?(activator)) ||
       (activator.is_a?(Hash) && !defined?(active_top_nav) && active_by_specified_controller?(activator))
