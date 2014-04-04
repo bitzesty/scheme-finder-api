@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140328154703) do
+ActiveRecord::Schema.define(version: 20140404124602) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,10 +65,12 @@ ActiveRecord::Schema.define(version: 20140328154703) do
     t.string   "website"
     t.boolean  "confirmed",               default: false
     t.text     "description"
+    t.string   "audience_ids",            default: [],    array: true
   end
 
   add_index "schemes", ["activity_ids"], name: "index_schemes_on_activity_ids", using: :gin
   add_index "schemes", ["age_range_ids"], name: "index_schemes_on_age_range_ids", using: :gin
+  add_index "schemes", ["audience_ids"], name: "index_schemes_on_audience_ids", using: :gin
   add_index "schemes", ["company_size_ids"], name: "index_schemes_on_company_size_ids", using: :gin
   add_index "schemes", ["location_ids"], name: "index_schemes_on_location_ids", using: :gin
   add_index "schemes", ["name"], name: "index_schemes_on_name", unique: true, using: :btree

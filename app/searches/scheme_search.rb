@@ -25,6 +25,10 @@ class SchemeSearch < Searchlight::Search
     add_id_for_all super
   end
 
+  def company_sizes
+    add_id_for_all super
+  end
+
   def search_locations
     search.where.overlap(location_ids: locations)
   end

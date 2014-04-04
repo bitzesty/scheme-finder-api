@@ -21,7 +21,7 @@ nav.navbar.navbar-inverse.navbar-fixed-top
                      "feedbacks"
           = nav_item "Csv Import",
                      [:import_form, :import_via_csv, :schemes],
-                     "schemes"
+                     active_top_nav: :import_via_csv
         - if access_policy.permitted?(:user_management)
           = nav_item "Users", accounts_path, "accounts"
       ul.nav.navbar-nav.pull-right

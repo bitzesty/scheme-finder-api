@@ -1,5 +1,6 @@
 module Backend::ImportViaCsv
-  class SchemesController < ApplicationController
+  class SchemesController < ::Backend::BaseController
+    expose(:active_top_nav) { "import_via_csv" }
     expose(:csv_import) { CsvImports::Scheme.new(csv_import_params) }
     expose(:csv_import_type) { "CsvImports::Scheme" }
 

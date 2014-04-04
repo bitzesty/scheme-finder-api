@@ -128,7 +128,7 @@ describe Api::V1 do
     end
 
     context 'with filter by company size' do
-      let(:scheme) { create :scheme, :confirmed, company_size_ids: [CompanySize.first.id] }
+      let(:scheme) { create :scheme, :confirmed, company_size_ids: ["0-9"] }
       let(:scheme_with_company_size) { create :scheme, :confirmed, company_size_ids: [CompanySize.last.id] }
       let(:response_pattern) {
         { schemes: [ { id: scheme_with_company_size.id }.ignore_extra_keys! ] }

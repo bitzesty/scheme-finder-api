@@ -5,7 +5,7 @@ class Scheme < ActiveRecord::Base
 
   validates :contact_name, presence: true
   validates :contact_phone, presence: true
-  validates :contact_email, presence: true, email: true
+  validates :contact_email, presence: true # , email: true not validating email
   validates :name, presence: true
   validates :website, presence: true
 
@@ -40,6 +40,10 @@ class Scheme < ActiveRecord::Base
     CompanySize.find(company_size_ids)
   end
 
+  def audiences
+    Audience.find(audience_ids)
+  end
+
   def location_ids=(location_ids)
     super(Array(location_ids).reject(&:blank?))
   end
@@ -58,6 +62,10 @@ class Scheme < ActiveRecord::Base
 
   def company_size_ids=(company_size_ids)
     super(Array(company_size_ids).reject(&:blank?))
+  end
+
+  def audience_ids=(audience_ids)
+    super(Array(audience_ids).reject(&:blank?))
   end
 
   def persist

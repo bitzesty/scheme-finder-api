@@ -4,8 +4,8 @@ class CsvImportDecorator < ApplicationDecorator
   end
 
   def path_for_status_update
-    h.csv_imports_object_path object,
-                              format: :json
+    h.import_via_csv_object_path object,
+                                 format: :json
   end
 
   def status

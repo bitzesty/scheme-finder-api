@@ -8,7 +8,7 @@ class Activity < ActiveHash::Base
     { id: "workplace_visits", name: "Workplace visits", for_businesses: "Host a visit", for_teachers: "Go on a visit" },
     { id: "hands_on_talks", name: "Hands-on activities", for_businesses: "Provide hands-on activities", for_teachers: "Organise hands-on activites" },
     { id: "inspiring_talks", name: "Inspiring talks", for_businesses: "Give a talk", for_teachers: "Host a talk" },
-    { id: "ambasadors", name: "Ambassadors", for_businesses: "Be an ambassador", for_teachers: "Work with an ambassador" },
+    { id: "ambassadors", name: "Ambassadors", for_businesses: "Be an ambassador", for_teachers: "Work with an ambassador" },
     { id: "lesson_materials", name: "Lesson materials", for_businesses: "Provide lesson materials", for_teachers: "Lesson materials" },
     { id: "mentoring", name: "Mentoring", for_businesses: "Be a mentor", for_teachers: "Organise mentoring" },
   ]
