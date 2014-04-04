@@ -57,6 +57,8 @@ gem "obscenity"
 gem 'apipie-rails'
 gem 'maruku'
 
+gem 'awesome_print'
+
 group :development do
   gem "spring"
   gem "spring-commands-rspec"

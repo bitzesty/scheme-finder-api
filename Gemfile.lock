@@ -43,6 +43,7 @@ GEM
       rails (>= 3.0.10)
     arel (4.0.2)
     atomic (1.1.16)
+    awesome_print (1.2.0)
     axiom-types (0.1.1)
       descendants_tracker (~> 0.0.4)
       ice_nine (~> 0.11.0)
@@ -382,6 +383,7 @@ DEPENDENCIES
   active_hash (>= 1.2.2)
   airbrake!
   apipie-rails
+  awesome_print
   better_errors
   binding_of_caller
   bootstrap-datepicker-rails
