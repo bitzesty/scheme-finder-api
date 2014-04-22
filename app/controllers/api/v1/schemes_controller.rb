@@ -55,6 +55,13 @@ module Api
       param :contact_phone, String, desc: "Scheme contact phone", required: true
       param :name, String, desc: "Scheme name", required: true
       param :website, String, desc: "Scheme website", required: true
+      param :description, String, desc: "Scheme description", required: false
+      param :activities, Array[String], desc: "Scheme activity ids", required: false
+      param :age_ranges, Array[String], desc: "Scheme age range ids", required: false
+      param :company_sizes, Array[String], desc: "Scheme company size ids", required: false
+      param :locations, Array[String], desc: "Scheme location ids", required: false
+      param :sectors, Array[String], desc: "Scheme sector ids", required: false
+      param :audiences, Array[String], desc: "Scheme audience ids", required: false
       def create
         scheme = Scheme.new(scheme_params)
 
@@ -85,7 +92,7 @@ module Api
       def scheme_params
         # make sure to not add "confirmed" attribute here
         params.require(:scheme).permit(
-          :had_direct_interactions, :logo,
+          :had_direct_interactions,
           :contact_name, :contact_email, :contact_phone,
           :name, :website, :description,
           location_ids: [],
