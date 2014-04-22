@@ -1,8 +1,7 @@
-json.schemes @schemes, :id, :logo,
-                       :contact_name, :contact_email, :contact_phone,
-                       :name, :website, :description,
+json.schemes @schemes, :id, :name, :website, :description,
                        :location_ids,
                        :sector_ids,
+                       :audience_ids,
                        :activity_ids,
                        :company_size_ids,
                        :age_range_ids

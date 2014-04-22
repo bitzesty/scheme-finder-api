@@ -195,6 +195,7 @@ describe Api::V1 do
         get '/api/v1/schemes.json',
             locations: [scheme.location_ids.first],
             sectors: [scheme.sector_ids.first],
+            audiences: [scheme.audience_ids.first],
             activities: [scheme.activity_ids.first],
             age_ranges: [scheme.age_range_ids.first],
             company_sizes: [scheme.company_size_ids.first],
