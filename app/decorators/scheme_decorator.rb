@@ -7,6 +7,10 @@ class SchemeDecorator < ApplicationDecorator
     h.collection_list sectors
   end
 
+  def audience_list
+    h.collection_list audiences
+  end
+
   def activity_list
     h.collection_list activities
   end
