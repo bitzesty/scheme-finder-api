@@ -7,13 +7,13 @@
               label_html: { class: "col-sm-2" },
               right_column_html: { class: "col-sm-3" }
 
-    = f.input :logo,
+    /= f.input :logo,
               as: :file,
               input_html: { class: "span5" },
               label_html: { class: "col-sm-2" },
               right_column_html: { class: "col-sm-3" }
 
-    = f.input :logo_cache, as: :hidden
+    /= f.input :logo_cache, as: :hidden
 
     = f.input :contact_name,
               label_html: { class: "col-sm-2" },
@@ -43,6 +43,14 @@
 
     //= f.input :had_direct_interactions,
               label: "Should have engaged with schools before?",
+              label_html: { class: "col-sm-2" },
+              right_column_html: { class: "col-sm-3" }
+
+    = f.input :audience_ids,
+              as: :multi_select,
+              label: 'Audiences',
+              collection: Audience.collection,
+              input_html: { class: "span6" },
               label_html: { class: "col-sm-2" },
               right_column_html: { class: "col-sm-3" }
 

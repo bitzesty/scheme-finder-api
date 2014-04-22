@@ -29,7 +29,7 @@
           name: Inspiring talks
           for_businesses: Give a talk
           for_teachers: Host a talk
-        - id: ambasadors
+        - id: ambassadors
           name: Ambassadors
           for_businesses: Be an ambassador
           for_teachers: Work with an ambassador
@@ -41,6 +41,10 @@
           name: Mentoring
           for_businesses: Be a mentor
           for_teachers: Organise mentoring
+        - id: other
+          name: Other
+          for_businesses: Other
+          for_teachers: Other
     - code: 200
     - show_in_doc: 1
     - recorded: true
@@ -63,6 +67,23 @@
     - code: 200
     - show_in_doc: 1
     - recorded: true
+- v1-audiences#index:
+  - !omap
+    - verb: :GET
+    - path: "/api/v1/audiences.json"
+    - versions:
+      - '1.0'
+    - query: 
+    - request_data: 
+    - response_data:
+        audiences:
+        - id: businesses
+          name: Businesses
+        - id: teachers
+          name: Teachers
+    - code: 200
+    - show_in_doc: 1
+    - recorded: true
 - v1-company_sizes#index:
   - !omap
     - verb: :GET
@@ -81,7 +102,7 @@
           name: 250-500
         - id: 501-1000
           name: 501-1000
-        - id: 1000 +
+        - id: more_than_1000
           name: 1000 +
     - code: 200
     - show_in_doc: 1
@@ -117,10 +138,13 @@
         - id: east_england
           name: East of England
           group: England
+        - id: south_england
+          name: South of England
+          group: England
         - id: london
           name: London
           group: England
-        - id: south_england
+        - id: south_east
           name: South East
           group: England
         - id: south_west
@@ -145,12 +169,12 @@
     - versions:
       - '1.0'
     - query: 
-    - request_data: scheme[contact_name]=Jim+Bim&scheme[contact_email]=person5%40example.com&scheme[contact_phone]=0771233445&scheme[name]=Scheme+5&scheme[website]=example.com
+    - request_data: scheme[contact_name]=Jim+Bim&scheme[contact_email]=person1%40example.com&scheme[contact_phone]=0771233445&scheme[name]=Scheme+1&scheme[website]=example.com
     - response_data:
-        id: 10
+        id: 592
         had_direct_interactions: 
-        created_at: '2014-03-27T10:37:18.934+00:00'
-        updated_at: '2014-03-27T10:37:18.934+00:00'
+        created_at: '2014-04-22T08:07:28.156+01:00'
+        updated_at: '2014-04-22T08:07:28.156+01:00'
         logo:
           url: "/backend/assets/fallback/logo_default.png"
           logo:
@@ -161,12 +185,13 @@
         age_range_ids: []
         company_size_ids: []
         contact_name: Jim Bim
-        contact_email: person5@example.com
+        contact_email: person1@example.com
         contact_phone: '0771233445'
-        name: Scheme 5
+        name: Scheme 1
         website: example.com
         confirmed: false
         description: 
+        audience_ids: []
     - code: 201
     - show_in_doc: 1
     - recorded: true
@@ -176,30 +201,24 @@
     - path: "/api/v1/schemes.json"
     - versions:
       - '1.0'
-    - query: locations[]=scotland&sectors[]=electronics&activities[]=apprenticeships&age_ranges[]=over_18&company_sizes[]=250-500&page=1&per_page=5
+    - query: locations[]=scotland&sectors[]=life_sciences&audiences[]=businesses&activities[]=workplace_visits&age_ranges[]=over_18&company_sizes[]=10-249&page=1&per_page=5
     - request_data: 
     - response_data:
         schemes:
-        - id: 8
-          logo:
-            logo:
-              url: "/backend/assets/fallback/logo_default.png"
-              logo:
-                url: "/backend/assets/fallback/logo_default.png"
-          contact_name: Jim Bim
-          contact_email: person3@example.com
-          contact_phone: '0771233445'
-          name: Scheme 3
+        - id: 596
+          name: Scheme 5
           website: example.com
           description: Host a short visit
           location_ids:
           - scotland
           sector_ids:
-          - electronics
+          - life_sciences
+          audience_ids:
+          - businesses
           activity_ids:
-          - apprenticeships
+          - workplace_visits
           company_size_ids:
-          - 250-500
+          - 10-249
           age_range_ids:
           - over_18
         total: 1
@@ -211,36 +230,36 @@
 - v1-schemes-feedbacks#create:
   - !omap
     - verb: :POST
-    - path: "/api/v1/schemes/9/feedbacks.json"
+    - path: "/api/v1/schemes/595/feedbacks.json"
     - versions:
       - '1.0'
     - query: 
     - request_data: feedback[score]=1&feedback[description]=This+is+good+scheme
     - response_data:
-        id: 8
-        scheme_id: 9
+        id: 108
+        scheme_id: 595
         score: 1
         description: This is good scheme
         approved: false
-        created_at: '2014-03-27T10:37:18.907+00:00'
-        updated_at: '2014-03-27T10:37:18.907+00:00'
+        created_at: '2014-04-22T08:07:28.313+01:00'
+        updated_at: '2014-04-22T08:07:28.313+01:00'
     - code: 201
     - show_in_doc: 1
     - recorded: true
 - v1-schemes-feedbacks#index:
   - !omap
     - verb: :GET
-    - path: "/api/v1/schemes/7/feedbacks.json"
+    - path: "/api/v1/schemes/594/feedbacks.json"
     - versions:
       - '1.0'
     - query: 
     - request_data: 
     - response_data:
         feedbacks:
-        - id: 6
+        - id: 106
           score: 1
           description: This is good scheme
-          scheme_id: 7
+          scheme_id: 594
     - code: 200
     - show_in_doc: 1
     - recorded: true

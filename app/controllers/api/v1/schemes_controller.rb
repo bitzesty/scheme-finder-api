@@ -23,20 +23,22 @@ module Api
       before_action :ensure_scheme_provided, only: :create
 
       api :GET, "/v1/schemes", "List schemes that apply to provided filters"
-      param :activities, Array[Integer], desc: "Filter: activity ids", required: false
-      param :age_ranges, Array[Integer], desc: "Filter: age range ids", required: false
-      param :company_sizes, Array[Integer], desc: "Filter: company size ids", required: false
-      param :locations, Array[Integer], desc: "Filter: location ids", required: false
-      param :sectors, Array[Integer], desc: "Filter: sector ids", required: false
-      param :page, Array[Integer], desc: "Filter: page, lists all schemes if no page provided", required: false
-      param :per_page, Array[Integer], desc: "Display records per page", required: false
+      param :activities, Array[String], desc: "Filter: activity ids", required: false
+      param :age_ranges, Array[String], desc: "Filter: age range ids", required: false
+      param :company_sizes, Array[String], desc: "Filter: company size ids", required: false
+      param :locations, Array[String], desc: "Filter: location ids", required: false
+      param :sectors, Array[String], desc: "Filter: sector ids", required: false
+      param :audiences, Array[String], desc: "Filter: audience ids", required: false
+      param :page, Integer, desc: "Filter: page, lists all schemes if no page provided", required: false
+      param :per_page, Integer, desc: "Display records per page", required: false
       def index
         @schemes = SchemeSearch.new(
           locations: params[:locations],
           sectors: params[:sectors],
           activities: params[:activities],
           age_ranges: params[:age_ranges],
-          company_sizes: params[:company_sizes]
+          company_sizes: params[:company_sizes],
+          audiences: params[:audiences]
         ).results
 
         if filter_page
@@ -88,6 +90,7 @@ module Api
           :name, :website, :description,
           location_ids: [],
           sector_ids: [],
+          audience_ids: [],
           activity_ids: [],
           company_size_ids: [],
           age_range_ids: []

@@ -7,6 +7,7 @@ describe BuildForCsvImport::Scheme do
       name: name,
       locations: location_ids,
       sectors: sector_ids,
+      audience: audience_ids,
       activities: activity_ids,
       age_range: age_range_ids,
       company_size: company_size_ids,
@@ -17,6 +18,7 @@ describe BuildForCsvImport::Scheme do
   let(:contact_email) { "user@example.com" }
   let(:location_ids) { "england, wales" }
   let(:sector_ids) { "auto" }
+  let(:audience_ids) { "businesses" }
   let(:activity_ids) { "apprenticeships,hands_on_talks" }
   let(:age_range_ids) { "primary_school_children" }
   let(:company_size_ids) { "0-9" }
@@ -49,6 +51,16 @@ describe BuildForCsvImport::Scheme do
     context "When sector found" do
       it "Then assigns sector" do
         expect(result).to eq sector_ids.split(",").map(&:strip)
+      end
+    end
+  end
+
+  describe "#assign_audiences" do
+    let(:result) { builder.assign_audiences; scheme.audience_ids }
+
+    context "When audience found" do
+      it "Then assigns audience" do
+        expect(result).to eq audience_ids.split(",").map(&:strip)
       end
     end
   end

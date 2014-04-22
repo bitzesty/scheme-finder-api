@@ -55,6 +55,7 @@ SchemeFinderApi::Application.routes.draw do
         resources :company_sizes, only: [:index]
         resources :locations, only: [:index]
         resources :sectors, only: [:index]
+        resources :audiences, only: [:index]
       end
     end
   end

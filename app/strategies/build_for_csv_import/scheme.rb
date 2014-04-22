@@ -34,6 +34,7 @@ module BuildForCsvImport
           assign_description
           assign_locations
           assign_sectors
+          assign_audiences
           assign_activities
           assign_age_ranges
           assign_company_sizes
@@ -59,6 +60,10 @@ module BuildForCsvImport
 
     def assign_sectors
       assign_active_hash_ids scheme, :sector_ids, Sector, :id, extract_ids_for(:sectors)
+    end
+
+    def assign_audiences
+      assign_active_hash_ids scheme, :audience_ids, Audience, :id, extract_ids_for(:audience)
     end
 
     def assign_activities

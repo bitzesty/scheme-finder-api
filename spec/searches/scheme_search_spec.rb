@@ -94,4 +94,20 @@ describe SchemeSearch do
       end
     end
   end
+
+  describe "#search_audiences" do
+    let!(:businesses_sheme) { create :scheme, :confirmed, audience_ids: ["businesses"] }
+    let!(:teachers_sheme) { create :scheme, :confirmed, audience_ids: ["teachers"] }
+    let!(:all_audiences_scheme) { create :scheme, :confirmed, audience_ids: [ExposableViaApi::ID_FOR_ALL] }
+
+    let(:search_params) do
+      { audiences: audiences }
+    end
+    let(:audiences) { ["businesses"] }
+
+    it "returns searched audience schemes + schemes applicable for all audiences" do
+      expect(result).to include businesses_sheme, all_audiences_scheme
+      expect(result).to_not include teachers_sheme
+    end
+  end
 end
