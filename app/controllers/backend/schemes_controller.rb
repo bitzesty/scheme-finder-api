@@ -1,5 +1,9 @@
 module Backend
   class SchemesController < Backend::BaseController
+    skip_before_filter :verify_authenticity_token, if: :auth_via_access_token
+    skip_before_filter :authenticate_user!, if: :auth_via_access_token
+    before_filter :set_user_as_michael, if: :auth_via_access_token
+
     expose(:schemes) { |default| default.by_name }
     expose_decorated(:scheme, attributes: :scheme_params)
 
@@ -43,6 +47,12 @@ module Backend
 
     private
 
+    def auth_via_access_token
+      authenticate_with_http_token do |token, options|
+        token == SchemeFinderApi.api_access_token
+      end if SchemeFinderApi.api_access_token.present?
+    end
+
     def scheme_params
       params.require(:scheme).permit(
         :had_direct_interactions,  :logo, :logo_cache, :confirmed,
@@ -55,6 +65,12 @@ module Backend
         company_size_ids: [],
         age_range_ids: []
       )
+    end
+
+    def set_user_as_michael
+      if auth_via_access_token
+        @current_user = User.find_by_email("michael.wallace@bitzesty.com")
+      end
     end
   end
 end
