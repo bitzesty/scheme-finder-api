@@ -16,7 +16,7 @@ describe BuildForCsvImport::Scheme do
   end
   let(:name) { "Cocoon" }
   let(:contact_email) { "user@example.com" }
-  let(:location_ids) { "england, wales" }
+  let(:location_ids) { "london, north_east" }
   let(:sector_ids) { "auto" }
   let(:audience_ids) { "businesses" }
   let(:activity_ids) { "apprenticeships,hands_on_talks" }
@@ -35,11 +35,11 @@ describe BuildForCsvImport::Scheme do
     end
 
     context "When location not found" do
-      let(:location_ids) { "england2, wales" }
+      let(:location_ids) { "london2, north_east" }
       it "Then adds error to scheme" do
         result
 
-        expect(scheme.location_ids).to eq ["wales"]
+        expect(scheme.location_ids).to eq ["north_east"]
         expect(scheme.errors[:base]).to have(1).item
       end
     end
