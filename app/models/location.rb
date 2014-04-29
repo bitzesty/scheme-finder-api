@@ -14,9 +14,10 @@ class Location < ActiveHash::Base
     { id: "london", name: "London", group: "England" },
     { id: "south_east", name: "South East", group: "England" },
     { id: "south_west", name: "South West", group: "England" },
-    { id: "northern_ireland", name: "All of Northern Ireland", group: "Nothern Ireland" },
-    { id: "scotland", name: "All of Scotland", group: "Scotland" },
-    { id: "wales", name: "All of Wales", group: "Wales" },
+    # hide for the time being
+    # { id: "northern_ireland", name: "All of Northern Ireland", group: "Nothern Ireland" },
+    # { id: "scotland", name: "All of Scotland", group: "Scotland" },
+    # { id: "wales", name: "All of Wales", group: "Wales" },
   ]
 
   def to_s
