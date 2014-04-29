@@ -65,7 +65,7 @@ SchemeFinderApi::Application.configure do
   # the I18n.default_locale when a translation can not be found)
   config.i18n.fallbacks = true
 
-  mailer_domain = "makeitingreatbritain.bis.gov.uk/backend"
+  mailer_domain = "bistooltest.educationandemployers.org/backend"
 
   ActionMailer::Base.smtp_settings = {
       :address        => "smtp.mailgun.org",
@@ -94,7 +94,7 @@ SchemeFinderApi::Application.configure do
   config.after_initialize do
     SchemeFinderApi.configure do |app_config|
       app_config.api_access_token = ENV["API_ACCESS_TOKEN"]
-      app_config.frontend_app_url = "https://makeitingreatbritain.bis.gov.uk"
+      app_config.frontend_app_url = "https://bistooltest.educationandemployers.org"
     end
   end
 end
