@@ -3,11 +3,12 @@ class Sector < ActiveHash::Base
 
   self.data = [
     { id: ID_FOR_ALL, name: "All Sectors" },
-    { id: "auto", name: "Auto" },
-    { id: "aero", name: "Aero" },
+    { id: "auto", name: "Automotive" },
+    { id: "aero", name: "Aerospace" },
     { id: "chemicals", name: "Chemicals" },
     { id: "construction", name: "Construction" },
     { id: "electronics", name: "Electronics" },
+    { id: "defence", name: "Defence"},
     { id: "technology", name: "Technology" },
     { id: "life_sciences", name: "Life Sciences" },
     { id: "machinery", name: "Machinery" },
