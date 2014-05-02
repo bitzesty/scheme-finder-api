@@ -10,6 +10,7 @@ module Api
     'activity_ids'=>['lesson_materials'],
     'age_range_ids'=>['over_18'],
     'company_size_ids'=>['250-500'],
+    'subject_ids'=>['science'],
     'contact_name'=>'Jim Bim',
     'contact_email'=>'person1@example.com',
     'contact_phone'=>'0771233445',
@@ -29,6 +30,7 @@ module Api
       param :locations, Array[String], desc: "Filter: location ids", required: false
       param :sectors, Array[String], desc: "Filter: sector ids", required: false
       param :audiences, Array[String], desc: "Filter: audience ids", required: false
+      param :subjects, Array[String], desc: "Filter: subject ids", required: false
       param :page, Integer, desc: "Filter: page, lists all schemes if no page provided", required: false
       param :per_page, Integer, desc: "Display records per page", required: false
       def index
@@ -38,7 +40,8 @@ module Api
           activities: params[:activities],
           age_ranges: params[:age_ranges],
           company_sizes: params[:company_sizes],
-          audiences: params[:audiences]
+          audiences: params[:audiences],
+          subjects: params[:subjects]
         ).results
 
         if filter_page
@@ -62,6 +65,7 @@ module Api
       param :locations, Array[String], desc: "Scheme location ids", required: false
       param :sectors, Array[String], desc: "Scheme sector ids", required: false
       param :audiences, Array[String], desc: "Scheme audience ids", required: false
+      param :subjects, Array[String], desc: "Subject ids", required: false
       def create
         scheme = Scheme.new(scheme_params)
 
@@ -97,6 +101,7 @@ module Api
           :name, :website, :description,
           location_ids: [],
           sector_ids: [],
+          subject_ids: [],
           audience_ids: [],
           activity_ids: [],
           company_size_ids: [],

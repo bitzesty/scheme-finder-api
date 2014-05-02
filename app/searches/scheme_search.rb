@@ -2,7 +2,7 @@ class SchemeSearch < Searchlight::Search
   search_on Scheme.confirmed.by_name
 
   searches :locations, :sectors, :activities, :age_ranges, :company_sizes,
-           :audiences
+           :audiences, :subjects
 
   def locations
     locs = add_id_for_all(super)
@@ -34,12 +34,20 @@ class SchemeSearch < Searchlight::Search
     add_id_for_all super
   end
 
+  def subjects
+    add_id_for_all super
+  end
+
   def search_locations
     search.where.overlap(location_ids: locations)
   end
 
   def search_sectors
     search.where.overlap(sector_ids: sectors)
+  end
+
+  def search_subjects
+    search.where.overlap(subject_ids: subjects)
   end
 
   def search_audiences
