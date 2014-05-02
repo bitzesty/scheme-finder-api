@@ -17,6 +17,7 @@ FactoryGirl.define do
     had_direct_interactions { [false, true].sample }
     location_ids { [Location.exposable_via_api.sample.id] }
     sector_ids { [Sector.exposable_via_api.sample.id] }
+    subject_ids { [Subject.exposable_via_api.sample.id] }
     audience_ids { [Audience.exposable_via_api.sample.id] }
     activity_ids { [Activity.exposable_via_api.sample.id] }
     company_size_ids { [CompanySize.ids.sample] }

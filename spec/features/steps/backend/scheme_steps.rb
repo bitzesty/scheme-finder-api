@@ -29,6 +29,7 @@ module Backend
         fill_in "scheme_description", with: scheme.description
         select scheme.locations.first, from: "scheme_location_ids"
         select scheme.sectors.first, from: "scheme_sector_ids"
+        select scheme.subjects.first, from: "scheme_subject_ids"
         select scheme.activities.first, from: "scheme_activity_ids"
         # select scheme.company_sizes.first, from: "scheme_company_size_ids" # hidden
         select scheme.age_ranges.first, from: "scheme_age_range_ids"

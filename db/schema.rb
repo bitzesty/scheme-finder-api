@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140404124602) do
+ActiveRecord::Schema.define(version: 20140502155816) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,6 +66,7 @@ ActiveRecord::Schema.define(version: 20140404124602) do
     t.boolean  "confirmed",               default: false
     t.text     "description"
     t.string   "audience_ids",            default: [],    array: true
+    t.string   "subject_ids",             default: [],    array: true
   end
 
   add_index "schemes", ["activity_ids"], name: "index_schemes_on_activity_ids", using: :gin
@@ -75,6 +76,7 @@ ActiveRecord::Schema.define(version: 20140404124602) do
   add_index "schemes", ["location_ids"], name: "index_schemes_on_location_ids", using: :gin
   add_index "schemes", ["name"], name: "index_schemes_on_name", unique: true, using: :btree
   add_index "schemes", ["sector_ids"], name: "index_schemes_on_sector_ids", using: :gin
+  add_index "schemes", ["subject_ids"], name: "index_schemes_on_subject_ids", using: :gin
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "",    null: false
