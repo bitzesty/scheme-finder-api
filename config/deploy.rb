@@ -37,7 +37,6 @@ set :default_env, {
 }
 set :keep_releases, 5
 
-set :unicorn_pid, "#{shared_path}/pids/unicorn.pid"
 set :nginx_site_conf, "/etc/nginx/sites-enabled/#{fetch(:application)}.conf"
 
 set :bundle_flags, "--deployment --quiet --binstubs --shebang ruby-local-exec"
