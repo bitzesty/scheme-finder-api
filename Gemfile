@@ -47,7 +47,7 @@ gem "memoist"
 
 gem "hipchat", "~> 1.0.1"
 gem "dotenv-rails"
-gem "airbrake", github: "viperdezigns/airbrake", branch: "capistrano3"
+gem "sentry-raven", :git => "https://github.com/getsentry/raven-ruby.git"
 
 gem "underscore-rails"
 gem "gon"

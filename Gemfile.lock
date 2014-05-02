@@ -1,13 +1,4 @@
 GIT
-  remote: git://github.com/viperdezigns/airbrake.git
-  revision: 7c8aba975679a63f7fbe2ce6ff2f634f55ad68ea
-  branch: capistrano3
-  specs:
-    airbrake (3.1.14)
-      builder
-      json
-
-GIT
   remote: git@github.com:bitzesty/import_csv
   revision: 44475d5b7bdc9205ac4fd12639d4d0c4ca468027
   specs:
@@ -16,6 +7,15 @@ GIT
       decent_exposure
       draper
       state_machine
+
+GIT
+  remote: https://github.com/getsentry/raven-ruby.git
+  revision: a4d2ae59ce9f92578843b6536f816e9ee2403d48
+  specs:
+    sentry-raven (0.8.0)
+      faraday (>= 0.7.6)
+      hashie (>= 1.1.0)
+      uuidtools
 
 GEM
   remote: http://rubygems.org/
@@ -157,6 +157,8 @@ GEM
     factory_girl_rails (4.4.1)
       factory_girl (~> 4.4.0)
       railties (>= 3.0.0)
+    faraday (0.9.0)
+      multipart-post (>= 1.2, < 3)
     fastercsv (1.5.5)
     fog (1.21.0)
       fog-brightbox
@@ -225,6 +227,7 @@ GEM
     minitest (4.7.5)
     multi_json (1.9.2)
     multi_xml (0.5.5)
+    multipart-post (2.0.0)
     named (1.1.0)
     net-scp (1.1.2)
       net-ssh (>= 2.6.5)
@@ -371,6 +374,7 @@ GEM
       rack
       raindrops (~> 0.7)
     uniform_notifier (1.4.0)
+    uuidtools (2.1.4)
     virtus (1.0.2)
       axiom-types (~> 0.1)
       coercible (~> 1.0)
@@ -392,7 +396,6 @@ PLATFORMS
 DEPENDENCIES
   Platform
   active_hash (>= 1.2.2)
-  airbrake!
   apipie-rails
   awesome_print
   better_errors
@@ -450,6 +453,7 @@ DEPENDENCIES
   sass-rails (~> 4.0.0)
   searchlight
   select2-rails (= 3.4.7)
+  sentry-raven!
   shoulda-matchers
   simple_form (~> 3.0.0)
   simplecov
