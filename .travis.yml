@@ -8,7 +8,6 @@ services:
 before_script:
   - cp config/database.yml.travis config/database.yml
   - psql -c 'create database schemer_test;' -U postgres
-  - rm .rspec
 script:
   - RAILS_ENV=test bundle exec rake db:migrate
   - bundle exec rspec spec

@@ -1,6 +1,6 @@
 GIT
   remote: git@github.com:bitzesty/import_csv
-  revision: 11f6fbdbfe3253fab226d325318fdbc44b70dd9a
+  revision: 44475d5b7bdc9205ac4fd12639d4d0c4ca468027
   specs:
     import_csv (0.0.1)
       carrierwave
