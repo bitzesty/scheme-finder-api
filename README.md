@@ -1,6 +1,8 @@
 Scheme finder api
 ======
 
+[![Build Status](https://travis-ci.org/bitzesty/scheme-finder-api.svg?branch=BIS2027)](https://travis-ci.org/bitzesty/scheme-finder-api)
+
 ## Configuration
 
 * To use hipchat deploy notifications create a `.env` file in project
