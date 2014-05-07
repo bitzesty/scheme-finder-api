@@ -8,7 +8,6 @@ class Sector < ActiveHash::Base
     { id: "chemicals", name: "Chemicals" },
     { id: "construction", name: "Construction" },
     { id: "electronics", name: "Electronics" },
-    { id: "defence", name: "Defence"},
     { id: "food_and_drink", name: "Food and Drink" },
     { id: "technology", name: "Technology" },
     { id: "life_sciences", name: "Life Sciences" },
