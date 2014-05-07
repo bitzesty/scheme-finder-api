@@ -1,5 +1,5 @@
 GIT
-  remote: git@github.com:bitzesty/import_csv
+  remote: git://github.com/bitzesty/import_csv.git
   revision: 11f6fbdbfe3253fab226d325318fdbc44b70dd9a
   specs:
     import_csv (0.0.1)

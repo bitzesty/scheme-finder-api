@@ -2,7 +2,7 @@
 - v1-activities#index:
   - !omap
     - verb: :GET
-    - path: "/api/v1/activities.json"
+    - path: /api/v1/activities.json
     - versions:
       - '1.0'
     - query: 
@@ -51,7 +51,7 @@
 - v1-age_ranges#index:
   - !omap
     - verb: :GET
-    - path: "/api/v1/age_ranges.json"
+    - path: /api/v1/age_ranges.json
     - versions:
       - '1.0'
     - query: 
@@ -62,15 +62,13 @@
           name: Primary school children
         - id: secondary_school_children
           name: Secondary school children
-        - id: over_18
-          name: 18+
     - code: 200
     - show_in_doc: 1
     - recorded: true
 - v1-audiences#index:
   - !omap
     - verb: :GET
-    - path: "/api/v1/audiences.json"
+    - path: /api/v1/audiences.json
     - versions:
       - '1.0'
     - query: 
@@ -87,7 +85,7 @@
 - v1-company_sizes#index:
   - !omap
     - verb: :GET
-    - path: "/api/v1/company_sizes.json"
+    - path: /api/v1/company_sizes.json
     - versions:
       - '1.0'
     - query: 
@@ -110,7 +108,7 @@
 - v1-locations#index:
   - !omap
     - verb: :GET
-    - path: "/api/v1/locations.json"
+    - path: /api/v1/locations.json
     - versions:
       - '1.0'
     - query: 
@@ -150,75 +148,67 @@
         - id: south_west
           name: South West
           group: England
-        - id: northern_ireland
-          name: All of Northern Ireland
-          group: Nothern Ireland
-        - id: scotland
-          name: All of Scotland
-          group: Scotland
-        - id: wales
-          name: All of Wales
-          group: Wales
     - code: 200
     - show_in_doc: 1
     - recorded: true
 - v1-schemes#create:
   - !omap
     - verb: :POST
-    - path: "/api/v1/schemes.json"
+    - path: /api/v1/schemes.json
     - versions:
       - '1.0'
     - query: 
-    - request_data: scheme[contact_name]=Jim+Bim&scheme[contact_email]=person4%40example.com&scheme[contact_phone]=0771233445&scheme[name]=Scheme+4&scheme[website]=example.com
+    - request_data: scheme[contact_name]=Jim+Bim&scheme[contact_email]=person5%40example.com&scheme[contact_phone]=0771233445&scheme[name]=Scheme+5&scheme[website]=example.com
     - response_data:
-        id: 756
+        id: 485
         had_direct_interactions: 
-        created_at: '2014-04-22T09:47:24.472+01:00'
-        updated_at: '2014-04-22T09:47:24.472+01:00'
+        created_at: '2014-05-05T15:56:23.514+01:00'
+        updated_at: '2014-05-05T15:56:23.514+01:00'
         logo:
-          url: "/backend/assets/fallback/logo_default.png"
+          url: /backend/assets/fallback/logo_default.png
           logo:
-            url: "/backend/assets/fallback/logo_default.png"
+            url: /backend/assets/fallback/logo_default.png
         location_ids: []
         sector_ids: []
         activity_ids: []
         age_range_ids: []
         company_size_ids: []
         contact_name: Jim Bim
-        contact_email: person4@example.com
+        contact_email: person5@example.com
         contact_phone: '0771233445'
-        name: Scheme 4
+        name: Scheme 5
         website: example.com
         confirmed: false
         description: 
         audience_ids: []
+        subject_ids: []
     - code: 201
     - show_in_doc: 1
     - recorded: true
 - v1-schemes#index:
   - !omap
     - verb: :GET
-    - path: "/api/v1/schemes.json"
+    - path: /api/v1/schemes.json
     - versions:
       - '1.0'
-    - query: locations[]=west_midlands&sectors[]=machinery&audiences[]=businesses&activities[]=inspiring_talks&age_ranges[]=primary_school_children&company_sizes[]=all&page=1&per_page=5
+    - query: locations[]=south_east&sectors[]=life_sciences&audiences[]=teachers&activities[]=ambassadors&age_ranges[]=primary_school_children&company_sizes[]=0-9&page=1&per_page=5
     - request_data: 
     - response_data:
         schemes:
-        - id: 753
+        - id: 481
           name: Scheme 1
           website: example.com
           description: Host a short visit
           location_ids:
-          - west_midlands
+          - south_east
           sector_ids:
-          - machinery
+          - life_sciences
           audience_ids:
-          - businesses
+          - teachers
           activity_ids:
-          - inspiring_talks
+          - ambassadors
           company_size_ids:
-          - all
+          - 0-9
           age_range_ids:
           - primary_school_children
         total: 1
@@ -230,43 +220,43 @@
 - v1-schemes-feedbacks#create:
   - !omap
     - verb: :POST
-    - path: "/api/v1/schemes/757/feedbacks.json"
+    - path: /api/v1/schemes/482/feedbacks.json
     - versions:
       - '1.0'
     - query: 
     - request_data: feedback[score]=1&feedback[description]=This+is+good+scheme
     - response_data:
-        id: 136
-        scheme_id: 757
+        id: 73
+        scheme_id: 482
         score: 1
         description: This is good scheme
         approved: false
-        created_at: '2014-04-22T09:47:24.560+01:00'
-        updated_at: '2014-04-22T09:47:24.560+01:00'
+        created_at: '2014-05-05T15:56:23.248+01:00'
+        updated_at: '2014-05-05T15:56:23.248+01:00'
     - code: 201
     - show_in_doc: 1
     - recorded: true
 - v1-schemes-feedbacks#index:
   - !omap
     - verb: :GET
-    - path: "/api/v1/schemes/755/feedbacks.json"
+    - path: /api/v1/schemes/484/feedbacks.json
     - versions:
       - '1.0'
     - query: 
     - request_data: 
     - response_data:
         feedbacks:
-        - id: 134
+        - id: 75
           score: 1
           description: This is good scheme
-          scheme_id: 755
+          scheme_id: 484
     - code: 200
     - show_in_doc: 1
     - recorded: true
 - v1-sectors#index:
   - !omap
     - verb: :GET
-    - path: "/api/v1/sectors.json"
+    - path: /api/v1/sectors.json
     - versions:
       - '1.0'
     - query: 
@@ -274,15 +264,21 @@
     - response_data:
         sectors:
         - id: auto
-          name: Auto
+          name: Automotive
         - id: aero
-          name: Aero
+          name: Aerospace
         - id: chemicals
           name: Chemicals
         - id: construction
           name: Construction
         - id: electronics
           name: Electronics
+        - id: defence
+          name: Defence
+        - id: food_and_drink
+          name: Food and Drink
+        - id: technology
+          name: Technology
         - id: life_sciences
           name: Life Sciences
         - id: machinery
@@ -303,6 +299,37 @@
           name: Renewable Energy
         - id: other
           name: Other
+    - code: 200
+    - show_in_doc: 1
+    - recorded: true
+- v1-subjects#index:
+  - !omap
+    - verb: :GET
+    - path: /api/v1/subjects.json
+    - versions:
+      - '1.0'
+    - query: 
+    - request_data: 
+    - response_data:
+        subjects:
+        - id: science
+          name: Science
+        - id: technology
+          name: Technology
+        - id: engineering
+          name: Engineering
+        - id: maths
+          name: Maths
+        - id: english
+          name: English
+        - id: design
+          name: Design
+        - id: other
+          name: Other
+        - id: stem_based
+          name: STEM-based
+        - id: enterprise
+          name: Enterprise
     - code: 200
     - show_in_doc: 1
     - recorded: true

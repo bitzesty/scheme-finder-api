@@ -28,6 +28,10 @@ class Scheme < ActiveRecord::Base
     Sector.find(sector_ids)
   end
 
+  def subjects
+    Subject.find(subject_ids)
+  end
+
   def activities
     Activity.find(activity_ids)
   end
@@ -50,6 +54,10 @@ class Scheme < ActiveRecord::Base
 
   def sector_ids=(sector_ids)
     super(Array(sector_ids).reject(&:blank?))
+  end
+
+  def subject_ids=(subject_ids)
+    super(Array(subject_ids).reject(&:blank?))
   end
 
   def activity_ids=(activity_ids)

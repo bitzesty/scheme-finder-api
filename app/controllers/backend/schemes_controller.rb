@@ -53,7 +53,8 @@ module Backend
         audience_ids: [],
         activity_ids: [],
         company_size_ids: [],
-        age_range_ids: []
+        age_range_ids: [],
+        subject_ids: []
       )
     end
   end
