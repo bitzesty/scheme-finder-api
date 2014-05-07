@@ -1,6 +1,6 @@
 source "http://rubygems.org"
 
-gem "rails", "4.0.2"
+gem "rails", "4.0.5"
 gem "unicorn"
 gem "whenever", require: false
 gem "foreman"
@@ -22,7 +22,7 @@ gem "mini_magick"
 gem "fog"
 gem "unf"
 
-gem "sass-rails", "~> 4.0.0"
+gem "sass-rails", "~> 4.0.2"
 gem "coffee-rails", "~> 4.0.0"
 gem "uglifier", ">= 1.3.0"
 gem "execjs"
