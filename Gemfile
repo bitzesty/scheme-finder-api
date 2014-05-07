@@ -4,7 +4,7 @@ gem "rails", "4.0.5"
 gem "passenger"
 gem "whenever", require: false
 gem "foreman"
-# gem "newrelic_rpm"
+gem "newrelic_rpm"
 gem "pundit"
 
 gem "pg"
