@@ -4,6 +4,8 @@ set :application, "scheme-finder-api"
 set :repo_url, "git@github.com:bitzesty/#{fetch(:application)}.git"
 set :user, "schemer"
 
+set :webserver, "passenger"
+
 set :hipchat_token, ENV["HIPCHAT_TOKEN"]
 set :hipchat_room_name, "BIS"
 set :hipchat_announce, false
