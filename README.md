@@ -117,16 +117,4 @@ Please read
 https://github.com/bitzesty/cookbooks#to-provision-a-real-server and
 copy your ssh key
 
-### Staging
-
-```bash
-bundle exec knife solo cook 162.13.152.96 nodes/staging.json -x root
-ask guys for password
-```
-
-### Production
-
-```bash
-bundle exec knife solo cook 89.200.142.59 nodes/production.json -x root
-ask guys for password
-```
+and provision as per https://github.com/bitzesty/bis-chef
