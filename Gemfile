@@ -1,7 +1,7 @@
 source "http://rubygems.org"
 
 gem "rails", "4.0.5"
-gem "unicorn"
+gem "passenger"
 gem "whenever", require: false
 gem "foreman"
 gem "newrelic_rpm"

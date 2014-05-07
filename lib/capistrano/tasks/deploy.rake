@@ -31,7 +31,6 @@ namespace :deploy do
     end
   end
 
-  before :restart, "unicorn:server_config"
   before :restart, "deploy:export_app"
   after :finishing, "deploy:cleanup"
   after 'deploy:publishing', 'deploy:restart'
