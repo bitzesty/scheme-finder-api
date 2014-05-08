@@ -20,6 +20,7 @@ module Api
   }
 }
 )
+      skip_before_action :set_cache_headers, only: [:create]
       before_action :authenticate, only: :create
       before_action :ensure_scheme_provided, only: :create
 
