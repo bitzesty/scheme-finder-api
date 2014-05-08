@@ -94,7 +94,7 @@ SchemeFinderApi::Application.configure do
   config.after_initialize do
     SchemeFinderApi.configure do |app_config|
       app_config.api_access_token = ENV["API_ACCESS_TOKEN"]
-      app_config.frontend_app_url = "https://bistooltest.educationandemployers.org"
+      app_config.frontend_app_url = "http://bistooltest.educationandemployers.org"
     end
   end
 end
