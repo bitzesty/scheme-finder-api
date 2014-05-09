@@ -118,3 +118,10 @@ https://github.com/bitzesty/cookbooks#to-provision-a-real-server and
 copy your ssh key
 
 and provision as per https://github.com/bitzesty/bis-chef
+
+## Performance tests
+
+* Launch JMeter
+* Load test plan stored in ```performance_tests``` dir
+* Run -> Start
+* Review results
