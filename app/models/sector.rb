@@ -16,7 +16,7 @@ class Sector < ActiveHash::Base
     { id: "materials", name: "Materials" },
     { id: "nuclear", name: "Nuclear" },
     { id: "oil_gas", name: "Oil and gas" },
-    { id: "business_services", name: "Professional Business Services" },
+    { id: "business_services", name: "Professional & Business Services" },
     { id: "rail", name: "Rail" },
     { id: "renewable_energy", name: "Renewable Energy" },
     { id: "other", name: "Other" },
