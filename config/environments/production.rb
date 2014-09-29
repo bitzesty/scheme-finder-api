@@ -76,7 +76,10 @@ SchemeFinderApi::Application.configure do
       :domain         => mailer_domain
   }
 
-  config.action_mailer.default_url_options = { host: mailer_domain }
+  config.action_mailer.default_url_options = {
+    host: mailer_domain,
+    protocol: "https"
+  }
 
   config.action_mailer.default_options = {
     "Message-ID" => "#{Digest::SHA2.hexdigest(Time.now.to_i.to_s)}@#{mailer_domain}"
