@@ -38,7 +38,7 @@ SchemeFinderApi::Application.configure do
   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for nginx
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
-  # config.force_ssl = true
+  config.force_ssl = true
 
   # See everything in the log (default is :info)
   config.log_level = :info
@@ -65,7 +65,7 @@ SchemeFinderApi::Application.configure do
   # the I18n.default_locale when a translation can not be found)
   config.i18n.fallbacks = true
 
-  mailer_domain = "scheme-finder-api.dev.bitzesty.com"
+  mailer_domain = "scheme-finder-api.dev.bitzesty.com/backend"
 
   ActionMailer::Base.smtp_settings = {
       :address        => "smtp.mailgun.org",
@@ -76,7 +76,10 @@ SchemeFinderApi::Application.configure do
       :domain         => mailer_domain
   }
 
-  config.action_mailer.default_url_options = { host: mailer_domain }
+  config.action_mailer.default_url_options = {
+    host: mailer_domain,
+    protocol: "https"
+  }
 
   config.action_mailer.default_options = {
     "Message-ID" => "#{Digest::SHA2.hexdigest(Time.now.to_i.to_s)}@#{mailer_domain}"
