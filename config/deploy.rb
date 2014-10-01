@@ -13,6 +13,12 @@ set :hipchat_color, "yellow"
 set :hipchat_success_color, "green"
 set :hipchat_failed_color, "red"
 
+# slack
+set :slack_team, "bitzesty"
+set :slack_token, "SVD8dBRyR2CV2RVI8TXUCLnN"
+set :slack_icon_emoji,   ->{ ":rocket:" }
+set :slack_channel,      ->{ '#bis-growing-ambition' }
+
 # asset precompilation options
 set :assets_prefix, 'backend/assets'
 
