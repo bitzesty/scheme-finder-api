@@ -429,6 +429,7 @@ DEPENDENCIES
   hashie
   headless
   hipchat (~> 1.0.1)
+  httparty
   import_csv (= 0.0.1)!
   jbuilder (~> 1.2)
   jquery-rails
