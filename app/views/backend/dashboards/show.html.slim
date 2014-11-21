@@ -11,8 +11,8 @@
   .row
     = render "iframe",
              title: "Businesses",
-             url: [root_url, "businesses"].join("/")
+             url: [root_url.gsub("/backend/", ""), "businesses"].join("/")
 
     = render "iframe",
              title: "Teachers",
-             url: [root_url, "teachers"].join("/")
+             url: [root_url.gsub("/backend/", ""), "teachers"].join("/")
