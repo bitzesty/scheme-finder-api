@@ -46,6 +46,7 @@ gem "slim-rails"
 gem "memoist"
 
 gem "hipchat", "~> 1.0.1"
+gem "httparty"
 gem "dotenv-rails"
 gem "sentry-raven", :git => "https://github.com/getsentry/raven-ruby.git"
 
